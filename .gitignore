@@ -41,3 +41,7 @@ dump.txt
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# other
+.codex
+.agents
