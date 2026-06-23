@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Theme Variables */
+:root {
+  /* colors */
+  /* fonts */
+  /* spacing */
+  /* radius */
+}
+
+/* Tailwind Theme Mapping */
+@theme inline {
+  /* colors */
+  /* fonts */
+  /* spacing */
+  /* radius */
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* dark colors */
+  }
+}
+
+/* Global Styles */
+html {
+}
+
+body {
+}
+
+/* Global Utilities */
+.container {
+}
