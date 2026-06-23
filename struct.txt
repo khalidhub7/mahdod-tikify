@@ -1,0 +1,43 @@
+./
+├── README.md
+├── dev.sh
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── prisma
+│   └── schema.prisma
+├── public
+├── src
+│   ├── app
+│   │   ├── api
+│   │   │   ├── overlays
+│   │   │   ├── tiktok
+│   │   │   └── widgets
+│   │   ├── dashboard
+│   │   │   ├── edit
+│   │   │   │   └── [id]
+│   │   │   │       └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── o
+│   │   │   └── [slug]
+│   │   │       └── page.tsx
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── editor
+│   │   ├── overlay
+│   │   └── widgets
+│   ├── lib
+│   │   ├── db
+│   │   ├── socket
+│   │   └── tiktok
+│   └── types
+├── struct.txt
+└── tsconfig.json
+
+22 directories, 18 files
