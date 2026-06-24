@@ -12,15 +12,23 @@
 ├── public
 ├── src
 │   ├── app
+│   │   ├── (main)
+│   │   │   ├── (auth)
+│   │   │   │   ├── login
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── register
+│   │   │   │       └── page.tsx
+│   │   │   ├── dashboard
+│   │   │   │   ├── edit
+│   │   │   │   │   └── [id]
+│   │   │   │   │       └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
 │   │   ├── api
 │   │   │   ├── overlays
 │   │   │   ├── tiktok
 │   │   │   └── widgets
-│   │   ├── dashboard
-│   │   │   ├── edit
-│   │   │   │   └── [id]
-│   │   │   │       └── page.tsx
-│   │   │   └── page.tsx
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -40,4 +48,4 @@
 ├── struct.txt
 └── tsconfig.json
 
-22 directories, 18 files
+26 directories, 22 files
