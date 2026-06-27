@@ -1,5 +1,8 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../";
+
 @import "tw-animate-css";
+
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -38,19 +41,12 @@
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0)
-
-  /* colors */
-  /* fonts */
-  /* spacing */
-  /* radius */
-
-  /* my custom things */
+  --sidebar-ring: oklch(0.708 0 0) /* colors */ /* fonts */ /* spacing */
+    /* radius */ /* my custom things */;
 }
 
 /* Tailwind Theme Mapping */
 @theme inline {
-  
   /* chadcn things */
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
@@ -91,14 +87,8 @@
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6)
-
-  /* colors */
-  /* fonts */
-  /* spacing */
-  /* radius */
-
-  /* my custom things */
+  --radius-4xl: calc(var(--radius) * 2.6) /* colors */ /* fonts */ /* spacing */
+    /* radius */ /* my custom things */;
 }
 
 /* Dark Theme */
@@ -117,7 +107,6 @@ html {
 }
 
 .dark {
-
   /* chadcn things */
 
   --background: oklch(0.145 0 0);
@@ -157,8 +146,12 @@ html {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;}
+    @apply border-border outline-ring/50;
+  }
   body {
-    @apply bg-background text-foreground;}
+    @apply bg-background text-foreground;
+  }
   html {
-    @apply font-sans;}}
+    @apply font-sans;
+  }
+}

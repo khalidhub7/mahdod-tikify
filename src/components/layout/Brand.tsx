@@ -1,35 +1,38 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-
 import { Black_Ops_One } from "next/font/google";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const blackOps = Black_Ops_One({
-  subsets: ["latin"],
-  weight: "400",
-});
+const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
 const Brand = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("flex items-center gap-3", className)}>
+    <Link
+      href="/"
+      className={cn("flex items-center gap-3 rounded-full", "p-2", className)}
+    >
       <Avatar
         className="
-        h-10 w-10
+        h-full aspect-square
         ring-2 ring-border ring-offset-2 ring-offset-background
+        hover:scale-110 hover:ring-stone-300
+        transition-transform duration-300
         "
       >
-        <AvatarImage src="/overlay-svgrepo-com.svg" />
+        <AvatarImage src="/tiktok-svgrepo-com.svg" alt="TK" />
         <AvatarFallback>MT</AvatarFallback>
       </Avatar>
 
       <span
         className={cn(
           blackOps.className,
-          "font-semibold tracking-tight text-blue-500",
+          "text-blue-600 hover:opacity-70",
+          "text-[clamp(0.75rem,2vw,1.125rem)]",
         )}
       >
         mahdod-tikify
       </span>
-    </div>
+    </Link>
   );
 };
 

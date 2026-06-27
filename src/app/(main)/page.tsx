@@ -1,17 +1,26 @@
 /* Imports */
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
-      {/* Page Layout */}
+    <main>
+      <section
+        className="
+      container h-full mx-auto 
 
-      <main>
-        {/* Hero Section */}
+      grid grid-cols-2
+      "
+      >
+        <div>text</div>
+        <div className=" relative " >
+          <Image src="/hero.png" fill alt="hero" >
 
-        {/* Content Section */}
+          </Image>
+        </div>
+      </section>
 
-        {/* Actions Section */}
-      </main>
-    </>
+      {/* Content Section */}
+      {/* Actions Section */}
+    </main>
   );
 }
