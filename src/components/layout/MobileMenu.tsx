@@ -27,14 +27,16 @@ const navLinks = [
   },
 ];
 
+// Exit animation isn't used because Sheet handles unmounting internally.
 const listVariants = {
-  open: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
-  closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+  open: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+  },
+  closed: { transition: { staggerChildren: 0.1, staggerDirection: -1 } },
 };
-
 const itemVariants = {
   open: { opacity: 1, x: 0 },
-  closed: { opacity: 0, x: -20 },
+  closed: { opacity: 0, x: 10 },
 };
 
 // AnimatePresence
@@ -75,7 +77,7 @@ const MobileMenu = () => {
           <nav className="mt-24 w-full">
             <motion.ul
               variants={listVariants}
-              className="flex flex-col "
+              className="flex flex-col gap-5"
               initial="closed"
               animate={open ? "open" : "closed"}
             >
@@ -87,11 +89,15 @@ const MobileMenu = () => {
                       className="
                       w-[90%]
                       flex gap-5 items-center
-                      rounded-lg p-4 mx-4 text-base font-medium
+                      rounded-xl p-4 mx-4 text-base font-medium
                       text-muted-foreground
                       hover:bg-accent hover:text-accent-foreground
-                      border-b border-r border-fuchsia-500
-                      hover:shadow-lg hover:scale-90
+                      
+                      border-2 border-fuchsia-400
+                      border-t-transparent border-l-transparent
+
+                      shadow-lg
+                      hover:shadow-xl hover:scale-90
                       transition-all duration-200
                       "
                     >

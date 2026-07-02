@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import ShinyText from "../ui/ShinyText";
 import { Black_Ops_One } from "next/font/google";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -23,15 +24,35 @@ const Brand = ({ className }: { className?: string }) => {
         <AvatarFallback>MT</AvatarFallback>
       </Avatar>
 
-      <span
+      {/* <span
         className={cn(
           blackOps.className,
-          "text-blue-600 hover:opacity-70",
+          "bg-linear-to-r from-blue-600 via-fuchsia-500 to-fuchsia-400",
+          "bg-clip-text text-transparent",
+          "hover:opacity-70",
           "text-[clamp(0.75rem,2vw,1.125rem)]",
         )}
       >
         mahdod-tikify
-      </span>
+      </span> */}
+
+      <ShinyText
+        className={cn(
+          blackOps.className,
+          "hover:opacity-70",
+          "text-[clamp(0.75rem,2vw,1.125rem)]",
+        )}
+        text="mahdod-tikify"
+        speed={2}
+        delay={0}
+        color="#374151"
+        shineColor="#f9fafb"
+        spread={120}
+        direction="left"
+        yoyo={false}
+        pauseOnHover={false}
+        disabled={false}
+      />
     </Link>
   );
 };
