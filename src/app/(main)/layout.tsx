@@ -15,13 +15,13 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     </div>
   ); */
   return (
-    <BackgroundBeamsWithCollision >
-      <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
-    </BackgroundBeamsWithCollision>
+    <BackgroundBeamsWithCollision className="">
+    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  </BackgroundBeamsWithCollision>
   );
 };
 

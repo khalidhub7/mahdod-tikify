@@ -1,7 +1,7 @@
 /* Imports */
 import Image from "next/image";
 import { TextEffect } from "@/components/ui/text-effect";
-import { MagneticButton } from "@/components/ui/magnetic-button";
+import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export default function Home() {
