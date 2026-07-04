@@ -1,21 +1,19 @@
+// from https://magicui.design/
 "use client";
 
 import React, { MouseEvent, useEffect, useState } from "react";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-/* interface RippleButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  rippleColor?: string;
-  duration?: string;
-} */
-
-interface RippleLinkProps extends React.ComponentProps<typeof Link> {
+interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rippleColor?: string;
   duration?: string;
 }
 
-export const RippleLink = React.forwardRef<HTMLAnchorElement, RippleLinkProps>(
+export const RippleButton = React.forwardRef<
+  HTMLButtonElement,
+  RippleButtonProps
+>(
   (
     {
       className,
@@ -31,12 +29,12 @@ export const RippleLink = React.forwardRef<HTMLAnchorElement, RippleLinkProps>(
       Array<{ x: number; y: number; size: number; key: number }>
     >([]);
 
-    const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
       createRipple(event);
       onClick?.(event);
     };
 
-    const createRipple = (event: MouseEvent<HTMLAnchorElement>) => {
+    const createRipple = (event: MouseEvent<HTMLButtonElement>) => {
       const button = event.currentTarget;
       const rect = button.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
@@ -67,9 +65,10 @@ export const RippleLink = React.forwardRef<HTMLAnchorElement, RippleLinkProps>(
     }, [buttonRipples, duration]);
 
     return (
-      <Link
+      <button
         className={cn(
-          "bg-background text-primary relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg  px-4 py-2 text-center",
+          "bg-background text-primary relative flex cursor-pointer items-center justify-center",
+          "overflow-hidden rounded-lg border-2 px-4 py-2 text-center",
           className,
         )}
         onClick={handleClick}
@@ -96,9 +95,9 @@ export const RippleLink = React.forwardRef<HTMLAnchorElement, RippleLinkProps>(
             />
           ))}
         </span>
-      </Link>
+      </button>
     );
   },
 );
 
-RippleLink.displayName = "RippleLink";
+RippleButton.displayName = "RippleButton";

@@ -2,7 +2,7 @@
 import { Brand } from "./Brand";
 import { motion } from "motion/react";
 import { MobileMenu } from "./MobileMenu";
-import { RippleLink } from "../ui/ripple-link";
+import { RippleLink } from "../ui/magicui/ripple-link";
 
 const navLinks = [
   { id: 1, label: "Home", href: "/" },

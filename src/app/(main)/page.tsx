@@ -1,8 +1,8 @@
 /* Imports */
 import Image from "next/image";
-import { TextEffect } from "@/components/ui/text-effect";
+import { TextEffect } from "@/components/ui/motion-primitives/text-effect";
 import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-effect";
 
 export default function Home() {
   const words = [
