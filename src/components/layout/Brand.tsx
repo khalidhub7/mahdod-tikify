@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import ShinyText from "../ui/ShinyText";
 import { Black_Ops_One } from "next/font/google";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/shadcn//avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/shadcn/avatar";
 
 const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
