@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import { BackgroundBeamsWithCollision } from "@/components/ui/aceternity/background-beams-with-collision";
 import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
