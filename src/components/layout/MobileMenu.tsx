@@ -2,11 +2,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Button } from "../ui/button";
-import { Sheet } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/shadcn/button";
+import { Sheet } from "@/components/ui/shadcn/sheet";
 import { LogIn, UserPlus, ChevronRight } from "lucide-react";
 import { Ellipsis, House, LayoutDashboard } from "lucide-react";
-import { SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { SheetClose, SheetContent, SheetTrigger } from "@/components/ui/shadcn/sheet";
 
 // learn later: AnimatePresence
 

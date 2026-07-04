@@ -13,8 +13,8 @@ export default function Home() {
   ];
 
   return (
-    <main>
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-zinc-50">
+    <>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-zinc-50">
         <div className="container mx-auto px-5 sm:px-6 lg:px-8 pt-8 md:pt-0 pb-12 md:pb-0">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             
@@ -94,6 +94,6 @@ No messy Browser Sources. No restarts.`}
 
       {/* Content Section */}
       {/* Actions Section */}
-    </main>
+    </>
   );
 }
