@@ -2,10 +2,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, stagger, useAnimate, useInView } from "motion/react";
-import { useEffect } from "react";
+import { motion } from "motion/react";
+/* import { stagger, useAnimate, useInView } from "motion/react";
+import { useEffect } from "react"; */
 
-export const TypewriterEffect = ({
+/* export const TypewriterEffect = ({
   words,
   className,
   cursorClassName,
@@ -97,7 +98,7 @@ export const TypewriterEffect = ({
       ></motion.span>
     </div>
   );
-};
+}; */
 
 export const TypewriterEffectSmooth = ({
   words,
@@ -157,7 +158,7 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          className="text-2xl lg:text:3xl xl:text-4xl font-bold"
           style={{
             whiteSpace: "nowrap",
           }}
