@@ -1,7 +1,7 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { BackgroundBeamsWithCollision } from "@/components/ui/aceternity/background-beams-with-collision";
-import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
+// import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   /* return (
@@ -16,12 +16,12 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   ); */
   return (
     <BackgroundBeamsWithCollision className="">
-    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </div>
-  </BackgroundBeamsWithCollision>
+      <div className=" grid grid-rows-[auto_1fr_auto] min-h-screen w-full ">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </div>
+    </BackgroundBeamsWithCollision>
   );
 };
 

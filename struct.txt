@@ -3,7 +3,6 @@
 ├── components.json
 ├── dev.sh
 ├── eslint.config.mjs
-├── next-env.d.ts
 ├── next.config.ts
 ├── package-lock.json
 ├── package.json
@@ -41,12 +40,27 @@
 │   │   │   ├── Header.tsx
 │   │   │   └── MobileMenu.tsx
 │   │   └── ui
-│   │       ├── avatar.tsx
-│   │       ├── button.tsx
-│   │       └── sheet.tsx
+│   │       ├── aceternity
+│   │       │   ├── background-beams-with-collision.tsx
+│   │       │   ├── magnetic-button.tsx
+│   │       │   └── typewriter-effect.tsx
+│   │       ├── eldoraui
+│   │       │   └── animated-shiny-button.tsx
+│   │       ├── magicui
+│   │       │   ├── ripple-button.tsx
+│   │       │   └── ripple-link.tsx
+│   │       ├── motion-primitives
+│   │       │   └── text-effect.tsx
+│   │       ├── reactbits
+│   │       │   └── ShinyText.tsx
+│   │       └── shadcn
+│   │           ├── avatar.tsx
+│   │           ├── button.tsx
+│   │           └── sheet.tsx
 │   └── lib
+│       ├── get-strict-context.tsx
 │       └── utils.ts
 ├── struct.txt
 └── tsconfig.json
 
-17 directories, 32 files
+23 directories, 40 files
