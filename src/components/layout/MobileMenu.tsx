@@ -5,8 +5,12 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/shadcn/button";
 import { Sheet } from "@/components/ui/shadcn/sheet";
 import { LogIn, UserPlus, ChevronRight } from "lucide-react";
-import { Ellipsis, House, LayoutDashboard } from "lucide-react";
-import { SheetClose, SheetContent, SheetTrigger } from "@/components/ui/shadcn/sheet";
+import { Menu, House, LayoutDashboard } from "lucide-react";
+import {
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/shadcn/sheet";
 
 // learn later: AnimatePresence
 
@@ -45,20 +49,22 @@ const MobileMenu = () => {
   return (
     <div>
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild className="h-10 w-10">
+        <SheetTrigger asChild className="h-8 w-8">
           <Button
             size={"lg"}
             variant={"outline"}
             className="
             cursor-pointer rounded-full
-            ring-2 ring-offset-1 ring-mauve-200  text-gray-500
-            hover:bg-mauve-50 hover:ring-mauve-50
+            ring-4 ring-offset-4 ring-zinc-300
+            hover:ring-offset-zinc-100
+            hover:bg-zinc-200 hover:ring-zinc-100
             "
           >
-            <Ellipsis className="size-6" />
+            <Menu className="size-5" />
           </Button>
         </SheetTrigger>
 
+        {/* ghda bda hna rak saliti header w brand */}
         <SheetContent
           className="
           flex items-center gap-40

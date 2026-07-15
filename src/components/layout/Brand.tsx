@@ -6,15 +6,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/shadcn/avat
 
 const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
+
 const Brand = ({ className }: { className?: string }) => {
   return (
     <Link
       href="/"
-      className={cn("flex items-center gap-3 rounded-full", "p-2", className)}
+      className={cn("flex items-center gap-3 rounded-full ", "p-2", className)}
     >
       <Avatar
         className="
-        h-full aspect-square
         ring-2 ring-border ring-offset-2 ring-offset-background
         hover:scale-110 hover:ring-stone-300
         transition-transform duration-300
@@ -46,8 +46,8 @@ const Brand = ({ className }: { className?: string }) => {
         speed={2}
         delay={0}
         color="#374151"
-        shineColor="#f9fafb"
-        spread={120}
+        shineColor="#e5e7eb"
+        spread={150}
         direction="left"
         yoyo={false}
         pauseOnHover={false}
