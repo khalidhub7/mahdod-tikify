@@ -55,7 +55,7 @@ const MobileMenu = () => {
             variant={"outline"}
             className="
             cursor-pointer rounded-full
-            ring-4 ring-offset-4 ring-zinc-300
+            ring-4 ring-offset-2 ring-zinc-300
             hover:ring-offset-zinc-100
             hover:bg-zinc-200 hover:ring-zinc-100
             "
@@ -63,20 +63,20 @@ const MobileMenu = () => {
             <Menu className="size-5" />
           </Button>
         </SheetTrigger>
-
-        {/* ghda bda hna rak saliti header w brand */}
+        
+        
         <SheetContent
           className="
-          flex items-center gap-40
-          m-2 p-2 rounded-2xl
-          ring-1 ring-offset-2 ring-blue-500
+          gap-40 items-center
+          m-2 p-2 rounded-lg
+          ring ring-offset-1 ring-zinc-800
           
           [&>button]:static
-          [&>button]:ring-4 [&>button]:ring-offset-2 [&>button]:ring-transparent
+          [&>button]:ring-2 [&>button]:ring-offset-2 [&>button]:ring-zinc-100
           [&>button]:rounded-full [&>button]:cursor-pointer
           [&>button]:size-16 [&>button]:bg-accent
           [&>button]:hover:bg-muted [&>button]:hover:scale-75
-          [&>button]:hover:ring-fuchsia-200
+          [&>button]:hover:ring-blue-400
           [&>button]:transition-all [&>button]:duration-300
           "
         >
@@ -93,17 +93,13 @@ const MobileMenu = () => {
                     <Link
                       href={l.href}
                       className="
-                      w-[90%]
                       flex gap-5 items-center
-                      rounded-xl p-4 mx-4 text-base font-medium
+                      rounded-full p-4 mx-4 text-base
                       text-muted-foreground
                       hover:bg-accent hover:text-accent-foreground
-                      
-                      border-2 border-fuchsia-400
-                      border-t-transparent border-l-transparent
 
-                      shadow-lg
-                      hover:shadow-xl hover:scale-90
+                      shadow-lg border border-blue-300
+                      hover:scale-90
                       transition-all duration-200
                       "
                     >
