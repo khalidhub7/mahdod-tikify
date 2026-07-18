@@ -3,6 +3,7 @@
 ├── components.json
 ├── dev.sh
 ├── eslint.config.mjs
+├── next-env.d.ts
 ├── next.config.ts
 ├── package-lock.json
 ├── package.json
@@ -30,9 +31,10 @@
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
-│   │   └── o
-│   │       └── [slug]
-│   │           └── page.tsx
+│   │   ├── o
+│   │   │   └── [slug]
+│   │   │       └── page.tsx
+│   │   └── temp.css
 │   ├── components
 │   │   ├── layout
 │   │   │   ├── Brand.tsx
@@ -63,4 +65,4 @@
 ├── struct.txt
 └── tsconfig.json
 
-23 directories, 40 files
+23 directories, 42 files

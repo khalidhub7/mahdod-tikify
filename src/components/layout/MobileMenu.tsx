@@ -49,22 +49,24 @@ const MobileMenu = () => {
   return (
     <div>
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild className="h-8 w-8">
-          <Button
-            size={"lg"}
-            variant={"outline"}
-            className="
+        <SheetTrigger
+          render={
+            <Button
+              size={"lg"}
+              variant={"outline"}
+              className="
+              size-8 
             cursor-pointer rounded-full
             ring-4 ring-offset-2 ring-zinc-300
             hover:ring-offset-zinc-100
             hover:bg-zinc-200 hover:ring-zinc-100
             "
-          >
-            <Menu className="size-5" />
-          </Button>
+            />
+          }
+        >
+          <Menu className="size-5" />
         </SheetTrigger>
-        
-        
+
         <SheetContent
           className="
           gap-40 items-center
@@ -89,10 +91,11 @@ const MobileMenu = () => {
             >
               {navLinks.map((l) => (
                 <motion.li key={l.id} variants={itemVariants}>
-                  <SheetClose asChild>
-                    <Link
-                      href={l.href}
-                      className="
+                  <SheetClose
+                    render={
+                      <Link
+                        href={l.href}
+                        className="
                       flex gap-5 items-center
                       rounded-full p-4 mx-4 text-base
                       text-muted-foreground
@@ -102,14 +105,15 @@ const MobileMenu = () => {
                       hover:scale-90
                       transition-all duration-200
                       "
-                    >
-                      {l.icon} {l.label}
-                      <ChevronRight
-                        className="ml-auto"
-                        size={17}
-                        aria-hidden="true"
                       />
-                    </Link>
+                    }
+                  >
+                    {l.icon} {l.label}
+                    <ChevronRight
+                      className="ml-auto"
+                      size={17}
+                      aria-hidden="true"
+                    />
                   </SheetClose>
                 </motion.li>
               ))}
