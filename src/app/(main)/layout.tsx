@@ -14,7 +14,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
     </div>
   ); */
-  return (
+  /* return (
     <BackgroundBeamsWithCollision className="">
       <div className=" grid grid-rows-[auto_1fr_auto] min-h-screen w-full ">
         <Header />
@@ -22,6 +22,14 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <Footer />
       </div>
     </BackgroundBeamsWithCollision>
+  ); */
+
+  return (
+    <div className=" grid grid-rows-[auto_1fr_auto] min-h-screen w-full ">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </div>
   );
 };
 
