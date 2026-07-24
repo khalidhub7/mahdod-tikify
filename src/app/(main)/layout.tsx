@@ -3,6 +3,20 @@ import { Header } from "@/components/layout/Header";
 import { BackgroundBeamsWithCollision } from "@/components/ui/aceternity/background-beams-with-collision";
 // import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
 
+
+const blobClipPath = `
+  polygon(
+    74.1% 44.1%, 100% 61.6%,
+    97.5% 26.9%, 85.5% 0.1%,
+    80.7% 2%, 72.5% 32.5%,
+    60.2% 62.4%, 52.4% 68.1%,
+    47.5% 58.3%, 45.2% 34.5%,
+    27.5% 76.7%, 0.1% 64.9%,
+    17.9% 100%, 27.6% 76.8%,
+    76.1% 97.7%, 74.1% 44.1%
+  )
+`;
+
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   /* return (
     <div>
@@ -28,7 +42,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     <div
       className="
     grid min-h-screen grid-rows-[auto_1fr_auto]
-    relative isolate  overflow-hidden bg-white
+    relative isolate overflow-hidden bg-white
     "
     >
       {/* Top background blob */}
@@ -40,20 +54,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 "
       >
         <div
-          style={{
-            clipPath: `
-    polygon(
-      74.1% 44.1%, 100% 61.6%,
-      97.5% 26.9%, 85.5% 0.1%,
-      80.7% 2%, 72.5% 32.5%,
-      60.2% 62.4%, 52.4% 68.1%,
-      47.5% 58.3%, 45.2% 34.5%,
-      27.5% 76.7%, 0.1% 64.9%,
-      17.9% 100%, 27.6% 76.8%,
-      76.1% 97.7%, 74.1% 44.1%
-    )
-  `,
-          }}
+          style={{ clipPath: blobClipPath, }}
           className="
   relative left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)]
   aspect-1155/678 w-144.5 sm:w-288.75
