@@ -57,9 +57,9 @@ const MobileMenu = () => {
               className="
               size-8 
             cursor-pointer rounded-full
-            ring-4 ring-offset-2 ring-zinc-300
+            ring-4 ring-offset-2 ring-brand-ring
             hover:ring-offset-zinc-100
-            hover:bg-zinc-200 hover:ring-zinc-100
+            hover:bg-zinc-200 hover:ring-brand-ring/50
             "
             />
           }

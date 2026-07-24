@@ -16,32 +16,31 @@ export default function Home() {
     <>
       <section
         className="
-        min-h-screen md:mt-10 max-w-7xl mx-auto
-        grid grid-cols-1 md:grid-cols-2 gap-10
+        grid grid-cols-1 md:grid-cols-2
+        max-w-7xl mx-auto gap-12 md:gap-20
+        px-4 md:px-8 pt-8 md:pt-16 pb-16 md:pb-24
         place-items-center
         "
       >
         {/* Left Content */}
         <div
           className="
-          flex flex-col gap-8  h-full justify-center
+          flex flex-col self-start
+          items-center md:items-start gap-8 md:gap-16
+          text-center md:text-left
+          max-w-xl mx-auto md:mx-0
           "
         >
-          {/* this should be h1 */}
-          <TypewriterEffectSmooth words={words} className="w-fit px-10" />
+          {/* Should render an h1 */}
+          <TypewriterEffectSmooth words={words} className="w-fit" />
 
           <TextEffect
-            className="
-            px-10
-            text-xl
-
-            leading-loose text-chart-3
-            tracking-wider
-            text-center md:text-start
-            "
-            per="line"
             as="p"
+            per="line"
             segmentWrapperClassName="overflow-hidden block"
+            className="
+            text-lg md:text-xl leading-8 text-chart-3
+            "
             variants={{
               container: {
                 hidden: { opacity: 0 },
@@ -54,25 +53,27 @@ export default function Home() {
             }}
           >
             {`The simplest way to add beautiful, live-updating TikTok widgets to your streams.
-            Alerts, gifts, likes, chat, goals — all in one URL.
-            No messyBrowser Sources. No restarts.`}
+Alerts, gifts, likes, chat, goals — all in one URL.
+No messy Browser Sources. No restarts.`}
           </TextEffect>
 
           {/* CTA Button */}
           <div
             className="
-            flex justify-evenly items-center w-full
+            w-full flex justify-around
+            md:justify-start md:gap-20
             "
           >
             <button
               className="
-            rounded-tr-3xl rounded-bl-3xl px-6 py-3 cursor-pointer
-            text-background
-            bg-linear-to-r from-blue-400 to-fuchsia-400
-            font-semibold shadow-lg 
-            transition-all duration-300 
-            hover:-translate-y-1 hover:shadow-xl
-            "
+              rounded-lg px-10 py-3 font-medium
+              text-background cursor-pointer
+              bg-linear-to-r from-brand-2 to-brand-5
+              shadow-lg
+              hover:-translate-y-1 hover:shadow-xl
+              ring-1 ring-offset-2 ring-brand-ring-strong
+              transition-transform duration-300
+              "
             >
               Get Started
             </button>
@@ -80,13 +81,13 @@ export default function Home() {
             <MagneticButton>
               <button
                 className="
-                    cursor-pointer rounded-lg 
-                    bg-linear-to-b from-blue-500 to-blue-700 
-                    px-4 py-2 font-medium text-white 
-                    ring-1 ring-white/20 ring-offset-1 
-                    ring-offset-blue-500 transition-transform 
-                    duration-150 ring-inset active:scale-98
-                    "
+                rounded-lg cursor-pointer px-6 py-3
+                font-medium text-background
+                bg-linear-to-l from-brand-3 to-brand-4
+                active:scale-90 hover:shadow-lg
+                transition-transform duration-200
+                ring-1 ring-offset-2 ring-brand-ring-strong
+                "
               >
                 Watch 45-second demo →
               </button>
@@ -94,24 +95,27 @@ export default function Home() {
           </div>
         </div>
 
-
-
-        {/* Right Side - Hero Image */}
-        <div className="">
+        {/* Right Content */}
+        <div
+          className="
+          relative w-full h-120 md:h-140
+          "
+        >
           <Image
             src="/hero.png"
-            alt="App Brand image"
-            width={400}
-            height={400}
+            alt="mhdd Tikify"
+            fill
+            priority
+            sizes="(max-width: 1024px) 90vw, 45vw"
             className="
             object-contain
-            drop-shadow-[0_50px_100px_rgba(0,0,0,0.3)]
+            drop-shadow-[0_40px_80px_rgba(37,99,235,0.25)]
             "
-            priority
-            sizes="(max-width: 768px) 95vw, 50vw"
           />
         </div>
       </section>
+
+      
 
       {/* Content Section */}
       {/* Actions Section */}

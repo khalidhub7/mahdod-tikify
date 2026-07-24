@@ -39,7 +39,24 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  /* other */
+  /* my custom tokens */
+
+  --brand-1: oklch(0.58 0.22 275);
+  --brand-2: oklch(0.67 0.29 328);
+  --brand-3: oklch(0.809 0.105 251.813);
+  --brand-4: oklch(0.488 0.243 264.376);
+  --brand-5: oklch(0.833 0.145 321.43);
+
+  --brand-ring: oklch(0.85 0 0);
+  --brand-ring-strong: oklch(0.7 0 0);
+
+  /* --background-gradient: linear-gradient(
+    to right,
+    oklch(0.98 0 0),
+    oklch(0.96 0 0)
+  ); */
+
+
 }
 
 .dark {
@@ -76,6 +93,13 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   /* other */
+
+  /* --background-gradient: linear-gradient(
+    to right,
+    oklch(0.18 0 0),
+    oklch(0.14 0 0)
+  ); */
+  
 }
 
 @theme inline {
@@ -148,6 +172,14 @@
   }
 
   /* my custom tokens */
+  --color-brand-1: var(--brand-1);
+  --color-brand-2: var(--brand-2);
+  --color-brand-3: var(--brand-3);
+  --color-brand-4: var(--brand-4);
+  --color-brand-5: var(--brand-5);
+
+  --color-brand-ring: var(--brand-ring);
+  --color-brand-ring-strong: var(--brand-ring-strong);
 }
 
 /* shadcn  */
@@ -155,8 +187,11 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
+  /* body {
+    @apply bg-(image:--background-gradient) text-foreground;
+  } */
+   body {
+    @apply  text-foreground;
   }
   html {
     @apply font-sans;

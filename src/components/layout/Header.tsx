@@ -3,6 +3,7 @@ import { Brand } from "./Brand";
 import { motion } from "motion/react";
 import { MobileMenu } from "./MobileMenu";
 import { RippleLink } from "../ui/magicui/ripple-link";
+import { DarkModeToggle } from "./DarkModeToggle";
 
 const navLinks = [
   { id: 1, label: "Home", href: "/" },
@@ -17,8 +18,7 @@ const Header = () => {
   return (
     <header
       className="
-      flex items-center justify-center
-      h-16
+      flex items-center justify-center h-16
       "
     >
       <div
@@ -30,7 +30,7 @@ const Header = () => {
         transition-[width] duration-1000
         "
       >
-        <Brand className="" />
+        <Brand/>
 
         <nav className="hidden md:block" aria-label="Main navigation">
           <ul className="flex gap-4">
@@ -44,8 +44,6 @@ const Header = () => {
                     w-24 p-1 text-sm shadow-sm
                     border-r-2 border-l-2 border-taupe-200 
                     hover:text-blue-600 hover:border-taupe-300
-                    hover:rotate-3 hover:scale-110
-                    transition-transform duration-300
                     "
                     rippleColor="rgba(37,99,235,0.25)"
                   >
@@ -60,11 +58,10 @@ const Header = () => {
         {/* other settings */}
         <div
           className="
-          invisible
-          hidden md:flex justify-center items-center
-          w-36 h-[80%] rounded-full bg-amber-200"
+          flex justify-center items-center
+          w-36 h-[80%] rounded-full "
         >
-          settings icons
+          <DarkModeToggle/>
         </div>
 
         {/* MobileMenu */}
