@@ -49,14 +49,6 @@
 
   --brand-ring: oklch(0.85 0 0);
   --brand-ring-strong: oklch(0.7 0 0);
-
-  /* --background-gradient: linear-gradient(
-    to right,
-    oklch(0.98 0 0),
-    oklch(0.96 0 0)
-  ); */
-
-
 }
 
 .dark {
