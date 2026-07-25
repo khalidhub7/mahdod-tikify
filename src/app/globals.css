@@ -49,6 +49,7 @@
 
   --brand-ring: oklch(0.85 0 0);
   --brand-ring-strong: oklch(0.7 0 0);
+  --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .dark {
@@ -86,12 +87,7 @@
   --sidebar-ring: oklch(0.556 0 0);
   /* other */
 
-  /* --background-gradient: linear-gradient(
-    to right,
-    oklch(0.18 0 0),
-    oklch(0.14 0 0)
-  ); */
-  
+  --brand-header-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 @theme inline {
@@ -100,7 +96,6 @@
   /* Fonts */
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
-
   /* App Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -117,19 +112,16 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-
   /* UI Colors */
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
   /* Charts */
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-
   /* Sidebar */
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
@@ -139,7 +131,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
   /* Border Radius */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -148,8 +139,6 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-
-  /* other theme variable namespaces like --spacing-*, --shadow-* */
 
   /* src/components/ui/magicui/ripple-* */
   --animate-rippling: rippling var(--duration) ease-out;
@@ -162,6 +151,7 @@
       opacity: 0;
     }
   }
+  /* other theme variable namespaces like --spacing-*, --shadow-* */
 
   /* my custom tokens */
   --color-brand-1: var(--brand-1);
@@ -172,6 +162,8 @@
 
   --color-brand-ring: var(--brand-ring);
   --color-brand-ring-strong: var(--brand-ring-strong);
+
+  --shadow-brand-header-shadow: var(--brand-header-shadow);
 }
 
 /* shadcn  */
@@ -182,8 +174,8 @@
   /* body {
     @apply bg-(image:--background-gradient) text-foreground;
   } */
-   body {
-    @apply  text-foreground;
+  body {
+    @apply text-foreground;
   }
   html {
     @apply font-sans;

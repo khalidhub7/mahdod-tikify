@@ -26,7 +26,7 @@ const Header = () => {
         flex items-center justify-around
         w-[95%] md:w-5xl h-[80%]
         rounded-tl-full rounded-br-full
-        shadow-[0_0_15px_rgba(0,0,0,0.5)]
+        shadow-brand-header-shadow
         transition-[width] duration-1000
         "
       >
