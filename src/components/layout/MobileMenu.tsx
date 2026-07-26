@@ -56,7 +56,8 @@ const MobileMenu = () => {
               variant={"outline"}
               className="
               size-8 cursor-pointer rounded-full
-              ring-4 ring-offset-2 ring-brand-ring ring-offset-brand-ring-offset
+              ring-4 ring-offset-2 ring-brand-ring 
+              ring-offset-brand-ring-offset
               hover:text-blue-600
             "
             />
@@ -95,16 +96,16 @@ const MobileMenu = () => {
                       <Link
                         href={l.href}
                         className="
-                        
-                        flex gap-5 items-center
-                        rounded-xl p-4 mx-4 text-base
-                        text-foreground
+                        flex gap-5 items-center shadow-lg 
+
+                        rounded-xl p-3 mx-4 text-base text-foreground
+
                         ring-4 ring-brand-ring ring-offset-2
                         ring-offset-brand-ring-offset
-                        shadow-lg 
-                      hover:scale-90 hover:bg-accent
-                      transition-all duration-200
-                      "
+                     
+                        hover:scale-90 hover:bg-accent
+                        transition-all duration-200
+                        "
                       />
                     }
                   >
