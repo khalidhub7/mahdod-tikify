@@ -42,7 +42,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       className="
       grid min-h-screen grid-rows-[auto_1fr_auto]
       relative isolate overflow-hidden 
-      bg-white dark:bg-gray-900
+      bg-background
       "
     >
       {/* Top background blob */}
