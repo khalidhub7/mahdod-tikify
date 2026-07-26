@@ -68,7 +68,7 @@ No messy Browser Sources. No restarts.`}
               className="
               rounded-lg px-10 py-3 font-medium
               text-background cursor-pointer
-              bg-linear-to-r from-brand-2 to-brand-5
+              bg-linear-to-r from-brand-btn-2 to-brand-btn-5
               shadow-lg
               hover:-translate-y-1 hover:shadow-xl
               ring-1 ring-offset-2 ring-brand-ring-strong
@@ -83,7 +83,7 @@ No messy Browser Sources. No restarts.`}
                 className="
                 rounded-lg cursor-pointer px-6 py-3
                 font-medium text-background
-                bg-linear-to-l from-brand-3 to-brand-4
+                bg-linear-to-l from-brand-btn-3 to-brand-btn-4
                 active:scale-90 hover:shadow-lg
                 transition-transform duration-200
                 ring-1 ring-offset-2 ring-brand-ring-strong

@@ -1,9 +1,13 @@
-import { Button } from "@/components/ui/shadcn/button";
+import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/shadcn/button";
 
 const DarkModeToggle = () => {
+  const { theme, setTheme } = useTheme();
+
   const onClickHandler = () => {
     document.documentElement.classList.toggle("dark");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
   return (
     <Button
