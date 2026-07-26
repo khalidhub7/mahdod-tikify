@@ -49,12 +49,12 @@
   --brand-btn-5: oklch(0.833 0.145 321.43);
 
   --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  --shiny-text: oklch(21% 0.034 264.665);
-  --shiny-shine: oklch(98.8% 0.003 106.5);
+  --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
+  --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
 
-  --brand-ring: oklch(87.2% 0.01 258.338); /* gray-300 */
-  --brand-ring-strong: oklch(55.1% 0.027 264.364); /* gray-500 */
-  --brand-ring-offset: oklch(96.6% 0.005 106.5); /* olive-100 */
+  --brand-ring: oklch(92% 0.004 286.32); /* zinc-200 */
+  --brand-ring-strong: oklch(70.5% 0.015 286.067); /* zinc-400 */
+  --brand-ring-offset: oklch(98.8% 0.003 106.5); /* olive-50 */
 }
 
 .dark {
@@ -93,13 +93,12 @@
   /* other */
 
   --brand-header-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-  --shiny-text: oklch(98.8% 0.003 106.5);
-  --shiny-shine: oklch(21% 0.034 264.665);
+  --shiny-text: oklch(98.8% 0.003 106.5); /* olive-50 */
+  --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
 
-  --brand-ring: oklch(44.6% 0.03 256.802);
-  --brand-ring-strong: oklch(70.7% 0.022 261.325);
-  --brand-ring-offset: oklch(55.2% 0.016 285.938);
-
+  --brand-ring: oklch(55.2% 0.016 285.938); /* zinc-500 */
+  --brand-ring-strong: oklch(70.7% 0.022 261.325); /* gray-400 */
+  --brand-ring-offset: oklch(70.5% 0.015 286.067); /* zinc-400 */
 }
 
 @theme inline {
