@@ -16,13 +16,11 @@ const Brand = ({ className }: { className?: string }) => {
       <Avatar
         className="
         ring-4 ring-offset-2 ring-brand-ring
-        
         ring-offset-brand-ring-offset
-      
         hover:scale-110 transition-transform duration-300
         "
       >
-        <AvatarImage src="/tiktok-svgrepo-com.svg" alt="TK" />
+        <AvatarImage src="/tiktok.svg" alt="TK" className="p-1" />
         <AvatarFallback>MT</AvatarFallback>
       </Avatar>
 
