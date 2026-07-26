@@ -47,8 +47,9 @@
   --brand-btn-4: oklch(0.488 0.243 264.376);
   --brand-btn-5: oklch(0.833 0.145 321.43);
 
-  --brand-ring: oklch(0.85 0 0);
-  --brand-ring-strong: oklch(0.7 0 0);
+  --brand-ring: oklch(92.8% 0.006 264.531);
+  --brand-ring-strong: oklch(44.6% 0.03 256.802);
+
   --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 
   --shiny-text: oklch(21% 0.034 264.665);
@@ -93,6 +94,8 @@
   --brand-header-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
   --shiny-text: oklch(98.8% 0.003 106.5);
   --shiny-shine: oklch(21% 0.034 264.665);
+
+
 }
 
 @theme inline {

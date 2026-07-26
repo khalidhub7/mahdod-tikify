@@ -15,7 +15,7 @@ const Brand = ({ className }: { className?: string }) => {
     <Link href="/" className={cn("flex items-center gap-3", className)}>
       <Avatar
         className="
-        ring-2 ring-offset-2 ring-brand-ring
+        ring-2 ring-offset-2  ring-brand-ring
 
         hover:scale-110 transition-transform duration-300
         "
