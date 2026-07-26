@@ -24,7 +24,7 @@ const Header = () => {
     >
       <div
         className="
-        flex items-center justify-around
+        flex items-center justify-evenly md:justify-around
         w-[95%] md:w-5xl h-[80%]
         rounded-tl-full rounded-br-full
         shadow-brand-header-shadow
@@ -32,7 +32,6 @@ const Header = () => {
         "
       >
         <Brand/>
-
         <nav className="hidden md:block" aria-label="Main navigation">
           <ul className="flex gap-4">
             {navLinks.map((l) => {
@@ -59,7 +58,7 @@ const Header = () => {
         {/* other settings */}
         <div
           className="
-          flex justify-center items-center
+          flex justify-end items-center
           w-36 h-[80%] rounded-full "
         >
           <DarkModeToggle/>

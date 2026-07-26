@@ -9,9 +9,10 @@ const DarkModeToggle = () => {
     <Button
       variant={"secondary"}
       className="
+      h-6
       relative flex gap-2 cursor-pointer
       rounded-full p-1
-      bg-zinc-200
+      bg-zinc-200 dark:bg-gray-600
     "
 
       onClick={onClickHandler}
@@ -23,10 +24,12 @@ const DarkModeToggle = () => {
       />
       <div
         className="
-        h-5 aspect-square rounded-full absolute
-        bg-olive-50
-        left-1 dark:inset-x-auto dark:right-1
-        transition-all duration-1000
+        h-4 aspect-square rounded-full absolute
+        bg-olive-400
+        
+        -translate-x-3 dark:translate-x-3
+
+        transition-all duration-700
         "
       ></div>
     </Button>
