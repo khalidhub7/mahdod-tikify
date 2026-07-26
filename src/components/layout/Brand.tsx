@@ -46,8 +46,8 @@ const Brand = ({ className }: { className?: string }) => {
         text="mahdod-tikify"
         speed={2}
         delay={0}
-        color="#374151"
-        shineColor="#e5e7eb"
+        color="var(--shiny-text)"
+shineColor="var(--shiny-shine)"
         spread={150}
         direction="left"
         yoyo={false}
