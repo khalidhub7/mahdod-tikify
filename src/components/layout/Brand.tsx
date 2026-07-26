@@ -10,14 +10,14 @@ import {
 
 const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
-const Brand = ({ className }: { className?: string }) => {
-  const isDark = document.documentElement.classList.contains("dark");
 
+const Brand = ({ className }: { className?: string }) => {
   return (
     <Link href="/" className={cn("flex items-center gap-3", className)}>
       <Avatar
         className="
         ring-2 ring-offset-2 ring-brand-ring
+
         hover:scale-110 transition-transform duration-300
         "
       >
@@ -46,8 +46,8 @@ const Brand = ({ className }: { className?: string }) => {
         text="mahdod-tikify"
         speed={2}
         delay={0}
-        color={isDark ? "#9ca3af" : "#374151"}
-        shineColor={isDark ? "#ffffff" : "#e5e7eb"}
+        color="#374151"
+        shineColor="#e5e7eb"
         spread={150}
         direction="left"
         yoyo={false}

@@ -15,6 +15,7 @@ const navLinks = [
 const MotionLink = motion.create(RippleLink);
 
 const Header = () => {
+
   return (
     <header
       className="
