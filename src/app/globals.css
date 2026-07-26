@@ -52,9 +52,9 @@
   --shiny-text: oklch(21% 0.034 264.665);
   --shiny-shine: oklch(98.8% 0.003 106.5);
 
-  --brand-ring: oklch(87.2% 0.01 258.338);
-  --brand-ring-strong: oklch(55.1% 0.027 264.364);
-  --brand-ring-offset: oklch(96.6% 0.005 106.5);
+  --brand-ring: oklch(87.2% 0.01 258.338); /* gray-300 */
+  --brand-ring-strong: oklch(55.1% 0.027 264.364); /* gray-500 */
+  --brand-ring-offset: oklch(96.6% 0.005 106.5); /* olive-100 */
 }
 
 .dark {
