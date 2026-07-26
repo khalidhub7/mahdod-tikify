@@ -10,7 +10,6 @@ import {
 
 const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
-
 const Brand = ({ className }: { className?: string }) => {
   return (
     <Link href="/" className={cn("flex items-center gap-3", className)}>
@@ -47,7 +46,7 @@ const Brand = ({ className }: { className?: string }) => {
         speed={2}
         delay={0}
         color="var(--shiny-text)"
-shineColor="var(--shiny-shine)"
+        shineColor="var(--shiny-shine)"
         spread={150}
         direction="left"
         yoyo={false}
