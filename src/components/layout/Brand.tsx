@@ -10,12 +10,16 @@ import {
 
 const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
+
 const Brand = ({ className }: { className?: string }) => {
   return (
     <Link href="/" className={cn("flex items-center gap-3", className)}>
       <Avatar
         className="
         ring-2 ring-offset-2 ring-brand-ring
+        
+        dark:bg-white
+
         hover:scale-110 transition-transform duration-300
         "
       >
