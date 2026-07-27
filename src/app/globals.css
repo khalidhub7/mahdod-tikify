@@ -101,6 +101,7 @@
   --brand-ring-offset: oklch(70.5% 0.015 286.067); /* zinc-400 */
 
   --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
+  
 }
 
 @theme inline {

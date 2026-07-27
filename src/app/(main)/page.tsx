@@ -66,10 +66,12 @@ No messy Browser Sources. No restarts.`}
           >
             <button
               className="
-              rounded-lg px-10 py-3 font-medium tracking-wide
-              text-olive-50 cursor-pointer
+              px-10 py-3
+              text-olive-50 font-mono tracking-wide
               bg-linear-to-r from-brand-btn-2 to-brand-btn-5
+              rounded-lg cursor-pointer
               hover:shadow-brand-btn-shadow hover:-translate-y-1
+              active:scale-90
               transition-transform duration-300
               "
             >
@@ -79,11 +81,11 @@ No messy Browser Sources. No restarts.`}
             <MagneticButton>
               <button
                 className="
-                rounded-lg cursor-pointer px-6 py-3
-                font-medium text-olive-50
+                px-6 py-3
+                text-olive-50 font-mono tracking-wide
                 bg-linear-to-l from-brand-btn-3 to-brand-btn-4
-                active:scale-90 
-                hover:shadow-brand-btn-shadow
+                rounded-lg cursor-pointer
+                active:scale-90 hover:shadow-brand-btn-shadow
                 transition-transform duration-200
                 "
               >
@@ -107,7 +109,7 @@ No messy Browser Sources. No restarts.`}
             sizes="(max-width: 1024px) 90vw, 45vw"
             className="
             object-contain
-            drop-shadow-[0_40px_80px_rgba(37,99,235,0.25)]
+            drop-shadow-[0_40px_80px_rgba(17,24,39,0.25)]
             "
           />
         </div>
