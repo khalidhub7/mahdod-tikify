@@ -55,7 +55,9 @@
   --brand-ring: oklch(92% 0.004 286.32); /* zinc-200 */
   --brand-ring-offset: oklch(98.8% 0.003 106.5); /* olive-50 */
   
-  --brand-btn-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+  --brand-btn-shadow: 0 0 16px rgb(0 0 0 / 0.15);
+  --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
+
   --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
 }
 
@@ -101,7 +103,9 @@
   --brand-ring: oklch(55.2% 0.016 285.938); /* zinc-500 */
   --brand-ring-offset: oklch(70.5% 0.015 286.067); /* zinc-400 */
 
-  --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
+  --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+  --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
+
   --brand-drop-shadow: 0 40px 80px oklch(98.8% 0.003 106.5 / 25%);
 
 }
@@ -178,6 +182,7 @@
 
   --shadow-brand-header-shadow: var(--brand-header-shadow);
   --shadow-brand-btn-shadow: var(--brand-btn-shadow);
+  --shadow-brand-btn-shadow-strong: var(--brand-btn-shadow-strong);
 
   --color-brand-ring: var(--brand-ring);
   --color-brand-ring-offset: var(--brand-ring-offset);

@@ -41,11 +41,11 @@ const Header = () => {
                     href={l.href}
                     whileTap={{ scale: 0.9 }}
                     className="
-                    w-24 p-1 text-sm shadow-sm
-                    border-r-2 border-l-2 border-taupe-200 
-                    hover:text-blue-600 hover:border-taupe-300
+                    w-24 p-1 text-sm shadow-brand-btn-shadow
+                    
+                    hover:text-blue-600
                     "
-                    rippleColor="rgba(37,99,235,0.25)"
+                    rippleColor="var(--foreground)"
                   >
                     {l.label}
                   </MotionLink>

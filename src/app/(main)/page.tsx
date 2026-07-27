@@ -70,7 +70,7 @@ No messy Browser Sources. No restarts.`}
               text-olive-50 font-mono tracking-wide
               bg-linear-to-r from-brand-btn-2 to-brand-btn-5
               rounded-lg cursor-pointer
-              hover:shadow-brand-btn-shadow hover:-translate-y-1
+              hover:shadow-brand-btn-shadow-strong hover:-translate-y-1
               active:scale-90
               transition-transform duration-300
               "
