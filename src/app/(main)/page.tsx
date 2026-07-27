@@ -16,10 +16,9 @@ export default function Home() {
     <>
       <section
         className="
-        grid grid-cols-1 md:grid-cols-2
+        grid grid-cols-1 md:grid-cols-2 place-items-center
         max-w-7xl mx-auto gap-12 md:gap-20
-        px-4 md:px-8 pt-8 md:pt-16 pb-16 md:pb-24
-        place-items-center
+        px-4 md:px-8 py-8 md:py-12
         "
       >
         {/* Left Content */}
@@ -32,14 +31,15 @@ export default function Home() {
           "
         >
           {/* Should render an h1 */}
-          <TypewriterEffectSmooth words={words} className="w-fit" />
+          <TypewriterEffectSmooth words={words} />
 
           <TextEffect
             as="p"
             per="line"
             segmentWrapperClassName="overflow-hidden block"
             className="
-            text-lg md:text-xl leading-8 text-chart-3
+            text-lg md:text-xl leading-8 text-foreground
+
             "
             variants={{
               container: {
