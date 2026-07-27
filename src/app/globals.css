@@ -56,6 +56,7 @@
   --brand-ring-offset: oklch(98.8% 0.003 106.5); /* olive-50 */
   
   --brand-btn-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+  --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
 }
 
 .dark {
@@ -101,7 +102,8 @@
   --brand-ring-offset: oklch(70.5% 0.015 286.067); /* zinc-400 */
 
   --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
-  
+  --brand-drop-shadow: 0 40px 80px oklch(98.8% 0.003 106.5 / 25%);
+
 }
 
 @theme inline {
@@ -179,6 +181,7 @@
 
   --color-brand-ring: var(--brand-ring);
   --color-brand-ring-offset: var(--brand-ring-offset);
+  --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
 }
 
 /* shadcn  */

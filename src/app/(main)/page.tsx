@@ -6,10 +6,10 @@ import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-ef
 
 export default function Home() {
   const words = [
-    { text: "One" },
-    { text: "Overlay.", className: "text-blue-500 dark:text-fuchsia-500" },
-    { text: "Total" },
-    { text: "Control.", className: "text-blue-500 dark:text-fuchsia-500" },
+    { text: "One",  className: "font-mono" },
+    { text: "Overlay.", className: "text-blue-500 dark:text-blue-400 font-mono" },
+    { text: "Total",  className: "font-mono" },
+    { text: "Control.", className: "text-blue-500 dark:text-blue-400 font-mono" },
   ];
 
   return (
@@ -107,10 +107,7 @@ No messy Browser Sources. No restarts.`}
             fill
             priority
             sizes="(max-width: 1024px) 90vw, 45vw"
-            className="
-            object-contain
-            drop-shadow-[0_40px_80px_rgba(17,24,39,0.25)]
-            "
+            className=" object-contain drop-shadow-brand-drop-shadow"
           />
         </div>
       </section>
