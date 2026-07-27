@@ -7,9 +7,9 @@ import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-ef
 export default function Home() {
   const words = [
     { text: "One" },
-    { text: "Overlay.", className: "text-blue-500" },
+    { text: "Overlay.", className: "text-blue-500 dark:text-fuchsia-500" },
     { text: "Total" },
-    { text: "Control.", className: "text-blue-500" },
+    { text: "Control.", className: "text-blue-500 dark:text-fuchsia-500" },
   ];
 
   return (
@@ -38,8 +38,8 @@ export default function Home() {
             per="line"
             segmentWrapperClassName="overflow-hidden block"
             className="
-            text-lg md:text-xl leading-8 text-foreground
-
+            text-lg md:text-xl text-foreground
+            tracking-wider leading-10
             "
             variants={{
               container: {
@@ -66,12 +66,10 @@ No messy Browser Sources. No restarts.`}
           >
             <button
               className="
-              rounded-lg px-10 py-3 font-medium
-              text-background cursor-pointer
+              rounded-lg px-10 py-3 font-medium tracking-wide
+              text-olive-50 cursor-pointer
               bg-linear-to-r from-brand-btn-2 to-brand-btn-5
-              shadow-lg
-              hover:-translate-y-1 hover:shadow-xl
-              ring-1 ring-offset-2 ring-brand-ring-strong
+              hover:shadow-brand-btn-shadow hover:-translate-y-1
               transition-transform duration-300
               "
             >
@@ -82,11 +80,11 @@ No messy Browser Sources. No restarts.`}
               <button
                 className="
                 rounded-lg cursor-pointer px-6 py-3
-                font-medium text-background
+                font-medium text-olive-50
                 bg-linear-to-l from-brand-btn-3 to-brand-btn-4
-                active:scale-90 hover:shadow-lg
+                active:scale-90 
+                hover:shadow-brand-btn-shadow
                 transition-transform duration-200
-                ring-1 ring-offset-2 ring-brand-ring-strong
                 "
               >
                 Watch 45-second demo →

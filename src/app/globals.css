@@ -53,8 +53,9 @@
   --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
 
   --brand-ring: oklch(92% 0.004 286.32); /* zinc-200 */
-  --brand-ring-strong: oklch(70.5% 0.015 286.067); /* zinc-400 */
   --brand-ring-offset: oklch(98.8% 0.003 106.5); /* olive-50 */
+  
+  --brand-btn-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
 }
 
 .dark {
@@ -97,8 +98,9 @@
   --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
 
   --brand-ring: oklch(55.2% 0.016 285.938); /* zinc-500 */
-  --brand-ring-strong: oklch(70.7% 0.022 261.325); /* gray-400 */
   --brand-ring-offset: oklch(70.5% 0.015 286.067); /* zinc-400 */
+
+  --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
 }
 
 @theme inline {
@@ -172,9 +174,9 @@
   --color-brand-btn-5: var(--brand-btn-5);
 
   --shadow-brand-header-shadow: var(--brand-header-shadow);
+  --shadow-brand-btn-shadow: var(--brand-btn-shadow);
 
   --color-brand-ring: var(--brand-ring);
-  --color-brand-ring-strong: var(--brand-ring-strong);
   --color-brand-ring-offset: var(--brand-ring-offset);
 }
 
