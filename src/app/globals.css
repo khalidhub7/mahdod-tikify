@@ -196,9 +196,6 @@
   * {
     @apply border-border outline-ring/50;
   }
-  /* body {
-    @apply bg-(image:--background-gradient) text-foreground;
-  } */
   body {
     @apply text-foreground;
   }

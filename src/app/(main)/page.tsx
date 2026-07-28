@@ -39,7 +39,6 @@ export default function Home() {
             per="line"
             segmentWrapperClassName="overflow-hidden block"
             className="
-            font-playpen
             text-lg md:text-xl text-foreground
             tracking-wider leading-10
             "
@@ -69,7 +68,7 @@ No messy Browser Sources. No restarts.`}
             <button
               className="
               px-10 py-3
-              text-olive-50 font-mono tracking-wide
+              text-olive-50 font-playpen tracking-wide
               bg-linear-to-r from-brand-btn-2 to-brand-btn-5
               rounded-lg cursor-pointer
               hover:shadow-brand-btn-shadow-strong hover:-translate-y-1
@@ -84,7 +83,7 @@ No messy Browser Sources. No restarts.`}
               <button
                 className="
                 px-6 py-3
-                text-olive-50 font-mono tracking-wide
+                text-olive-50 font-playpen tracking-wide
                 bg-linear-to-l from-brand-btn-3 to-brand-btn-4
                 rounded-lg cursor-pointer
                 active:scale-90 hover:shadow-brand-btn-shadow

@@ -23,7 +23,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("font-sans", "dark", geist.variable, playpen.variable)}
+      className={cn(
+        "font-sans",
+        "dark",
+        geist.variable,
+        playpen.variable,
+      )}
     >
       <body>{children}</body>
     </html>
