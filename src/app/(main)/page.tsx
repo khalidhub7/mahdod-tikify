@@ -4,12 +4,13 @@ import { TextEffect } from "@/components/ui/motion-primitives/text-effect";
 import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
 import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-effect";
 
+
 export default function Home() {
   const words = [
-    { text: "One",  className: "font-mono" },
-    { text: "Overlay.", className: "text-blue-500 dark:text-blue-400 font-mono" },
-    { text: "Total",  className: "font-mono" },
-    { text: "Control.", className: "text-blue-500 dark:text-blue-400 font-mono" },
+    { text: "One",  className: "" },
+    { text: "Overlay.", className: "text-blue-500 dark:text-blue-400 " },
+    { text: "Total",  className: "" },
+    { text: "Control.", className: "text-blue-500 dark:text-blue-400 " },
   ];
 
   return (
@@ -38,6 +39,7 @@ export default function Home() {
             per="line"
             segmentWrapperClassName="overflow-hidden block"
             className="
+            font-playpen
             text-lg md:text-xl text-foreground
             tracking-wider leading-10
             "

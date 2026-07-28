@@ -187,6 +187,8 @@
   --color-brand-ring: var(--brand-ring);
   --color-brand-ring-offset: var(--brand-ring-offset);
   --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
+
+  --font-playpen: var(--font-playpen);
 }
 
 /* shadcn  */
