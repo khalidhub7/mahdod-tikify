@@ -31,7 +31,7 @@ const DarkModeToggle = () => {
       onClick={toggle}
       className="
       flex items-center justify-evenly
-      relative w-14 h-6 rounded-lg cursor-pointer
+      relative w-14 h-6 rounded-full cursor-pointer
       bg-zinc-200 dark:bg-gray-600
       focus-visible:brightness-90
       "
@@ -51,18 +51,17 @@ const DarkModeToggle = () => {
         size={16}
         className={cn(
           "z-10 transition-opacity duration-300",
-          isDark ? "opacity-30 text-gray-400" : "opacity-100 text-yellow-500",
+          isDark ? "text-gray-400" : "text-yellow-500",
         )}
       />
 
       {/* moon icon */}
       <Moon
         size={16}
-        className={`
-          z-10
-          transition-opacity duration-300
-          ${isDark ? "opacity-100 text-purple-300" : "opacity-30 text-purple-600"}
-        `}
+        className={cn(
+          "z-10 transition-opacity duration-300",
+          isDark ? "text-purple-300" : "opacity-30 text-purple-600",
+        )}
       />
     </button>
   );
