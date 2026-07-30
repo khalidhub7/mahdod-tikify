@@ -156,14 +156,10 @@ No messy Browser Sources. No restarts.`}
         "
         >
           {features.map((f) => (
-            <li
-              key={f.id}
-              className="
-            w-xl mx-auto
-            "
-            >
-              {f.text}
-            </li>
+            <li className="flex items-start gap-3">
+  <CheckCircle2 className="size-5 text-primary mt-0.5 shrink-0" />
+  <span>{f.text}</span>
+</li>
           ))}
         </ul>
       </section>
