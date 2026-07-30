@@ -4,17 +4,46 @@ import { TextEffect } from "@/components/ui/motion-primitives/text-effect";
 import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
 import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-effect";
 
+import { CheckCircle2 } from "lucide-react";
 
 export default function Home() {
   const words = [
-    { text: "One",  className: "" },
+    { text: "One", className: "" },
     { text: "Overlay.", className: "text-blue-500 dark:text-blue-400 " },
-    { text: "Total",  className: "" },
+    { text: "Total", className: "" },
     { text: "Control.", className: "text-blue-500 dark:text-blue-400 " },
+  ];
+
+  const features = [
+    {
+      id: 1,
+      text: "One Browser Source — All widgets in a single overlay URL.",
+    },
+    {
+      id: 2,
+      text: "Less Resource Usage — Uses less RAM and CPU by running only one Browser Source.",
+    },
+    {
+      id: 3,
+      text: "Smoother Performance — No lag or stuttering when gifts and events arrive.",
+    },
+    {
+      id: 4,
+      text: "Real-Time Updates — Changes appear instantly without restarting OBS.",
+    },
+    {
+      id: 5,
+      text: "Drag & Drop Dashboard — Add, move, resize, and customize widgets with ease.",
+    },
+    {
+      id: 6,
+      text: "Cloud Saved — Your layouts and settings are synced to your account.",
+    },
   ];
 
   return (
     <>
+      {/* Hero Section */}
       <section
         className="
         grid grid-cols-1 md:grid-cols-2 place-items-center
@@ -113,10 +142,41 @@ No messy Browser Sources. No restarts.`}
         </div>
       </section>
 
-      
+      {/* Why Choose Us Section */}
+      <section className="max-w-7xl mx-auto">
+        {/* section header */}
+        <header className="text-center md:text-start">
+          <h2>Why Choose Us</h2>
+        </header>
+        {/* section body */}
+        <ul
+          className="
+        grid grid-cols-1 md:grid-cols-2 gap-y-4
+        
+        "
+        >
+          {features.map((f) => (
+            <li
+              key={f.id}
+              className="
+            w-xl mx-auto
+            "
+            >
+              {f.text}
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      {/* Content Section */}
-      {/* Actions Section */}
+      {/* Trusted By Section */}
+      {/* How It Works Section */}
+      {/* Widgets Section */}
+      {/* Dashboard Features Section */}
+      {/* Comparison Section */}
+      {/* Use Cases Section */}
+      {/* FAQ Section */}
+      {/* CTA Section */}
+      {/* Footer Section */}
     </>
   );
 }
