@@ -25,7 +25,7 @@ export default function RootLayout({
       lang="en"
       className={cn(
         "font-sans",
-        "dark",
+        /* "dark", */
         geist.variable,
         playpen.variable,
       )}
