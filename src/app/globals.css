@@ -54,7 +54,7 @@
 
   --brand-ring: oklch(92% 0.004 286.32); /* zinc-200 */
   --brand-ring-offset: oklch(98.8% 0.003 106.5); /* olive-50 */
-  
+
   --brand-btn-shadow: 0 0 16px rgb(0 0 0 / 0.15);
   --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
   --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
@@ -106,7 +106,6 @@
   --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
 
   --brand-drop-shadow: 0 40px 80px oklch(98.8% 0.003 106.5 / 25%);
-
 }
 
 @theme inline {
