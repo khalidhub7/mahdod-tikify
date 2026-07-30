@@ -39,19 +39,20 @@ const DarkModeToggle = () => {
       {/* sliding thumb */}
       <div
         className={cn(
-  "absolute left-0.5 size-5 rounded-full bg-white dark:bg-gray-900 transition-transform duration-500 ease-out",
-  isDark ? "translate-x-7" : "translate-x-1",
-)}
+          "absolute left-0.5 size-5 rounded-full",
+          "bg-white dark:bg-gray-900",
+          "transition-transform duration-500 ease-out",
+          isDark ? "translate-x-7" : "translate-x-1",
+        )}
       />
 
       {/* sun icon */}
       <Sun
         size={16}
-        className={`
-          z-10
-          transition-opacity duration-300
-          ${isDark ? "opacity-30 text-gray-400" : "opacity-100 text-yellow-500"}
-        `}
+        className={cn(
+          "z-10 transition-opacity duration-300",
+          isDark ? "opacity-30 text-gray-400" : "opacity-100 text-yellow-500",
+        )}
       />
 
       {/* moon icon */}
