@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const DarkModeToggle = () => {
   const [isDark, setIsDark] = useState(false);
@@ -37,13 +38,10 @@ const DarkModeToggle = () => {
     >
       {/* sliding thumb */}
       <div
-        className={`
-          absolute top-0.5 left-0.5
-          size-5 rounded-full
-          bg-white dark:bg-gray-900
-          transition-transform duration-500 ease-out
-          ${isDark ? "translate-x-7.5" : "translate-x-0.5"}
-        `}
+        className={cn(
+  "absolute left-0.5 size-5 rounded-full bg-white dark:bg-gray-900 transition-transform duration-500 ease-out",
+  isDark ? "translate-x-7" : "translate-x-1",
+)}
       />
 
       {/* sun icon */}
