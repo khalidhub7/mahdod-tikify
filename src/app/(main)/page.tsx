@@ -4,7 +4,7 @@ import { TextEffect } from "@/components/ui/motion-primitives/text-effect";
 import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
 import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-effect";
 
-import { CheckCircle2 } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function Home() {
   const words = [
@@ -156,10 +156,10 @@ No messy Browser Sources. No restarts.`}
         "
         >
           {features.map((f) => (
-            <li className="flex items-start gap-3">
-  <CheckCircle2 className="size-5 text-primary mt-0.5 shrink-0" />
-  <span>{f.text}</span>
-</li>
+            <li className="flex items-start gap-3 w-xl mx-auto">
+              <Sparkles className="size-5 text-primary mt-0.5 shrink-0" />
+              <span>{f.text}</span>
+            </li>
           ))}
         </ul>
       </section>
