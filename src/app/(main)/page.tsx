@@ -145,8 +145,12 @@ No messy Browser Sources. No restarts.`}
       {/* Why Choose Us Section */}
       <section className="max-w-7xl mx-auto">
         {/* section header */}
-        <header className="text-center md:text-start">
-          <h2>Why Choose Us</h2>
+        <header
+          className="
+        section-header
+        text-center md:text-start"
+        >
+          <h2 className="text-">Why Choose Us</h2>
         </header>
         {/* section body */}
         <ul
@@ -156,9 +160,9 @@ No messy Browser Sources. No restarts.`}
         "
         >
           {features.map((f) => (
-            <li className="flex items-start gap-3 w-xl mx-auto">
-              <Zap className="size-5 text-primary mt-0.5 shrink-0" />
-              <span>{f.text}</span>
+            <li className="flex gap-3 w-xl mx-auto">
+              <Zap className="size-4 text-blue-600 mt-0.5 shrink-0" />
+              <span className="text-foreground">{f.text}</span>
             </li>
           ))}
         </ul>
