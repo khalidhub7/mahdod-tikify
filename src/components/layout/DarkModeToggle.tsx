@@ -29,6 +29,7 @@ const DarkModeToggle = () => {
       aria-label="Toggle dark mode"
       onClick={toggle}
       className="
+      flex items-center justify-evenly
       relative w-14 h-6 rounded-lg cursor-pointer
       bg-zinc-200 dark:bg-gray-600
       focus-visible:brightness-90
@@ -49,7 +50,7 @@ const DarkModeToggle = () => {
       <Sun
         size={16}
         className={`
-          absolute left-1.5 top-1/2 -translate-y-1/2
+          z-10
           transition-opacity duration-300
           ${isDark ? "opacity-30 text-gray-400" : "opacity-100 text-yellow-500"}
         `}
@@ -59,7 +60,7 @@ const DarkModeToggle = () => {
       <Moon
         size={16}
         className={`
-          absolute right-1.5 top-1/2 -translate-y-1/2
+          z-10
           transition-opacity duration-300
           ${isDark ? "opacity-100 text-purple-300" : "opacity-30 text-purple-600"}
         `}
