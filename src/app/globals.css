@@ -3,9 +3,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@import "./custom.css";
-@import "./magicui.css";
-@import "./scrollxui.css";
+@import "./styles/custom.css";
+@import "./styles/magicui.css";
+@import "./styles/scrollxui.css";
 
 @custom-variant dark (&:is(.dark *));
 
