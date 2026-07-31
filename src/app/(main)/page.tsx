@@ -167,16 +167,14 @@ No messy Browser Sources. No restarts.`}
           ))}
         </ul>
       </section>
-
-      {/* Trusted By Section */}
-      {/* How It Works Section */}
-      {/* Widgets Section */}
-      {/* Dashboard Features Section */}
-      {/* Comparison Section */}
-      {/* Use Cases Section */}
+      
+      {/* How It Works Section (todo later) */}
+      <section></section>
       {/* FAQ Section */}
-      {/* CTA Section */}
-      {/* Footer Section */}
+
+      <section>
+        
+      </section>
     </>
   );
 }
