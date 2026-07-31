@@ -51,7 +51,7 @@ const DarkModeToggle = () => {
         size={16}
         className={cn(
           "z-10 transition-opacity duration-300",
-          isDark ? "text-gray-400" : "text-yellow-500",
+          isDark ? "invisible" : "text-yellow-500",
         )}
       />
 
@@ -60,7 +60,7 @@ const DarkModeToggle = () => {
         size={16}
         className={cn(
           "z-10 transition-opacity duration-300",
-          isDark ? "text-purple-500" : "text-gray-400",
+          isDark ? "text-purple-500" : "invisible",
         )}
       />
     </button>
