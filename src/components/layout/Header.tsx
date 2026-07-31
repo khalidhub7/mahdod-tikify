@@ -42,8 +42,8 @@ const Header = () => {
                     whileTap={{ scale: 0.9 }}
                     className="
                     w-24 p-1 text-sm shadow-brand-btn-shadow
-                    
-                    hover:text-blue-600
+                    font-medium
+                    hover:text-blue-500
                     "
                     rippleColor="var(--foreground)"
                   >

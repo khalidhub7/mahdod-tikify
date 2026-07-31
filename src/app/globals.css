@@ -49,6 +49,7 @@
   --brand-btn-5: oklch(0.833 0.145 321.43);
 
   --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
   --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
   --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
 
@@ -190,7 +191,7 @@
 }
 
 .section-header {
-  @apply text-[clamp(1rem,4vw,2.75rem)] font-bold;
+  @apply text-[clamp(1rem,0.2vw+0.95rem,1.125rem)] font-bold w-[90%] mx-auto;
 }
 
 /* shadcn  */

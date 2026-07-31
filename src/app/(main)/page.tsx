@@ -143,7 +143,7 @@ No messy Browser Sources. No restarts.`}
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="max-w-7xl mx-auto">
+      <section className="max-w-7xl mx-auto space-y-7">
         {/* section header */}
         <header
           className="
