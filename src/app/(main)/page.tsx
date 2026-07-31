@@ -5,6 +5,7 @@ import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
 import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-effect";
 
 import { Zap } from "lucide-react";
+import { FAQSection } from "@/components/sections/FAQSection";
 
 export default function Home() {
   const words = [
@@ -172,9 +173,7 @@ No messy Browser Sources. No restarts.`}
       <section></section>
       {/* FAQ Section */}
 
-      <section>
-        
-      </section>
+      <FAQSection />
     </>
   );
 }

@@ -3,6 +3,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@import "./custom.css";
+@import "./magicui.css";
+@import "./scrollxui.css";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -39,26 +43,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
-  /* my custom tokens */
-
-  --brand-btn-1: oklch(0.58 0.22 275);
-  --brand-btn-2: oklch(0.67 0.29 328);
-  --brand-btn-3: oklch(0.809 0.105 251.813);
-  --brand-btn-4: oklch(0.488 0.243 264.376);
-  --brand-btn-5: oklch(0.833 0.145 321.43);
-
-  --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-
-  --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
-  --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
-
-  --brand-ring: oklch(92% 0.004 286.32); /* zinc-200 */
-  --brand-ring-offset: oklch(98.8% 0.003 106.5); /* olive-50 */
-
-  --brand-btn-shadow: 0 0 16px rgb(0 0 0 / 0.15);
-  --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
-  --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
 }
 
 .dark {
@@ -94,19 +78,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  /* other */
-
-  --brand-header-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-  --shiny-text: oklch(98.8% 0.003 106.5); /* olive-50 */
-  --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
-
-  --brand-ring: oklch(55.2% 0.016 285.938); /* zinc-500 */
-  --brand-ring-offset: oklch(70.5% 0.015 286.067); /* zinc-400 */
-
-  --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
-  --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
-
-  --brand-drop-shadow: 0 40px 80px oklch(98.8% 0.003 106.5 / 25%);
 }
 
 @theme inline {
@@ -158,40 +129,6 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-
-  /* src/components/ui/magicui/ripple-* */
-  --animate-rippling: rippling var(--duration) ease-out;
-  @keyframes rippling {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      transform: scale(2);
-      opacity: 0;
-    }
-  }
-  /* other theme variable namespaces like --spacing-*, --shadow-* */
-
-  /* my custom tokens */
-  --color-brand-btn-1: var(--brand-btn-1);
-  --color-brand-btn-2: var(--brand-btn-2);
-  --color-brand-btn-3: var(--brand-btn-3);
-  --color-brand-btn-4: var(--brand-btn-4);
-  --color-brand-btn-5: var(--brand-btn-5);
-
-  --shadow-brand-header-shadow: var(--brand-header-shadow);
-  --shadow-brand-btn-shadow: var(--brand-btn-shadow);
-  --shadow-brand-btn-shadow-strong: var(--brand-btn-shadow-strong);
-
-  --color-brand-ring: var(--brand-ring);
-  --color-brand-ring-offset: var(--brand-ring-offset);
-  --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
-
-  --font-playpen: var(--font-playpen);
-}
-
-.section-header {
-  @apply text-[clamp(1rem,0.2vw+0.95rem,1.125rem)] font-bold w-[90%] mx-auto;
 }
 
 /* shadcn  */
@@ -206,5 +143,3 @@
     @apply font-sans;
   }
 }
-
-/* other */

@@ -5,3 +5,7 @@ prettier --write --print-width 80 file
 
 npx shadcn@latest init
 npx shadcn@latest add avatar
+
+
+# most used
+cat /mnt/c/Users/winusr4/AppData/Roaming/Code/User/settings.json

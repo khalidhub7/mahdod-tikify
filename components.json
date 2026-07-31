@@ -26,6 +26,7 @@
     "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
     "@eldoraui": "https://eldoraui.site/r/{name}.json",
     "@react-bits": "https://reactbits.dev/r/{name}.json",
-    "@animate-ui": "https://animate-ui.com/r/{name}.json"
+    "@animate-ui": "https://animate-ui.com/r/{name}.json",
+    "@scrollxui": "https://www.scrollxui.dev/registry/{name}.json"
   }
 }
