@@ -63,9 +63,9 @@ const HeroSection = () => {
                 md:justify-start md:gap-20
                 "
         >
-            {/* rule: internal navigation use next/link */}
+          {/* rule: internal navigation use next/link */}
           <Link
-          href={"/"}
+            href={"/"}
             className="
                   px-10 py-3
                   text-olive-50 font-playpen tracking-wide
