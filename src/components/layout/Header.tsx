@@ -1,9 +1,8 @@
 "use client";
 import { Brand } from "./Brand";
-import { motion } from "motion/react";
 import { MobileMenu } from "./MobileMenu";
-import { RippleLink } from "../ui/magicui/ripple-link";
 import { DarkModeToggle } from "./DarkModeToggle";
+import { SpotlightNavbar } from "@/components/ui/vengenceui/spotlight-navbar";
 
 const navLinks = [
   { id: 1, label: "Home", href: "/" },
@@ -12,10 +11,7 @@ const navLinks = [
   { id: 4, label: "Register", href: "/register" },
 ];
 
-const MotionLink = motion.create(RippleLink);
-
 const Header = () => {
-
   return (
     <header
       className="
@@ -31,29 +27,9 @@ const Header = () => {
         transition-[width] duration-1000
         "
       >
-        <Brand/>
-        <nav className="hidden md:block" aria-label="Main navigation">
-          <ul className="flex gap-4">
-            {navLinks.map((l) => {
-              return (
-                <li key={l.id}>
-                  <MotionLink
-                    href={l.href}
-                    whileTap={{ scale: 0.9 }}
-                    className="
-                    w-24 p-1 text-sm shadow-brand-btn-shadow
-                    font-medium
-                    hover:text-blue-500
-                    "
-                    rippleColor="var(--foreground)"
-                  >
-                    {l.label}
-                  </MotionLink>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        <Brand />
+
+        <SpotlightNavbar items={navLinks} className="hidden md:flex h-[90%]" />
 
         {/* other settings */}
         <div
@@ -61,7 +37,7 @@ const Header = () => {
           flex justify-end items-center
           w-36 h-[80%] rounded-full "
         >
-          <DarkModeToggle/>
+          <DarkModeToggle />
         </div>
 
         {/* MobileMenu */}
