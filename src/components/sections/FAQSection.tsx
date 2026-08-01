@@ -50,11 +50,13 @@ const FAQSection = () => {
     <section
       className="
     grid grid-cols-1 md:grid-cols-2
-    section
+    section 
     "
     >
-      <header className="section-header">Frequently Asked Questions</header>
-      <Accordion type="single" collapsible>
+      <header className="section-header">
+        Frequently Asked Questions
+      </header>
+      <Accordion type="single" collapsible className="space-y-5" >
         {questions.map((q) => (
           <AccordionItem value={`item-${q.id}`} key={q.id}>
             <AccordionTrigger>{q.question}</AccordionTrigger>

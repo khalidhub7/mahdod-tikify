@@ -30,7 +30,7 @@ const features = [
 const WhyChooseUsSection = () => {
   return (
     <section
-      className="space-y-7 section"
+      className="space-y-7 md:space-y-20 section"
     >
       <header
         className="section-header"
