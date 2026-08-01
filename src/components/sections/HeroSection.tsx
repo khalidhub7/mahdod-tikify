@@ -16,7 +16,7 @@ const HeroSection = () => {
     <section
       className="
       grid grid-cols-1 md:grid-cols-2 place-items-center
-      section gap-12 md:gap-20 py-8 md:py-12
+      gap-12 md:gap-20 
       "
     >
       {/* Left Content */}

@@ -4,11 +4,12 @@ import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 
 const Home = () => {
   return (
-    <>
+    <div className="max-w-[90%] mx-auto space-y-10 md:space-y-16">
       <HeroSection />
-      <WhyChooseUsSection />{/* How It Works Section (todo later) */}
+      <WhyChooseUsSection />
+      {/* How It Works Section (todo later) */}
       <FAQSection />
-    </>
+    </div>
   );
 };
 
