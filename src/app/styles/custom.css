@@ -56,4 +56,8 @@
   @apply text-[clamp(1rem,0.2vw+0.95rem,1.125rem)] font-bold w-[90%] mx-auto;
 }
 
+.section {
+  @apply text-[clamp(1rem,0.2vw+0.95rem,1.125rem)] font-bold w-[90%] mx-auto;
+}
+
 /* other theme variable namespaces like --spacing-*, --shadow-* */
