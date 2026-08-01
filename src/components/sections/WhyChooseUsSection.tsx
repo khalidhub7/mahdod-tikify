@@ -29,21 +29,16 @@ const features = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="
-    space-y-7
-    ">
+    <section
+      className="space-y-7"
+    >
       <header
-        className="
-        section-header
-        text-center md:text-start
-        "
+        className="section-header"
       >
-        <h2 className="text-">Why Choose Us</h2>
+        <h2 className="">Why Choose Us</h2>
       </header>
       <ul
-        className="
-        grid grid-cols-1 md:grid-cols-2 gap-y-4
-        "
+        className="grid grid-cols-1 md:grid-cols-2 gap-y-4"
       >
         {features.map((f) => (
           <li className="flex gap-3 w-xl mx-auto">
