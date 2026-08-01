@@ -15,19 +15,18 @@ const HeroSection = () => {
   return (
     <section
       className="
-            grid grid-cols-1 md:grid-cols-2 place-items-center
-            max-w-7xl mx-auto gap-12 md:gap-20
-            px-4 md:px-8 py-8 md:py-12
-            "
+      grid grid-cols-1 md:grid-cols-2 place-items-center
+      section gap-12 md:gap-20 py-8 md:py-12
+      "
     >
       {/* Left Content */}
       <div
         className="
-              flex flex-col self-start
-              items-center md:items-start gap-8 md:gap-16
-              text-center md:text-left
-              max-w-xl mx-auto md:mx-0
-              "
+        flex flex-col self-start
+        items-center md:items-start gap-8 md:gap-16
+        text-center md:text-left
+        max-w-xl mx-auto md:mx-0
+        "
       >
         {/* Should render an h1 */}
         <TypewriterEffectSmooth words={words} />
@@ -37,9 +36,9 @@ const HeroSection = () => {
           per="line"
           segmentWrapperClassName="overflow-hidden block"
           className="
-                text-lg md:text-xl text-foreground
-                tracking-wider leading-10
-                "
+          text-lg md:text-xl text-foreground
+          tracking-wider leading-10
+          "
           variants={{
             container: {
               hidden: { opacity: 0 },
@@ -59,22 +58,22 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div
           className="
-                w-full flex justify-around
-                md:justify-start md:gap-20
-                "
+          w-full flex justify-around
+          md:justify-start md:gap-20
+          "
         >
           {/* rule: internal navigation use next/link */}
           <Link
             href={"/"}
             className="
-                  px-10 py-3
-                  text-olive-50 font-playpen tracking-wide
-                  bg-linear-to-r from-brand-btn-2 to-brand-btn-5
-                  rounded-lg cursor-pointer
-                  hover:shadow-brand-btn-shadow-strong hover:-translate-y-1
-                  active:scale-90
-                  transition-transform duration-300
-                  "
+            px-10 py-3
+            text-olive-50 font-playpen tracking-wide
+            bg-linear-to-r from-brand-btn-2 to-brand-btn-5
+            rounded-lg cursor-pointer
+            hover:shadow-brand-btn-shadow-strong hover:-translate-y-1
+            active:scale-90
+            transition-transform duration-300
+            "
           >
             Get Started
           </Link>

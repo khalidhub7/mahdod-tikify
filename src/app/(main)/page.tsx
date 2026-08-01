@@ -6,12 +6,7 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <WhyChooseUsSection />
-
-      {/* How It Works Section (todo later) */}
-      <section></section>
-      {/* FAQ Section */}
-
+      <WhyChooseUsSection />{/* How It Works Section (todo later) */}
       <FAQSection />
     </>
   );
