@@ -50,8 +50,7 @@ const FAQSection = () => {
     <section
       className="
     grid grid-cols-1 md:grid-cols-2
-
-    px-20
+    section
     "
     >
       <header className="section-header">Frequently Asked Questions</header>

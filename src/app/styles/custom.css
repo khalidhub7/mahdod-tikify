@@ -56,6 +56,10 @@
   @apply text-2xl md:text-4xl font-bold text-blue-500;
 }
 
+.section {
+  @apply p-10;
+}
+
 /* .section {
   @apply max-w-7xl mx-auto ;
 } */
