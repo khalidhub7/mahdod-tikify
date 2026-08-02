@@ -22,7 +22,6 @@ const HeroSection = () => {
       {/* Left Content */}
       <div
         className="
-        bg-amber-100
         p-5 flex flex-col
         items-center md:items-start gap-8 md:gap-10
         text-center md:text-left
@@ -68,8 +67,10 @@ const HeroSection = () => {
             href={"/"}
             className="
             px-10 py-3
-            text-olive-50 font-playpen tracking-wide
-            bg-linear-to-r from-brand-btn-2 to-brand-btn-5
+            text-olive-50  tracking-wide
+            
+            bg-linear-to-r from-violet-500 to-fuchsia-500
+
             rounded-lg cursor-pointer
             hover:shadow-brand-btn-shadow-strong hover:-translate-y-1
             active:scale-90
@@ -83,8 +84,8 @@ const HeroSection = () => {
             <button
               className="
                     px-6 py-3
-                    text-olive-50 font-playpen tracking-wide
-                    bg-linear-to-l from-brand-btn-3 to-brand-btn-4
+                    text-olive-50  tracking-wide
+                    bg-linear-to-r from-blue-600 to-blue-300
                     rounded-lg cursor-pointer
                     active:scale-90 hover:shadow-brand-btn-shadow
                     transition-transform duration-200
