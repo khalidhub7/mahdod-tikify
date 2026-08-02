@@ -22,6 +22,7 @@ const HeroSection = () => {
       {/* Left Content */}
       <div
         className="
+        bg-amber-100
         p-5 flex flex-col
         items-center md:items-start gap-8 md:gap-10
         text-center md:text-left
