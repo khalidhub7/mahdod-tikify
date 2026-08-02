@@ -1,5 +1,6 @@
 import { FAQSection } from "@/components/sections/FAQSection";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 
 const Home = () => {
@@ -7,7 +8,7 @@ const Home = () => {
     <div className="max-w-[90%] mx-auto space-y-10 md:space-y-16">
       <HeroSection />
       <WhyChooseUsSection />
-      {/* How It Works Section (todo later) */}
+      <HowItWorksSection/>
       <FAQSection />
     </div>
   );
