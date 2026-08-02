@@ -40,9 +40,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className="
-      grid min-h-screen grid-rows-[auto_1fr_auto]
-      relative isolate overflow-hidden 
-      bg-background
+      min-h-screen bg-background overflow-hidden
+      relative isolate
+      grid grid-rows-[auto_1fr_auto]
       space-y-10 md:space-y-16
       "
     >

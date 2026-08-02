@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import { Geist, Playpen_Sans_Deva } from "next/font/google";
 import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import { Geist, Playpen_Sans_Deva } from "next/font/google";
 
 /* Fonts */
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
