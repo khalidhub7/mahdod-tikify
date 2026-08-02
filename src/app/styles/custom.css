@@ -60,8 +60,8 @@
   @apply p-10;
 }
 
-/* .section {
-  @apply max-w-7xl mx-auto ;
-} */
+.section {
+  @apply p-5 md:p-10 ;
+}
 
 /* other theme variable namespaces like --spacing-*, --shadow-* */

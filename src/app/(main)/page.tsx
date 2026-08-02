@@ -5,7 +5,7 @@ import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 
 const Home = () => {
   return (
-    <div className="max-w-[90%] mx-auto space-y-10 md:space-y-16">
+    <div className="max-w-[90%] mx-auto">
       <HeroSection />
       <WhyChooseUsSection />
       <HowItWorksSection/>

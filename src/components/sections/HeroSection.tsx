@@ -15,14 +15,16 @@ const HeroSection = () => {
   return (
     <section
       className="
-      grid grid-cols-1 md:grid-cols-2 place-items-center
-      gap-12 md:gap-20 
+      section
+      grid grid-cols-1 md:grid-cols-2
+      gap-12 md:gap-20
       "
     >
       {/* Left Content */}
       <div
         className="
         flex flex-col self-start
+
         items-center md:items-start gap-8 md:gap-16
         text-center md:text-left
         max-w-xl mx-auto md:mx-0
