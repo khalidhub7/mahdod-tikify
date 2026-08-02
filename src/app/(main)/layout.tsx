@@ -44,6 +44,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       relative isolate
       grid grid-rows-[auto_1fr_auto]
       space-y-5
+
+      bg-hex
       "
     >
       {/* Top background blob */}

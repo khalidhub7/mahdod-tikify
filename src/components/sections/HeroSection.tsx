@@ -35,7 +35,7 @@ const HeroSection = () => {
           per="line"
           segmentWrapperClassName="overflow-hidden block"
           className="
-          text-xl md:text-2xl text-foreground
+          text-xl text-foreground
           tracking-wider leading-10
           "
           variants={{
@@ -57,7 +57,7 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div
           className="
-          p-5
+          py-5
           w-full flex justify-around
           md:justify-start md:gap-20
           "
@@ -85,7 +85,7 @@ const HeroSection = () => {
               className="
                     px-6 py-3
                     text-olive-50  tracking-wide
-                    bg-linear-to-r from-blue-600 to-blue-300
+                    bg-linear-to-r from-blue-600 to-blue-200
                     rounded-lg cursor-pointer
                     active:scale-90 hover:shadow-brand-btn-shadow
                     transition-transform duration-200
@@ -99,9 +99,7 @@ const HeroSection = () => {
 
       {/* Right Content */}
       {/* <div className="relative w-full h-120 md:h-140"> */}
-       <div
-        className="relative w-full h-120 md:h-140"
-      >
+      <div className="relative w-full h-120 md:h-140">
         <Image
           src="/hero.png"
           alt="mhdd Tikify"
@@ -111,8 +109,6 @@ const HeroSection = () => {
           className=" object-contain drop-shadow-brand-drop-shadow"
         />
       </div>
-
-      
     </section>
   );
 };

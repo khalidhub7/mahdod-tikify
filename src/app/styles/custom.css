@@ -1,7 +1,6 @@
 /* my custom tokens */
 
 :root {
-
   --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 
   --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
@@ -30,7 +29,6 @@
 }
 
 @theme inline {
-
   --shadow-brand-header-shadow: var(--brand-header-shadow);
   --shadow-brand-btn-shadow: var(--brand-btn-shadow);
   --shadow-brand-btn-shadow-strong: var(--brand-btn-shadow-strong);
@@ -51,7 +49,71 @@
 }
 
 .section {
-  @apply p-5 md:p-10 ;
+  @apply p-5 md:p-10;
+}
+
+@layer utilities {
+  /* grid pattern */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(229 231 235 / 0.65) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(229 231 235 / 0.65) 1px, transparent 1px);
+    background-size: 144px 144px;
+  }
+
+  html.dark .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  }
+
+  /* diagonal pattern */
+
+  .bg-diagonal {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgb(229 231 235 / 0.45) 0,
+      rgb(229 231 235 / 0.45) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+  }
+
+  html.dark .bg-diagonal {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.06) 0,
+      rgb(255 255 255 / 0.06) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+  }
+  /* dot pattern */
+  .bg-dots {
+    background-image: radial-gradient(
+      rgb(209 213 219 / 0.8) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  html.dark .bg-dots {
+    background-image: radial-gradient(
+      rgb(255 255 255 / 0.08) 1px,
+      transparent 1px
+    );
+  }
+
+  /* Hexagonal Grid */
+  .bg-hex {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='224' height='194' viewBox='0 0 224 194'%3E%3Cg fill='none' stroke='%23000' stroke-opacity='.045' stroke-width='1'%3E%3Cpath d='M56 2L112 34v64L56 130 0 98V34z'/%3E%3Cpath d='M168 2L224 34v64L168 130 112 98V34z'/%3E%3Cpath d='M112 98L168 130v64L112 226 56 194V130z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 224px 194px;
+  }
+
+  html.dark .bg-hex {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='224' height='194' viewBox='0 0 224 194'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.07' stroke-width='1'%3E%3Cpath d='M56 2L112 34v64L56 130 0 98V34z'/%3E%3Cpath d='M168 2L224 34v64L168 130 112 98V34z'/%3E%3Cpath d='M112 98L168 130v64L112 226 56 194V130z'/%3E%3C/g%3E%3C/svg%3E");
+  }
 }
 
 /* other theme variable namespaces like --spacing-*, --shadow-* */
