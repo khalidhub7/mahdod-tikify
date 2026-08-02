@@ -43,7 +43,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       min-h-screen bg-background overflow-hidden
       relative isolate
       grid grid-rows-[auto_1fr_auto]
-      space-y-10 md:space-y-16
+      space-y-5
       "
     >
       {/* Top background blob */}

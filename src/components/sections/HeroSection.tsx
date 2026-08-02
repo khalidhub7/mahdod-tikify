@@ -16,29 +16,27 @@ const HeroSection = () => {
     <section
       className="
       section
-      grid grid-cols-1 md:grid-cols-2
-      gap-12 md:gap-20
+      grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20
       "
     >
       {/* Left Content */}
       <div
         className="
-        flex flex-col self-start
-
-        items-center md:items-start gap-8 md:gap-16
+        bg-amber-100
+        p-5 flex flex-col
+        items-center md:items-start gap-8 md:gap-10
         text-center md:text-left
-        max-w-xl mx-auto md:mx-0
         "
       >
         {/* Should render an h1 */}
-        <TypewriterEffectSmooth words={words} />
+        <TypewriterEffectSmooth words={words}  />
 
         <TextEffect
           as="p"
           per="line"
           segmentWrapperClassName="overflow-hidden block"
           className="
-          text-lg md:text-xl text-foreground
+          text-xl md:text-2xl text-foreground
           tracking-wider leading-10
           "
           variants={{
@@ -60,6 +58,8 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div
           className="
+          bg-red-100
+          p-5
           w-full flex justify-around
           md:justify-start md:gap-20
           "
