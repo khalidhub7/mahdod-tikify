@@ -22,14 +22,13 @@ const HeroSection = () => {
       {/* Left Content */}
       <div
         className="
-        bg-amber-100
         p-5 flex flex-col
         items-center md:items-start gap-8 md:gap-10
         text-center md:text-left
         "
       >
         {/* Should render an h1 */}
-        <TypewriterEffectSmooth words={words}  />
+        <TypewriterEffectSmooth words={words} />
 
         <TextEffect
           as="p"
@@ -58,7 +57,6 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div
           className="
-          bg-red-100
           p-5
           w-full flex justify-around
           md:justify-start md:gap-20
@@ -98,10 +96,9 @@ const HeroSection = () => {
       </div>
 
       {/* Right Content */}
-      <div
-        className="
-              relative w-full h-120 md:h-140
-              "
+      {/* <div className="relative w-full h-120 md:h-140"> */}
+       <div
+        className="relative w-full h-120 md:h-140"
       >
         <Image
           src="/hero.png"
@@ -112,6 +109,8 @@ const HeroSection = () => {
           className=" object-contain drop-shadow-brand-drop-shadow"
         />
       </div>
+
+      
     </section>
   );
 };
