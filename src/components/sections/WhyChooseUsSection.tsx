@@ -1,4 +1,3 @@
-"use client";
 
 
 const features = [
@@ -34,13 +33,18 @@ const features = [
   },
 ];
 
-
 const WhyChooseUsSection = () => {
   return (
     <section className="section">
       <header className="section-header">WhyChooseUs</header>
 
-      <ul></ul>
+      <ul>
+        {
+          features.map((f) => (
+            <li key={f.id} >{f.description}</li>
+          ))
+        }
+      </ul>
     </section>
   );
 };
