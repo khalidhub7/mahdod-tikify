@@ -93,7 +93,13 @@ const cardVariants: Variants = {
 const clipPath =
   "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)";
 
-const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) => {
+const FeatureCard = ({
+  feature,
+  index,
+}: {
+  feature: Feature;
+  index: number;
+}) => {
   return (
     <motion.div
       custom={index}

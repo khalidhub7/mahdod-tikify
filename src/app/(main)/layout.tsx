@@ -45,7 +45,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       grid grid-rows-[auto_1fr_auto]
       space-y-5
 
-      bg-hex
+      bg-grid
       "
     >
       {/* Top background blob */}

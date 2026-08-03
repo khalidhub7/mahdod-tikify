@@ -68,7 +68,11 @@ const itemVariants: Variants = {
 
 const ctaVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.4, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.4, duration: 0.4, ease: "easeOut" },
+  },
 };
 
 // Chamfered corner clip-path (8px cut)
@@ -95,9 +99,7 @@ const FAQSection = () => {
           >
             <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1">
               <HelpCircle className="size-3 text-blue-600" />
-              <span className="text-[11px] font-medium text-blue-600">
-                FAQ
-              </span>
+              <span className="text-[11px] font-medium text-blue-600">FAQ</span>
             </div>
 
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl">

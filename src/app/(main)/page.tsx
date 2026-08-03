@@ -8,8 +8,8 @@ const Home = () => {
     <div className="max-w-[90%] mx-auto">
       <HeroSection />
       <WhyChooseUsSection />
-      <HowItWorksSection/>
-      <FAQSection />
+      {/* <HowItWorksSection/>
+      <FAQSection /> */}
     </div>
   );
 };

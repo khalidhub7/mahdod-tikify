@@ -6,6 +6,7 @@
 @import "./styles/custom.css";
 @import "./styles/magicui.css";
 @import "./styles/scrollxui.css";
+@import "./styles/bg-patterns.css";
 
 @custom-variant dark (&:is(.dark *));
 

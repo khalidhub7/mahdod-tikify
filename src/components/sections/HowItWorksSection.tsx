@@ -8,12 +8,7 @@ import {
   Radio,
   ArrowRight,
 } from "lucide-react";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  type Variants,
-} from "motion/react";
+import { motion, useScroll, useSpring, type Variants } from "motion/react";
 
 interface Step {
   id: string;
@@ -97,13 +92,7 @@ const ctaVariants: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
-const StepCard = ({
-  step,
-  align,
-}: {
-  step: Step;
-  align: "left" | "right";
-}) => {
+const StepCard = ({ step, align }: { step: Step; align: "left" | "right" }) => {
   const Icon = step.icon;
   const rightAligned = align === "right";
 
@@ -222,8 +211,7 @@ const HowItWorksSection = () => {
 
           <ol className="relative space-y-6 lg:space-y-8">
             {steps.map((step, index) => {
-              const side: "left" | "right" =
-                index % 2 === 0 ? "right" : "left";
+              const side: "left" | "right" = index % 2 === 0 ? "right" : "left";
               const isRight = side === "right";
 
               return (

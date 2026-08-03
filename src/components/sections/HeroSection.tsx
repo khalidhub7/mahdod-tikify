@@ -67,14 +67,13 @@ const HeroSection = () => {
             href={"/"}
             className="
             px-10 py-3
-            text-olive-50  tracking-wide
-            
+            text-olive-50 tracking-wide
             bg-linear-to-r from-violet-500 to-fuchsia-500
-
-            rounded-lg cursor-pointer
+            rounded-full cursor-pointer
             hover:shadow-brand-btn-shadow-strong hover:-translate-y-1
             active:scale-90
             transition-transform duration-300
+            
             "
           >
             Get Started
