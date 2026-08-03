@@ -1,5 +1,3 @@
-
-
 const features = [
   {
     id: 1,
@@ -35,18 +33,22 @@ const features = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section>
+    <section className="section">
+      <header className="section-header">WhyChooseUs</header>
 
-      <header>WhyChooseUs</header>
-
-      <ul>
-        { features.map((f) => (
-          <li key={f.id} >{f.description}</li>
-        )) }
+      <ul className="bg-amber-100">
+        {features.map((f) => (
+          <li
+            key={f.id}
+            className="
+          bg-red-100"
+          >
+            {f.description}
+          </li>
+        ))}
       </ul>
-
     </section>
-  )
-}
+  );
+};
 
-export { WhyChooseUsSection }
+export { WhyChooseUsSection };
