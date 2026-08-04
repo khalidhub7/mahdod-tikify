@@ -15,9 +15,10 @@ const Brand = ({ className }: { className?: string }) => {
     <Link href="/" className={cn("flex items-center gap-3", className)}>
       <Avatar
         className="
-        ring-4 ring-offset-2 ring-brand-ring
-        ring-offset-brand-ring-offset
-        hover:scale-110 transition-transform duration-300
+        ring-4 ring-brand-ring
+        ring-offset-2 ring-offset-background
+
+        hover:scale-105
         "
       >
         <AvatarImage src="/tiktok.svg" alt="TK" className="p-1" />

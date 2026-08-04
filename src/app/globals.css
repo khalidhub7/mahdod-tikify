@@ -12,8 +12,8 @@
 
 :root {
   /* shadcn  */
-  --background: oklch(98.8% 0.003 106.5);
-  --foreground: oklch(37% 0.013 285.805);
+  --background: oklch(98.8% 0.003 106.5); /* olive-50 */
+  --foreground: oklch(21% 0.034 264.665); /* gray-900 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -48,8 +48,9 @@
 
 .dark {
   /* shadcn  */
-  --background: oklch(21% 0.034 264.665);
-  --foreground: oklch(88% 0.011 106.6);
+  --background: oklch(21% 0.034 264.665); /* gray-900 */
+  --foreground: oklch(96.6% 0.005 106.5); /* olive-100 */
+
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);

@@ -2,12 +2,11 @@
 
 :root {
   --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-
   --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
   --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
 
-  --brand-ring: oklch(92% 0.004 286.32); /* zinc-200 */
-  --brand-ring-offset: oklch(98.8% 0.003 106.5); /* olive-50 */
+
+  --brand-ring: oklch(93% 0.007 106.5); /* olive-200 */
 
   --brand-btn-shadow: 0 0 16px rgb(0 0 0 / 0.15);
   --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
@@ -19,8 +18,8 @@
   --shiny-text: oklch(98.8% 0.003 106.5); /* olive-50 */
   --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
 
-  --brand-ring: oklch(55.2% 0.016 285.938); /* zinc-500 */
-  --brand-ring-offset: oklch(70.5% 0.015 286.067); /* zinc-400 */
+
+  --brand-ring: oklch(44.6% 0.043 257.281); /* slate-600 */
 
   --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
   --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
@@ -41,15 +40,13 @@
 }
 
 .section-header {
-  @apply text-2xl md:text-4xl font-bold text-blue-500;
+  @apply text-2xl md:text-4xl font-bold 
+  p-2 md:p-10 
+  ;
 }
 
 .section {
-  @apply p-10;
-}
-
-.section {
-  @apply p-5 md:p-10;
+  @apply p-2 md:p-10 text-center md:text-left;
 }
 
 

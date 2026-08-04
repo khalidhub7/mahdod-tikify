@@ -1,4 +1,4 @@
-
+import { Plus, Star } from "lucide-react";
 
 const features = [
   {
@@ -36,14 +36,37 @@ const features = [
 const WhyChooseUsSection = () => {
   return (
     <section className="section">
-      <header className="section-header">WhyChooseUs</header>
+      <header className="section-header ">
+        <h3
+          className="
+          text-transparent bg-clip-text bg-linear-to-r from-blue-500  to-blue-100
+        "
+        >
+          WhyChooseUs
+        </h3>
+      </header>
 
-      <ul>
-        {
-          features.map((f) => (
-            <li key={f.id} >{f.description}</li>
-          ))
-        }
+      <ul
+        className="
+        grid grid-cols-1 md:grid-cols-2
+        p-10 gap-5
+        "
+      >
+        {features.map((f) => (
+          <li
+            key={f.id}
+            className="
+            p-4 font-playpen rounded-xl
+           text-sm font-semibold ring-4 ring-offset-2 
+          ring-pink-50 
+          ring-offset-pink-100
+          bg-diagonal
+          "
+          >
+            <Plus className="inline mr-2 size-4" />
+            {f.description}
+          </li>
+        ))}
       </ul>
     </section>
   );

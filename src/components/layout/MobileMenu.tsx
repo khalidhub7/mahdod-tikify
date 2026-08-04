@@ -55,9 +55,10 @@ const MobileMenu = () => {
               size={"lg"}
               variant={"outline"}
               className="
+              ring-4 ring-brand-ring
+              ring-offset-2 ring-offset-background
+
               size-8 cursor-pointer rounded-full
-              ring-4 ring-offset-2 ring-brand-ring 
-              ring-offset-brand-ring-offset
               hover:text-blue-600
             "
             />
