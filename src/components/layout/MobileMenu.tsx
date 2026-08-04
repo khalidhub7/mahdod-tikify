@@ -59,7 +59,7 @@ const MobileMenu = () => {
               ring-offset-2 ring-offset-background
 
               size-8 cursor-pointer rounded-full
-              hover:text-blue-600
+              hover:text-blue-300
             "
             />
           }

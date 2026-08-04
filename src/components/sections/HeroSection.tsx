@@ -66,11 +66,13 @@ const HeroSection = () => {
           <Link
             href={"/"}
             className="
-            px-10 py-3
-            text-olive-50 tracking-wide
+            px-10 py-3 text-olive-50 tracking-wide
             bg-linear-to-r from-violet-500 to-fuchsia-500
             rounded-full cursor-pointer
-            hover:shadow-brand-btn-shadow-strong hover:-translate-y-1
+
+            hover:shadow-[0_0_24px_rgb(0_0_0/0.18)]
+            
+            hover:-translate-y-1
             active:scale-90
             transition-transform duration-300
             
@@ -82,13 +84,13 @@ const HeroSection = () => {
           <MagneticButton>
             <button
               className="
-                    px-6 py-3
-                    text-olive-50  tracking-wide
-                    bg-linear-to-r from-blue-600 to-blue-200
-                    rounded-lg cursor-pointer
-                    active:scale-90 hover:shadow-brand-btn-shadow
-                    transition-transform duration-200
-                    "
+              px-6 py-3 text-olive-50 tracking-wide
+              bg-linear-to-r from-blue-600 to-blue-200
+              rounded-lg cursor-pointer
+
+              active:scale-90 hover:shadow-brand-btn-shadow
+              transition-transform duration-200
+              "
             >
               Watch 45-second demo →
             </button>

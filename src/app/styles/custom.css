@@ -5,11 +5,9 @@
   --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
   --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
 
-
   --brand-ring: oklch(93% 0.007 106.5); /* olive-200 */
+  --brand-btn-shadow: 0 0 24px rgb(0 0 0 / 0.18);
 
-  --brand-btn-shadow: 0 0 16px rgb(0 0 0 / 0.15);
-  --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
   --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
 }
 
@@ -18,13 +16,10 @@
   --shiny-text: oklch(98.8% 0.003 106.5); /* olive-50 */
   --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
 
-
   --brand-ring: oklch(44.6% 0.043 257.281); /* slate-600 */
+  --brand-btn-shadow: 0 0 24px rgb(0 0 0 / 0.5);
 
-  --brand-btn-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
-  --brand-btn-shadow-strong: 0 0 16px rgba(255, 255, 255, 0.85);
-
-  --brand-drop-shadow: 0 40px 80px oklch(98.8% 0.003 106.5 / 25%);
+  --brand-drop-shadow: 0 40px 8rgba(252, 251, 251, 0.5)0.003 106.5 / 25%);
 }
 
 @theme inline {
@@ -41,14 +36,11 @@
 
 .section-header {
   @apply text-2xl md:text-4xl font-bold 
-  p-2 md:p-10 
-  ;
+  p-2 md:p-10;
 }
 
 .section {
   @apply p-2 md:p-10 text-center md:text-left;
 }
-
-
 
 /* other theme variable namespaces like --spacing-*, --shadow-* */
