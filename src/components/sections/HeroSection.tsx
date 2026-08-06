@@ -15,8 +15,7 @@ const HeroSection = () => {
   return (
     <section
       className="
-      section
-      
+      section md:pt-10
       grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24
       "
     >

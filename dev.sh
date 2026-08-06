@@ -9,3 +9,5 @@ npx shadcn@latest add avatar
 
 # most used
 cat /mnt/c/Users/winusr4/AppData/Roaming/Code/User/settings.json
+
+rm -rf .next && npm run dev
