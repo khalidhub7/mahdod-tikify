@@ -70,7 +70,7 @@ const HeroSection = () => {
             bg-linear-to-r from-violet-500 to-fuchsia-500
             rounded-full cursor-pointer
 
-            hover:shadow-[0_0_24px_rgb(0_0_0/0.18)]
+            hover:shadow-brand-btn-shadow
             
             hover:-translate-y-1
             active:scale-90

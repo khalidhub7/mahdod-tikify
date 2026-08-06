@@ -8,7 +8,6 @@
   --brand-ring: oklch(93% 0.007 106.5); /* olive-200 */
 
   --brand-btn-shadow: 0 0 24px rgb(0 0 0 / 0.18);
-
   --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
 }
 
@@ -18,18 +17,18 @@
   --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
 
   --brand-ring: oklch(44.6% 0.043 257.281); /* slate-600 */
-  --brand-btn-shadow: 0 0 24px rgb(0 0 0 / 0.5);
   
+  --brand-btn-shadow: 0 0 24px rgb(255 255 255 / 0.12);
   --brand-drop-shadow: 0 40px 80px rgba(252, 251, 251, 0.25);
 }
 
 @theme inline {
   --shadow-brand-header-shadow: var(--brand-header-shadow);
-  --shadow-brand-btn-shadow: var(--brand-btn-shadow);
-  
-
   --color-brand-ring: var(--brand-ring);
   --color-brand-ring-offset: var(--brand-ring-offset);
+
+
+  --shadow-brand-btn-shadow: var(--brand-btn-shadow);
   --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
 
   --font-playpen: var(--font-playpen);
@@ -43,5 +42,3 @@
 .section {
   @apply p-2 md:p-10 text-center md:text-left;
 }
-
-/* other theme variable namespaces like --spacing-*, --shadow-* */
