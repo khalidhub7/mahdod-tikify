@@ -16,7 +16,8 @@ const HeroSection = () => {
     <section
       className="
       section
-      grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20
+      
+      grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24
       "
     >
       {/* Left Content */}
@@ -67,15 +68,13 @@ const HeroSection = () => {
             href={"/"}
             className="
             px-10 py-3 text-olive-50 tracking-wide
-            bg-linear-to-r from-violet-500 to-fuchsia-500
-            rounded-full cursor-pointer
+            bg-linear-to-r from-fuchsia-500 to-fuchsia-300
+            rounded-xl cursor-pointer
 
             hover:shadow-brand-btn-shadow
             
             hover:-translate-y-1
-            active:scale-90
-            transition-transform duration-300
-            
+            transition-transform duration-300 transform-gpu
             "
           >
             Get Started
@@ -89,7 +88,7 @@ const HeroSection = () => {
               rounded-lg cursor-pointer
 
               active:scale-90 hover:shadow-brand-btn-shadow
-              transition-transform duration-200
+              transition-transform duration-200 transform-gpu
               "
             >
               Watch 45-second demo →

@@ -1,4 +1,4 @@
-import { Plus, Star } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const features = [
   {
