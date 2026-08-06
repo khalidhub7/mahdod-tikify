@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Sheet } from "@/components/ui/shadcn/sheet";
 import { Button } from "@/components/ui/shadcn/button";
-import { Menu, House, LayoutDashboard } from "lucide-react";
+import { House, LayoutDashboard, PanelLeftOpen } from "lucide-react";
 import { LogIn, UserPlus, ChevronRight } from "lucide-react";
 import {
   SheetClose,
@@ -57,30 +57,25 @@ const MobileMenu = () => {
               className="
               ring-4 ring-brand-ring
               ring-offset-2 ring-offset-background
-
               size-8 cursor-pointer rounded-full
-              hover:text-blue-300
-            "
+              hover:text-purple-600
+              "
             />
           }
         >
-          <Menu className="size-5" />
+          <PanelLeftOpen className="size-5" />
         </SheetTrigger>
 
         <SheetContent
           className="
-          m-2 p-2 rounded-lg gap-40 items-center
+          m-2 p-2 rounded gap-40 items-center
 
           [&>button]:static
-          [&>button]:ring-4
-          [&>button]:ring-offset-brand-ring-offset
-          [&>button]:ring-brand-ring
-
-          [&>button]:rounded-full [&>button]:cursor-pointer
-          [&>button]:size-16 [&>button]:bg-accent
-          [&>button]:hover:scale-75
-          [&>button]:hover:ring-blue-400
-          [&>button]:transition-all [&>button]:duration-300
+          [&>button]:ring-4 [&>button]:ring-brand-ring
+          [&>button]:ring-offset-2 [&>button]:ring-offset-background
+          [&>button]:rounded-2xl [&>button]:cursor-pointer
+          [&>button]:size-14 [&>button]:bg-accent
+          [&>button]:hover:scale-90
           "
         >
           <nav className="mt-24 w-full">
@@ -101,11 +96,12 @@ const MobileMenu = () => {
 
                         rounded-xl p-3 mx-4 text-base text-foreground
 
-                        ring-4 ring-brand-ring ring-offset-2
-                        ring-offset-brand-ring-offset
+                        ring-4 ring-brand-ring
+                        ring-offset-2 ring-offset-background
                      
                         hover:scale-90 hover:bg-accent
-                        transition-all duration-200
+                        transition-transform duration-500
+                        transform-gpu
                         "
                       />
                     }
