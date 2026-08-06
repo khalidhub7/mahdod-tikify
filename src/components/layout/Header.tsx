@@ -13,9 +13,7 @@ const navLinks = [
 
 const Header = () => {
   return (
-    <header
-      className="flex items-center justify-center h-16"
-    >
+    <header className="flex items-center justify-center h-16">
       <div
         className="
         
@@ -28,13 +26,14 @@ const Header = () => {
       >
         <Brand />
 
-        <SpotlightNavbar items={navLinks} className="hidden md:flex h-[90%]" />
+        <SpotlightNavbar items={navLinks} className="hidden md:flex h-full" />
 
         {/* other settings */}
         <div
           className="
           flex justify-end items-center
-          w-36 h-[80%] rounded-full "
+          w-36 h-[80%] rounded-lg
+          "
         >
           <DarkModeToggle />
         </div>

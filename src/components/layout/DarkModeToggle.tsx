@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const DarkModeToggle = () => {
   const [isDark, setIsDark] = useState(false);
@@ -31,9 +31,10 @@ const DarkModeToggle = () => {
       onClick={toggle}
       className="
       flex items-center justify-evenly
+
       relative w-14 h-7 rounded-full cursor-pointer
       bg-zinc-200 dark:bg-gray-600
-      focus-visible:brightness-90
+      focus-visible:brightness-105
       "
     >
       {/* sliding thumb */}
@@ -42,6 +43,7 @@ const DarkModeToggle = () => {
           "absolute left-0.5 size-6 rounded-full",
           "bg-white dark:bg-gray-900",
           "transition-transform duration-500 ease-out",
+          "transform-gpu",
           isDark ? "translate-x-6.5" : "translate-x-0.5",
         )}
       />
