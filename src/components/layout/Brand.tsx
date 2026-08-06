@@ -12,12 +12,11 @@ const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
 const Brand = ({ className }: { className?: string }) => {
   return (
-    <Link href="/" className={cn("flex items-center gap-3", className)}>
+    <Link href="/" className={cn("flex items-center gap-5", className)}>
       <Avatar
         className="
         ring-4 ring-brand-ring
         ring-offset-2 ring-offset-background
-
         hover:scale-105
         "
       >
