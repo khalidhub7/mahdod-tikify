@@ -51,19 +51,13 @@ const DarkModeToggle = () => {
       {/* sun icon */}
       <Sun
         size={16}
-        className={cn(
-          "z-10 transition-opacity duration-300",
-          isDark ? "invisible" : "text-yellow-500",
-        )}
+        className={cn("z-10", isDark ? "invisible" : "text-yellow-500")}
       />
 
       {/* moon icon */}
       <Moon
         size={16}
-        className={cn(
-          "z-10 transition-opacity duration-300",
-          isDark ? "text-purple-500" : "invisible",
-        )}
+        className={cn("z-10", isDark ? "text-purple-500" : "invisible")}
       />
     </button>
   );
