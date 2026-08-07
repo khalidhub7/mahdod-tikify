@@ -39,7 +39,7 @@ const WhyChooseUsSection = () => {
       <header className="section-header">
         <h3
           className="
-          text-transparent bg-clip-text bg-linear-to-r from-violet-500  to-violet-300
+          text-transparent bg-clip-text bg-linear-to-r from-blue-500  to-blue-300
         "
         >
           Why Choose Us
@@ -59,9 +59,10 @@ const WhyChooseUsSection = () => {
             bg-diagonal
             p-4 font-playpen rounded-xl
            text-sm font-semibold 
-           ring-4  ring-pink-50
-           ring-offset-2 ring-offset-pink-100
-          
+           ring-4  ring-gray-50
+           ring-offset-2 ring-offset-gray-100
+
+           dark:ring-gray-800 dark:ring-offset-gray-700
           "
           >
             <Plus className="inline mr-2 size-4" />
