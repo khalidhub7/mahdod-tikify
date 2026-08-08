@@ -35,7 +35,11 @@
 }
 
 .section-header {
-  @apply p-2 md:p-10 text-2xl md:text-4xl 
+  @apply flex justify-center
+}
+
+.section-title {
+  @apply p-2 text-2xl md:text-4xl w-fit
   font-semibold text-center md:text-start
   ;
 }

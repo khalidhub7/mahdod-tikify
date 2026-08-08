@@ -36,11 +36,13 @@ const features = [
 const WhyChooseUsSection = () => {
   return (
     <section className="section">
-      <header className="section-header">
+      <header className="flex justify-center" >
         <h3
           className="
+          section-title
+          border border-black
           text-transparent
-          bg-clip-text bg-linear-to-r from-blue-500  to-blue-300
+          bg-clip-text bg-linear-to-r from-blue-500 to-purple-500
           "
         >
           Why Choose Us
