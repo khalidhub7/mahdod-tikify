@@ -23,7 +23,7 @@ const HeroSection = () => {
       <div
         className="
         p-5 flex flex-col
-        items-center md:items-start gap-8 md:gap-10
+        items-center md:items-start gap-y-8 md:gap-y-10
         text-center md:text-left
         "
       >
@@ -68,7 +68,7 @@ const HeroSection = () => {
             className="
             px-10 py-3 text-olive-50 tracking-wide
             bg-linear-to-r from-fuchsia-500 to-fuchsia-300
-            rounded-xl cursor-pointer
+            rounded-lg cursor-pointer
 
             hover:shadow-brand-btn-shadow
             
