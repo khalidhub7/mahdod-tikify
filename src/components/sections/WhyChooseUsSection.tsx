@@ -36,7 +36,7 @@ const features = [
 const WhyChooseUsSection = () => {
   return (
     <section className="section">
-      <header className="flex justify-center" >
+      <header className="flex justify-center">
         <h3
           className="
           section-title

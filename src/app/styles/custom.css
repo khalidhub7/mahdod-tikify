@@ -17,7 +17,7 @@
   --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
 
   --brand-ring: oklch(44.6% 0.043 257.281); /* slate-600 */
-  
+
   --brand-btn-shadow: 0 0 24px rgb(255 255 255 / 0.12);
   --brand-drop-shadow: 0 40px 80px rgba(252, 251, 251, 0.25);
 }
@@ -27,7 +27,6 @@
   --color-brand-ring: var(--brand-ring);
   --color-brand-ring-offset: var(--brand-ring-offset);
 
-
   --shadow-brand-btn-shadow: var(--brand-btn-shadow);
   --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
 
@@ -35,13 +34,12 @@
 }
 
 .section-header {
-  @apply flex justify-center
+  @apply flex justify-center;
 }
 
 .section-title {
   @apply p-2 text-2xl md:text-4xl w-fit
-  font-semibold text-center md:text-start
-  ;
+  font-semibold text-center md:text-start;
 }
 
 .section {

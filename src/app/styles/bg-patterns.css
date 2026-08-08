@@ -65,9 +65,8 @@
     /* Major vertical */
     linear-gradient(rgb(229 231 235 / 0.9) 1px, transparent 1px),
     linear-gradient(90deg, rgb(229 231 235 / 0.9) 1px, transparent 1px),
-
     /* Minor vertical */
-    linear-gradient(rgb(229 231 235 / 0.35) 1px, transparent 1px),
+      linear-gradient(rgb(229 231 235 / 0.35) 1px, transparent 1px),
     linear-gradient(90deg, rgb(229 231 235 / 0.35) 1px, transparent 1px);
 
   background-size:
@@ -82,7 +81,6 @@
     background-image:
       linear-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px),
       linear-gradient(90deg, rgb(255 255 255 / 0.08) 1px, transparent 1px),
-
       linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
       linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
   }
@@ -98,7 +96,6 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.08' stroke-width='1.2'%3E%3Cpath d='M20 160c40-70 120-70 160 0s120 70 160 0'/%3E%3Cpath d='M20 120c40-70 120-70 160 0s120 70 160 0'/%3E%3Cpath d='M20 200c40-70 120-70 160 0s120 70 160 0'/%3E%3Cpath d='M20 80c40-70 120-70 160 0s120 70 160 0'/%3E%3Cpath d='M20 240c40-70 120-70 160 0s120 70 160 0'/%3E%3C/g%3E%3C/svg%3E");
   }
 }
-
 
 /* Isometric Cubes */
 @utility bg-isometric {
