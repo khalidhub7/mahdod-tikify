@@ -61,8 +61,9 @@ const WhyChooseUsSection = () => {
             bg-diagonal
             p-4 font-playpen rounded-xl
             text-sm font-semibold
-            ring-4  ring-gray-50
-            ring-offset-2 ring-offset-gray-100
+
+            ring-4 ring-pink-50
+            ring-offset-2 ring-offset-pink-100
             dark:ring-gray-800 dark:ring-offset-gray-700
             "
           >
