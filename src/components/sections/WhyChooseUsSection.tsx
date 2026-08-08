@@ -39,8 +39,9 @@ const WhyChooseUsSection = () => {
       <header className="section-header">
         <h3
           className="
-          text-transparent bg-clip-text bg-linear-to-r from-blue-500  to-blue-300
-        "
+          text-transparent
+          bg-clip-text bg-linear-to-r from-blue-500  to-blue-300
+          "
         >
           Why Choose Us
         </h3>
