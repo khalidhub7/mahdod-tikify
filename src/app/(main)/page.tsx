@@ -7,8 +7,8 @@ const Home = () => {
   /* main tag content */
   return (
     <div className="max-w-[90%] mx-auto">
-      {/* <HeroSection />
-      <WhyChooseUsSection /> */}
+      <HeroSection />
+      <WhyChooseUsSection />
       {/* <HowItWorksSection/>
       <FAQSection /> */}
     </div>
