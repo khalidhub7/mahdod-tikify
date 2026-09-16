@@ -2,11 +2,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Black_Ops_One } from "next/font/google";
 import ShinyText from "@/components/ui/reactbits/ShinyText";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/shadcn/avatar";
+import { AvatarFallback } from "@/components/ui/shadcn/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/shadcn/avatar";
 
 const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
@@ -15,8 +12,7 @@ const Brand = ({ className }: { className?: string }) => {
     <Link href="/" className={cn("flex items-center gap-5", className)}>
       <Avatar
         className="
-        ring-4 ring-brand-ring
-        ring-offset-2 ring-offset-background
+        ring-4 ring-brand-ring ring-offset-2 ring-offset-background
         hover:scale-105
         "
       >

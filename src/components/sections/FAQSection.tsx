@@ -81,7 +81,7 @@ const clipPath =
 
 const FAQSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/20 py-10 lg:py-14">
+    <section className="relative overflow-hidden bg-linear-to-b from-background to-muted/20 py-10 lg:py-14">
       {/* Background Glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-0 h-[300px] w-[500px] rounded-full bg-blue-500/5 blur-3xl" />
@@ -105,7 +105,7 @@ const FAQSection = () => {
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl">
               Got Questions?
               <br />
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 We've Got Answers.
               </span>
             </h2>

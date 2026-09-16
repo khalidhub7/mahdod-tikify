@@ -1,4 +1,3 @@
-"use client";
 import { Brand } from "./Brand";
 import { MobileMenu } from "./MobileMenu";
 import { DarkModeToggle } from "./DarkModeToggle";
@@ -16,23 +15,21 @@ const Header = () => {
     <header className="flex items-center justify-center h-16">
       <div
         className="
-        
-        flex items-center justify-evenly md:justify-around
         w-[95%] md:w-5xl h-[80%]
+        flex items-center justify-evenly md:justify-around
         rounded-tl-full rounded-br-full
         shadow-brand-header-shadow
         transition-[width] duration-1000
         "
       >
-        <Brand />
+        <Brand className="" />
 
         <SpotlightNavbar items={navLinks} className="hidden md:flex h-full" />
 
         {/* other settings */}
         <div
           className="
-          flex justify-end items-center
-          w-36 h-[80%] rounded-lg
+          flex justify-end items-center w-36 h-[80%] rounded
           "
         >
           <DarkModeToggle />
@@ -41,7 +38,7 @@ const Header = () => {
         {/* MobileMenu */}
         <div
           className="
-          md:hidden flex items-center justify-center
+          flex items-center justify-center md:hidden
           h-full aspect-square 
           "
         >

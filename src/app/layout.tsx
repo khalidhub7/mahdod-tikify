@@ -20,6 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // console.log(`*** ${geist.variable} ***`)
   return (
     <html
       lang="en"

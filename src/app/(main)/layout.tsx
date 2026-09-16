@@ -41,6 +41,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     <div
       className="
       min-h-screen bg-background overflow-hidden
+      
       relative isolate
       grid grid-rows-[auto_1fr_auto]
       space-y-5
@@ -51,7 +52,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <div
         aria-hidden="true"
         className="
-        absolute inset-x-0 -top-40 -z-10 sm:-top-80
+        absolute -z-10
+        inset-x-0 -top-40 sm:-top-80
         transform-gpu overflow-hidden blur-3xl
         "
       >
