@@ -1,6 +1,7 @@
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { Providers } from "./providers";
 import { Geist, Playpen_Sans_Deva } from "next/font/google";
 
 /* Fonts */
@@ -23,6 +24,7 @@ export default function RootLayout({
   // console.log(`*** ${geist.variable} ***`)
   return (
     <html
+      suppressHydrationWarning
       lang="en"
       className={cn(
         "font-sans",
@@ -31,7 +33,9 @@ export default function RootLayout({
         playpen.variable,
       )}
     >
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

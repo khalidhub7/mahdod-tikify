@@ -8,11 +8,9 @@
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.mjs
-├── prisma
-│   └── schema.prisma
 ├── public
 │   ├── hero.png
-│   └── tiktok-svgrepo-com.svg
+│   └── tiktok.svg
 ├── src
 │   ├── app
 │   │   ├── (main)
@@ -34,20 +32,29 @@
 │   │   ├── o
 │   │   │   └── [slug]
 │   │   │       └── page.tsx
+│   │   ├── styles
+│   │   │   ├── bg-patterns.css
+│   │   │   ├── custom.css
+│   │   │   ├── magicui.css
+│   │   │   └── scrollxui.css
 │   │   └── temp.css
 │   ├── components
 │   │   ├── layout
 │   │   │   ├── Brand.tsx
+│   │   │   ├── DarkModeToggle.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   ├── Header.tsx
 │   │   │   └── MobileMenu.tsx
+│   │   ├── sections
+│   │   │   ├── FAQSection.tsx
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── HowItWorksSection.tsx
+│   │   │   └── WhyChooseUsSection.tsx
 │   │   └── ui
 │   │       ├── aceternity
 │   │       │   ├── background-beams-with-collision.tsx
 │   │       │   ├── magnetic-button.tsx
 │   │       │   └── typewriter-effect.tsx
-│   │       ├── eldoraui
-│   │       │   └── animated-shiny-button.tsx
 │   │       ├── magicui
 │   │       │   ├── ripple-button.tsx
 │   │       │   └── ripple-link.tsx
@@ -55,14 +62,17 @@
 │   │       │   └── text-effect.tsx
 │   │       ├── reactbits
 │   │       │   └── ShinyText.tsx
-│   │       └── shadcn
-│   │           ├── avatar.tsx
-│   │           ├── button.tsx
-│   │           └── sheet.tsx
+│   │       ├── scrollxui
+│   │       │   └── accordion.tsx
+│   │       ├── shadcn
+│   │       │   ├── avatar.tsx
+│   │       │   ├── button.tsx
+│   │       │   └── sheet.tsx
+│   │       └── vengenceui
+│   │           └── spotlight-navbar.tsx
 │   └── lib
-│       ├── get-strict-context.tsx
 │       └── utils.ts
 ├── struct.txt
 └── tsconfig.json
 
-23 directories, 42 files
+25 directories, 50 files
