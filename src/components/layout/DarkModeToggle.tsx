@@ -1,65 +1,43 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
+import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
-const DarkModeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  // sync with system preference & localStorage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const shouldBeDark = stored === "dark" || (!stored && prefersDark);
-    setIsDark(shouldBeDark);
-    document.documentElement.classList.toggle("dark", shouldBeDark);
-  }, []);
-
-  const toggle = () => {
-    const next = !isDark;
-    setIsDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
+export const DarkModeToggle = () => {
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
       role="switch"
       aria-checked={isDark}
       aria-label="Toggle dark mode"
-      onClick={toggle}
 
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       className="
+      isolate
       flex items-center justify-evenly
       relative w-14 h-7 rounded-full cursor-pointer
       bg-zinc-200 dark:bg-gray-600
-      focus-visible:brightness-105
+      focus-visible:scale-90
       "
     >
-      {/* sliding thumb */}
       <motion.div
+        aria-hidden="true"
         className="absolute left-0.5 size-6 rounded-full bg-background"
-
         animate={{ x: isDark ? 26 : 2 }}
         transition={{ type: "spring", stiffness: 300 }}
       />
-
-      {/* sun icon */}
       <Sun
+        aria-hidden="true"
         size={16}
-        className={cn("z-10", isDark ? "invisible" : "text-yellow-500")}
+        className={`z-10 ${isDark ? "invisible" : "text-yellow-500"}`}
       />
-
-      {/* moon icon */}
       <Moon
+        aria-hidden="true"
         size={16}
-        className={cn("z-10", isDark ? "text-purple-500" : "invisible")}
+        className={`z-10 ${isDark ? "text-purple-500" : "invisible"}`}
       />
     </button>
   );
 };
-
-export { DarkModeToggle };
