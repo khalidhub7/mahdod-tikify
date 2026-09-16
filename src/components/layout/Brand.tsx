@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 import { Black_Ops_One } from "next/font/google";
 import ShinyText from "@/components/ui/reactbits/ShinyText";
 import { AvatarFallback } from "@/components/ui/shadcn/avatar";
@@ -7,30 +9,20 @@ import { Avatar, AvatarImage } from "@/components/ui/shadcn/avatar";
 
 const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
+const MotionAvatar = motion.create(Avatar);
+
 const Brand = ({ className }: { className?: string }) => {
   return (
     <Link href="/" className={cn("flex items-center gap-5", className)}>
-      <Avatar
+      <MotionAvatar
         className="
         ring-4 ring-brand-ring ring-offset-2 ring-offset-background
-        hover:scale-105
         "
+        whileHover={{ scale: 0.9, rotate: -20 }}
       >
-        <AvatarImage src="/tiktok.svg" alt="TK" className="p-1" />
+        <AvatarImage src="/tiktok.svg" alt="" className="p-1" />
         <AvatarFallback>MT</AvatarFallback>
-      </Avatar>
-
-      {/* <span
-        className={cn(
-          blackOps.className,
-          "bg-linear-to-r from-blue-600 via-fuchsia-500 to-fuchsia-400",
-          "bg-clip-text text-transparent",
-          "hover:opacity-70",
-          "text-[clamp(0.75rem,2vw,1.125rem)]",
-        )}
-      >
-        mahdod-tikify
-      </span> */}
+      </MotionAvatar>
 
       <ShinyText
         className={cn(
