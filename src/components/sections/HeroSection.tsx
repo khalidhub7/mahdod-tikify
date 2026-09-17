@@ -1,14 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TextEffect } from "@/components/ui/motion-primitives/text-effect";
+import { TextEffect } from "../layout/TextEffect";
 import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
-import { TypewriterEffectSmooth } from "@/components/ui/aceternity/typewriter-effect";
+import { SmoothTextReveal } from "@/components/layout/SmoothTextReveal";
 
 const words = [
   { text: "One", className: "" },
   { text: "Overlay.", className: "text-blue-500 dark:text-blue-400 " },
   { text: "Total", className: "" },
   { text: "Control.", className: "text-blue-500 dark:text-blue-400 " },
+];
+
+const descriptionsWords = [
+  "The simplest way to add beautiful, live-updating TikTok widgets to your streams.",
+  "Alerts, gifts, likes, chat, goals — all in one URL.",
+  "No messy Browser Sources. No restarts.",
 ];
 
 const HeroSection = () => {
@@ -28,31 +34,10 @@ const HeroSection = () => {
         "
       >
         {/* Should render an h1 */}
-        <TypewriterEffectSmooth words={words} />
+        <SmoothTextReveal words={words} as="h1" />
 
-        <TextEffect
-          as="p"
-          per="line"
-          segmentWrapperClassName="overflow-hidden block"
-          className="
-          text-xl text-foreground
-          tracking-wider leading-10
-          "
-          variants={{
-            container: {
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-            },
-            item: {
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-            },
-          }}
-        >
-          {`The simplest way to add beautiful, live-updating TikTok widgets to your streams.
-    Alerts, gifts, likes, chat, goals — all in one URL.
-    No messy Browser Sources. No restarts.`}
-        </TextEffect>
+        {/* description */}
+        <TextEffect words={descriptionsWords} />
 
         {/* CTA Button */}
         <div
@@ -66,14 +51,11 @@ const HeroSection = () => {
           <Link
             href={"/"}
             className="
-            px-10 py-3 text-olive-50 tracking-wide
+            flex justify-center items-center px-10
+            text-olive-50 tracking-wide rounded cursor-pointer
             bg-linear-to-r from-fuchsia-500 to-fuchsia-300
-            rounded-lg cursor-pointer
-
-            hover:shadow-brand-btn-shadow
-            
-            hover:-translate-y-1
-            transition-transform duration-300 transform-gpu
+            hover:shadow-brand-btn-shadow hover:scale-90
+            transition-transform duration-400 transform-gpu
             "
           >
             Get Started

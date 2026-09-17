@@ -8,7 +8,7 @@ export const DarkModeToggle = () => {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <button
+    <motion.button
       role="switch"
       aria-checked={isDark}
       aria-label="Toggle dark mode"
@@ -21,6 +21,8 @@ export const DarkModeToggle = () => {
       bg-zinc-200 dark:bg-gray-600
       focus-visible:scale-90
       "
+
+      whileHover={{ scale: 0.9 }}
     >
       <motion.div
         aria-hidden="true"
@@ -38,6 +40,6 @@ export const DarkModeToggle = () => {
         size={16}
         className={`z-10 ${isDark ? "text-purple-500" : "invisible"}`}
       />
-    </button>
+    </motion.button>
   );
 };

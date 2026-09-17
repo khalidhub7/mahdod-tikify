@@ -1,18 +1,20 @@
 // from https://ui.aceternity.com/
 "use client";
 
-import React, { useRef, useState } from "react";
 import { motion } from "motion/react";
+import React, { useRef, useState } from "react";
+
+type MagneticButtonProps = {
+  children: React.ReactNode;
+  strength?: number;
+  maxDistance?: number;
+};
 
 export const MagneticButton = ({
   children,
   strength = 0.8,
   maxDistance = 100,
-}: {
-  children: React.ReactNode;
-  strength?: number;
-  maxDistance?: number;
-}) => {
+}: MagneticButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
