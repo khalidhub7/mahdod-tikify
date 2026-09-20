@@ -1,11 +1,11 @@
 // from https://ui.aceternity.com/
+// refactored by me
 "use client";
-
-import { motion } from "motion/react";
-import React, { useRef, useState } from "react";
+import { useRef, type ReactNode } from "react";
+import { motion, useMotionValue, useTransform, useSpring } from "motion/react";
 
 type MagneticButtonProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   strength?: number;
   maxDistance?: number;
 };
@@ -16,7 +16,24 @@ export const MagneticButton = ({
   maxDistance = 100,
 }: MagneticButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const springObj = { stiffness: 150, damping: 25, mass: 0.1 };
+  // coordinates
+  const motionX = useSpring(useMotionValue(0), springObj);
+  const motionY = useSpring(useMotionValue(0), springObj);
+
+  // styles
+  const borderColor = useTransform([motionX, motionY], ([x, y]) =>
+    x !== 0 || y !== 0 ? "oklch(62.3% 0.214 259.815)" : "transparent",
+  );
+  const backgroundColor = useTransform([motionX, motionY], ([x, y]) =>
+    x !== 0 || y !== 0
+      ? "color-mix(in srgb, oklch(62.3% 0.214 259.815) 20%, transparent)"
+      : "transparent",
+  );
+
+  /* const count = useRef(0);
+  count.current += 1;
+  console.log("re-render", count.current); */
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -28,47 +45,35 @@ export const MagneticButton = ({
     let y = (clientY - (top + height / 2)) * strength;
 
     const distance = Math.hypot(x, y);
+
     if (distance > maxDistance) {
       const scale = maxDistance / distance;
       x *= scale;
       y *= scale;
     }
 
-    setPosition({ x, y });
+    motionX.set(x);
+    motionY.set(y);
   };
 
   const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
+    motionX.set(0);
+    motionY.set(0);
   };
 
-  const hasMoved = position.x !== 0 || position.y !== 0;
+  // oklch(62.3% 0.214 259.815) equiv blue-500
   return (
-    <div
+    <motion.div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="
-  cursor-pointer
-  rounded-lg
-  border
-  border-dashed
-  transition-colors
-  duration-150
-  [--show-color:var(--color-blue-500)]
-"
-      style={{
-        borderColor: hasMoved ? "var(--show-color)" : "transparent",
-        backgroundColor: hasMoved
-          ? "color-mix(in srgb,var(--show-color) 20%, transparent)"
-          : "transparent",
-      }}
+      cursor-pointer rounded border border-dashed
+      "
+      style={{ borderColor, backgroundColor }}
     >
-      <motion.div
-        ref={ref}
-        animate={{ x: position.x, y: position.y }}
-        transition={{ type: "spring", stiffness: 150, damping: 25, mass: 0.1 }}
-      >
+      <motion.div ref={ref} style={{ x: motionX, y: motionY }}>
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };

@@ -31,7 +31,7 @@ const Brand = ({ className }: { className?: string }) => {
           "text-[clamp(0.75rem,2vw,1.125rem)]",
         )}
         text="mahdod-tikify"
-        speed={2}
+        duration={2}
         delay={0}
         color="var(--shiny-text)"
         shineColor="var(--shiny-shine)"
@@ -40,7 +40,10 @@ const Brand = ({ className }: { className?: string }) => {
         yoyo={false}
         pauseOnHover={false}
         disabled={false}
+        
       />
+
+      
     </Link>
   );
 };

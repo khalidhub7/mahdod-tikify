@@ -23,7 +23,7 @@ const Header = () => {
         "
       >
         <Brand className="" />
-
+        
         <SpotlightNavbar items={navLinks} className="hidden md:flex h-full" />
 
         {/* other settings */}

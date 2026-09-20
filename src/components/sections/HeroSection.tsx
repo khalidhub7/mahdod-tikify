@@ -42,16 +42,16 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div
           className="
-          py-5
-          w-full flex justify-around
-          md:justify-start md:gap-20
+          w-full py-5 flex-wrap
+          flex items-start justify-around md:justify-start md:gap-20
           "
         >
           {/* rule: internal navigation use next/link */}
           <Link
             href={"/"}
             className="
-            flex justify-center items-center px-10
+            px-11 py-3
+            flex justify-center items-center
             text-olive-50 tracking-wide rounded cursor-pointer
             bg-linear-to-r from-fuchsia-500 to-fuchsia-300
             hover:shadow-brand-btn-shadow hover:scale-90
@@ -61,15 +61,15 @@ const HeroSection = () => {
             Get Started
           </Link>
 
+
           <MagneticButton>
             <button
               className="
-              px-6 py-3 text-olive-50 tracking-wide
+              px-6 py-3
+              text-olive-50 tracking-wide rounded cursor-pointer
               bg-linear-to-r from-blue-600 to-blue-200
-              rounded-lg cursor-pointer
-
               active:scale-90 hover:shadow-brand-btn-shadow
-              transition-transform duration-200 transform-gpu
+              transition-transform duration-400 transform-gpu
               "
             >
               Watch 45-second demo →

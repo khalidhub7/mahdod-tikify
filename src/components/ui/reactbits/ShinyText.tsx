@@ -1,17 +1,15 @@
 // from https://reactbits.dev/
 "use client";
-import React, { useState, useCallback, useEffect, useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useAnimationFrame,
-  useTransform,
-} from "motion/react";
+import { useAnimationFrame } from "motion/react";
+import { useState, useCallback, useEffect, useRef } from "react";
+import { type CSSProperties } from "react";
+import { motion, useMotionValue, useTransform } from "motion/react";
+import { cn } from "@/lib/utils";
 
-interface ShinyTextProps {
+type ShinyTextProps = {
   text: string;
   disabled?: boolean;
-  speed?: number;
+  duration?: number;
   className?: string;
   color?: string;
   shineColor?: string;
@@ -20,12 +18,12 @@ interface ShinyTextProps {
   pauseOnHover?: boolean;
   direction?: "left" | "right";
   delay?: number;
-}
+};
 
-const ShinyText: React.FC<ShinyTextProps> = ({
+const ShinyText = ({
   text,
   disabled = false,
-  speed = 2,
+  duration = 2,
   className = "",
   color = "#b5b5b5",
   shineColor = "#ffffff",
@@ -34,14 +32,14 @@ const ShinyText: React.FC<ShinyTextProps> = ({
   pauseOnHover = false,
   direction = "left",
   delay = 0,
-}) => {
+}: ShinyTextProps) => {
   const [isPaused, setIsPaused] = useState(false);
   const progress = useMotionValue(0);
   const elapsedRef = useRef(0);
   const lastTimeRef = useRef<number | null>(null);
   const directionRef = useRef(direction === "left" ? 1 : -1);
 
-  const animationDuration = speed * 1000;
+  const animationDuration = duration * 1000;
   const delayDuration = delay * 1000;
 
   useAnimationFrame((time) => {
@@ -79,7 +77,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({
         const p = 100 - (reverseTime / animationDuration) * 100;
         progress.set(directionRef.current === 1 ? p : 100 - p);
       } else {
-        // Delay at start
+        // delay at start
         progress.set(directionRef.current === 1 ? 0 : 100);
       }
     } else {
@@ -87,11 +85,11 @@ const ShinyText: React.FC<ShinyTextProps> = ({
       const cycleTime = elapsedRef.current % cycleDuration;
 
       if (cycleTime < animationDuration) {
-        // Animation phase: 0 -> 100
+        // animation phase: 0 → 100
         const p = (cycleTime / animationDuration) * 100;
         progress.set(directionRef.current === 1 ? p : 100 - p);
       } else {
-        // Delay phase - hold at end (shine off-screen)
+        // delay phase: hold at end (shine off-screen)
         progress.set(directionRef.current === 1 ? 100 : 0);
       }
     }
@@ -118,17 +116,24 @@ const ShinyText: React.FC<ShinyTextProps> = ({
     if (pauseOnHover) setIsPaused(false);
   }, [pauseOnHover]);
 
-  const gradientStyle: React.CSSProperties = {
-    backgroundImage: `linear-gradient(${spread}deg, ${color} 0%, ${color} 35%, ${shineColor} 50%, ${color} 65%, ${color} 100%)`,
+  const gradientStyle: CSSProperties = {
+    backgroundImage: `linear-gradient(
+    ${spread}deg,
+    ${color} 0%,
+    ${color} 35%,
+    ${shineColor} 50%,
+    ${color} 65%,
+    ${color} 100%
+    )`,
     backgroundSize: "200% auto",
-    WebkitBackgroundClip: "text",
     backgroundClip: "text",
+    WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
   };
 
   return (
     <motion.span
-      className={`inline-block ${className}`}
+      className={cn("inline-block", className)}
       style={{ ...gradientStyle, backgroundPosition }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
