@@ -36,9 +36,9 @@ const Brand = ({ className }: { className?: string }) => {
         color="var(--shiny-text)"
         shineColor="var(--shiny-shine)"
         spread={150}
-        direction="left"
+        direction="right"
         yoyo={false}
-        pauseOnHover={false}
+        pauseOnHover={true}
         disabled={false}
         
       />

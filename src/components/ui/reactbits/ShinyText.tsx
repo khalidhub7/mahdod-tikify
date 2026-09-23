@@ -1,10 +1,10 @@
 // from https://reactbits.dev/
 "use client";
+import { cn } from "@/lib/utils";
+import { type CSSProperties } from "react";
 import { useAnimationFrame } from "motion/react";
 import { useState, useCallback, useEffect, useRef } from "react";
-import { type CSSProperties } from "react";
 import { motion, useMotionValue, useTransform } from "motion/react";
-import { cn } from "@/lib/utils";
 
 type ShinyTextProps = {
   text: string;
@@ -23,66 +23,58 @@ type ShinyTextProps = {
 const ShinyText = ({
   text,
   disabled = false,
-  duration = 2,
+  duration = 1,
   className = "",
   color = "#b5b5b5",
   shineColor = "#ffffff",
   spread = 120,
   yoyo = false,
   pauseOnHover = false,
-  direction = "left",
+  direction = "right",
   delay = 0,
 }: ShinyTextProps) => {
+  // ref
+  const elapsedTimeRef = useRef<number>(0);
+  const directionRef = useRef(direction === "left" ? -1 : 1);
+  // state
   const [isPaused, setIsPaused] = useState(false);
-  const progress = useMotionValue(0);
-  const elapsedRef = useRef(0);
-  const lastTimeRef = useRef<number | null>(null);
-  const directionRef = useRef(direction === "left" ? 1 : -1);
+  // motion value
+  const progress = useMotionValue(direction === "left" ? 100 : 0);
 
-  const animationDuration = duration * 1000;
-  const delayDuration = delay * 1000;
+  // assertions: duration > 0, delay >= 0
+  const animationDuration = duration > 0 ? duration * 1000 : 1000;
+  const delayDuration = delay >= 0 ? delay * 1000 : 0;
 
-  useAnimationFrame((time) => {
-    if (disabled || isPaused) {
-      lastTimeRef.current = null;
-      return;
-    }
+  // useAnimationFrame constants
+  const cycleDuration = animationDuration + delayDuration;
 
-    if (lastTimeRef.current === null) {
-      lastTimeRef.current = time;
-      return;
-    }
-
-    const deltaTime = time - lastTimeRef.current;
-    lastTimeRef.current = time;
-
-    elapsedRef.current += deltaTime;
+  useAnimationFrame((_, delta) => {
+    if (disabled || isPaused) return;
+    elapsedTimeRef.current += delta;
 
     // Animation goes from 0 to 100
     if (yoyo) {
-      const cycleDuration = animationDuration + delayDuration;
       const fullCycle = cycleDuration * 2;
-      const cycleTime = elapsedRef.current % fullCycle;
+      const cycleTime = elapsedTimeRef.current % fullCycle;
 
       if (cycleTime < animationDuration) {
-        // Forward animation: 0 -> 100
+        // Forward: right → 0 → 100, left → 100 → 0
         const p = (cycleTime / animationDuration) * 100;
         progress.set(directionRef.current === 1 ? p : 100 - p);
       } else if (cycleTime < cycleDuration) {
-        // Delay at end
+        // Wait after moving forward
         progress.set(directionRef.current === 1 ? 100 : 0);
       } else if (cycleTime < cycleDuration + animationDuration) {
-        // Reverse animation: 100 -> 0
+        // Reverse: 100 → 0
         const reverseTime = cycleTime - cycleDuration;
         const p = 100 - (reverseTime / animationDuration) * 100;
         progress.set(directionRef.current === 1 ? p : 100 - p);
       } else {
-        // delay at start
+        // Wait before starting again
         progress.set(directionRef.current === 1 ? 0 : 100);
       }
     } else {
-      const cycleDuration = animationDuration + delayDuration;
-      const cycleTime = elapsedRef.current % cycleDuration;
+      const cycleTime = elapsedTimeRef.current % cycleDuration;
 
       if (cycleTime < animationDuration) {
         // animation phase: 0 → 100
@@ -95,10 +87,17 @@ const ShinyText = ({
     }
   });
 
+  /*
+  direction="left"
+  progress            :   100 → 0
+  backgroundPosition  :   -50% → 150%
+  background image    :   RIGHT → LEFT
+  */
+
   useEffect(() => {
-    directionRef.current = direction === "left" ? 1 : -1;
-    elapsedRef.current = 0;
-    progress.set(0);
+    directionRef.current = direction === "left" ? -1 : 1;
+    elapsedTimeRef.current = 0;
+    progress.set(direction === "left" ? 100 : 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [direction]);
 
