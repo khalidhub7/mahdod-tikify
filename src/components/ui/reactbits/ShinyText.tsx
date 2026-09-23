@@ -13,7 +13,7 @@ type ShinyTextProps = {
   className?: string;
   color?: string;
   shineColor?: string;
-  spread?: number;
+  gradientAngle?: number;
   yoyo?: boolean;
   pauseOnHover?: boolean;
   direction?: "left" | "right";
@@ -27,7 +27,7 @@ const ShinyText = ({
   className = "",
   color = "#b5b5b5",
   shineColor = "#ffffff",
-  spread = 120,
+  gradientAngle = 120,
   yoyo = false,
   pauseOnHover = false,
   direction = "right",
@@ -107,17 +107,17 @@ const ShinyText = ({
     (p) => `${150 - p * 2}% center`,
   );
 
-  const handleMouseEnter = useCallback(() => {
+  const handleMouseEnter = () => {
     if (pauseOnHover) setIsPaused(true);
-  }, [pauseOnHover]);
+  };
 
-  const handleMouseLeave = useCallback(() => {
+  const handleMouseLeave = () => {
     if (pauseOnHover) setIsPaused(false);
-  }, [pauseOnHover]);
+  };
 
   const gradientStyle: CSSProperties = {
     backgroundImage: `linear-gradient(
-    ${spread}deg,
+    ${gradientAngle}deg,
     ${color} 0%,
     ${color} 35%,
     ${shineColor} 50%,

@@ -32,18 +32,15 @@ const Brand = ({ className }: { className?: string }) => {
         )}
         text="mahdod-tikify"
         duration={2}
-        delay={0}
+        delay={1}
         color="var(--shiny-text)"
         shineColor="var(--shiny-shine)"
-        spread={150}
+        gradientAngle={140}
         direction="right"
         yoyo={false}
         pauseOnHover={true}
         disabled={false}
-        
       />
-
-      
     </Link>
   );
 };
