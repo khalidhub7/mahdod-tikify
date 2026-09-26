@@ -7,6 +7,7 @@
 @import "./styles/magicui.css";
 @import "./styles/scrollxui.css";
 @import "./styles/bg-patterns.css";
+@import "./styles/shiny-text.css";
 
 @custom-variant dark (&:is(.dark *));
 

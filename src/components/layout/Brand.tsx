@@ -32,13 +32,12 @@ const Brand = ({ className }: { className?: string }) => {
         )}
         text="mahdod-tikify"
         duration={2}
-        delay={1}
+        delay={0}
         color="var(--shiny-text)"
         shineColor="var(--shiny-shine)"
         gradientAngle={140}
         direction="right"
         yoyo={false}
-        pauseOnHover={true}
         disabled={false}
       />
     </Link>
