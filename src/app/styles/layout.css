@@ -1,0 +1,42 @@
+/*
+src/components/layout/ShinyText.tsx
+*/
+
+@keyframes shiny-sweep {
+  from {
+    background-position: 150% center;
+  }
+  to {
+    background-position: -50% center;
+  }
+}
+
+/*
+src/components/layout/SmoothTextReveal.tsx
+*/
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*
+src/components/ui/vengenceui/spotlight-navbar.tsx
+*/
+
+.spotlight-nav {
+  --spotlight-color: rgba(0, 0, 0, 0.12);
+  --ambience-color: rgba(0, 0, 0, 0.7);
+}
+
+.dark .spotlight-nav {
+  --spotlight-color: rgba(255, 255, 255, 0.18);
+  --ambience-color: rgba(255, 255, 255, 1);
+}

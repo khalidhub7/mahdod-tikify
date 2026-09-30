@@ -1,4 +1,4 @@
-// from https://ui.aceternity.com/
+// idea from https://ui.aceternity.com/
 // refactored by me
 
 "use client";
@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
 type Word = { text: string; className?: string };
+
 type TypewriterEffectSmoothProps = {
   words: Word[];
   className?: string;
@@ -28,6 +29,7 @@ const SmoothTextReveal = ({
         className="overflow-hidden"
         initial={{ width: "0%" }}
         whileInView={{ width: "fit-content" }}
+        viewport={{ once: true }}
         transition={{ duration: 3, ease: "linear", delay: 1 }}
       >
         <Tag className="text-3xl lg:text-4xl font-bold whitespace-nowrap">
@@ -43,14 +45,13 @@ const SmoothTextReveal = ({
       </motion.div>
 
       {/* cursor */}
-      <motion.span
-        initial={{ opacity: 0, x: 5 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+      <span
         className={cn(
           "rounded-full w-1 h-10 lg:h-12 bg-blue-500",
+          "animate-[cursor-blink_2s_ease-in-out_infinite]",
           cursorClassName,
         )}
+        aria-hidden="true"
       />
     </div>
   );

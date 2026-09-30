@@ -1,3 +1,6 @@
+// idea from https://reactbits.dev/
+// refactored by me
+
 /*
 someone told me
 "current version follows the KISS principle well hhh"

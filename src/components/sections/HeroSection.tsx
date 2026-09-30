@@ -75,6 +75,7 @@ const HeroSection = () => {
               Watch 45-second demo →
             </button>
           </MagneticButton>
+
         </div>
       </div>
 

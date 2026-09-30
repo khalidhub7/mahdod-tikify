@@ -1,8 +1,0 @@
-@keyframes shiny-sweep {
-  from {
-    background-position: 150% center;
-  }
-  to {
-    background-position: -50% center;
-  }
-}

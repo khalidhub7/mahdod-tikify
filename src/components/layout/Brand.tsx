@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { Black_Ops_One } from "next/font/google";
-import ShinyText from "@/components/ui/reactbits/ShinyText";
+import ShinyText from "@/components/layout/ShinyText";
 import { AvatarFallback } from "@/components/ui/shadcn/avatar";
 import { Avatar, AvatarImage } from "@/components/ui/shadcn/avatar";
 
