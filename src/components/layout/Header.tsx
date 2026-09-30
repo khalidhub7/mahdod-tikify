@@ -22,11 +22,9 @@ const Header = () => {
         transition-[width] duration-1000
         "
       >
-        {/* <Brand className="" /> */}
+        <Brand className="" />
         
-        
-        {/* <SpotlightNavbar items={navLinks} className="hidden md:flex h-full" /> */}
-        <SpotlightNavbar items={navLinks} />
+        <SpotlightNavbar items={navLinks} className="hidden md:flex" />
 
         {/* other settings */}
         <div
@@ -38,14 +36,14 @@ const Header = () => {
         </div>
 
         {/* MobileMenu */}
-        {/* <div
+        <div
           className="
           flex items-center justify-center md:hidden
           h-full aspect-square 
           "
         >
           <MobileMenu />
-        </div> */}
+        </div>
       </div>
     </header>
   );
