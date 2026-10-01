@@ -1,13 +1,8 @@
 "use client";
-
-import { HelpCircle, Mail, ArrowRight } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/scrollxui/accordion";
-import { motion, type Variants } from "motion/react";
+import Image from "next/image";
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
+import { motion, LayoutGroup } from "motion/react";
 
 const questions = [
   {
@@ -48,126 +43,66 @@ const questions = [
   },
 ];
 
-const headerVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.1 + i * 0.06,
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const ctaVariants: Variants = {
-  hidden: { opacity: 0, y: 12 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.4, duration: 0.4, ease: "easeOut" },
-  },
-};
-
-// Chamfered corner clip-path (8px cut)
-const clipPath =
-  "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)";
-
 const FAQSection = () => {
+  const [activeItem, setActiveItem] = useState(1);
   return (
-    <section className="relative overflow-hidden bg-linear-to-b from-background to-muted/20 py-10 lg:py-14">
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute right-0 top-0 h-[300px] w-[500px] rounded-full bg-blue-500/5 blur-3xl" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-          {/* Left Side */}
-          <motion.div
-            variants={headerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="lg:col-span-4 lg:sticky lg:top-24 self-start"
-          >
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1">
-              <HelpCircle className="size-3 text-blue-600" />
-              <span className="text-[11px] font-medium text-blue-600">FAQ</span>
-            </div>
-
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl">
-              Got Questions?
-              <br />
-              <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                We've Got Answers.
-              </span>
-            </h2>
-
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Find answers to the most common questions about setting up your
-              overlays, customizing widgets, and getting the best streaming
-              experience.
-            </p>
-
-            <motion.a
-              href="#contact"
-              variants={ctaVariants}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="group mt-5 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-xs font-medium text-white shadow-lg shadow-blue-500/20 transition-colors duration-300 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/30"
-            >
-              <Mail className="size-3.5" />
-              Contact Support
-              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-            </motion.a>
-          </motion.div>
-
-          {/* Right Side */}
-          <div className="lg:col-span-8">
-            <Accordion type="single" collapsible className="space-y-3">
-              {questions.map((q, index) => (
-                <motion.div
-                  key={q.id}
-                  custom={index}
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.1 }}
-                  className="group relative"
-                >
-                  {/* Outer wrapper with clip-path for the border */}
-                  <div className="relative" style={{ clipPath }}>
-                    {/* Border Background */}
-                    <div className="absolute inset-0 bg-border transition-colors duration-300 group-hover:bg-blue-500/30 data-[state=open]:bg-blue-500/40" />
-
-                    {/* Inner Content */}
-                    <AccordionItem
-                      value={`item-${q.id}`}
-                      className="relative m-[1px] bg-card px-5 transition-all duration-300 group-hover:bg-card/90 data-[state=open]:bg-blue-500/[0.03]"
-                    >
-                      <AccordionTrigger className="py-4 text-left text-sm font-semibold text-foreground hover:no-underline">
-                        <span className="transition-colors duration-300 group-hover:text-blue-600">
-                          {q.question}
-                        </span>
-                      </AccordionTrigger>
-
-                      <AccordionContent className="pb-4 text-xs leading-5 text-muted-foreground">
-                        {q.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  </div>
-                </motion.div>
-              ))}
-            </Accordion>
-          </div>
+    <section className="section" >
+      {/* section header */}
+      <header className="section-header  ">
+        <h3
+          className="
+          section-title text-transparent
+          bg-clip-text bg-linear-to-r from-blue-500 to-purple-500
+          "
+        >
+          How It Works
+        </h3>
+      </header>
+      {/* section content */}
+      <div
+        className="
+        grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0
+        place-items-center
+        "
+      >
+        {/* faq image */}
+        <div className="relative">
+          <Image src="/faq.svg" width={600} height={600} alt="faq" />
         </div>
+        {/* faq questions */}
+        <LayoutGroup>
+          <ul className=" flex flex-col justify-center gap-5 pl-10 md:pl-0">
+            {questions.map((q) => (
+              <motion.li key={q.id} className="list-none space-y-3" layout>
+                <button
+                  className="flex gap-2 cursor-pointer "
+                  onClick={() => setActiveItem(q.id)}
+                >
+                  <span className="hover:rotate-180 transition-transform duration-200">
+                    {activeItem === q.id ? (
+                      <Minus className="text-blue-500" />
+                    ) : (
+                      <Plus className="text-blue-500" />
+                    )}
+                  </span>
+
+                  <p>{q.question}</p>
+                </button>
+
+                {activeItem === q.id ? (
+                  <p
+                    className="
+                    ml-8 rounded p-3 [word-spacing:5px] max-w-4/5
+                    ring ring-brand-ring
+                    "
+                  >
+                    {q.answer}
+                  </p>
+                ) : undefined}
+              </motion.li>
+            ))}
+          </ul>
+        </LayoutGroup>
       </div>
     </section>
   );

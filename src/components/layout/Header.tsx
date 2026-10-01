@@ -12,7 +12,10 @@ const navLinks = [
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-center h-16">
+    <header className="
+    sticky top-0 
+    flex items-center justify-center h-16
+    ">
       <div
         className="
         w-[95%] md:w-5xl h-[80%]

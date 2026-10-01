@@ -1,11 +1,12 @@
 "use client";
 import { motion, type Variants } from "motion/react";
 
+// words are static
 type TextEffectProps = { words: Array<string> };
 
 const parentVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.3 } },
+  visible: { transition: { staggerChildren: 0.4 } },
 };
 
 const childVariants: Variants = {

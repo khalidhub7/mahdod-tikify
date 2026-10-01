@@ -21,16 +21,17 @@ const HeroSection = () => {
   return (
     <section
       className="
-      section md:pt-10
-      grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24
+      section md:pt-10 md:min-h-screen
+      grid grid-cols-1 md:grid-cols-2
+      gap-12 md:gap-24
       "
     >
       {/* Left Content */}
       <div
         className="
         p-5 flex flex-col
-        items-center md:items-start gap-y-8 md:gap-y-10
-        text-center md:text-left
+        items-center gap-y-8 text-center
+        md:items-start md:gap-y-10 md:text-left
         "
       >
         {/* Should render an h1 */}
@@ -42,8 +43,9 @@ const HeroSection = () => {
         {/* CTA Button */}
         <div
           className="
-          w-full py-5 flex-wrap
-          flex items-start justify-around md:justify-start md:gap-20
+          w-full py-5
+          flex flex-wrap items-start justify-around
+          md:justify-start md:gap-20
           "
         >
           {/* rule: internal navigation use next/link */}
@@ -55,7 +57,7 @@ const HeroSection = () => {
             text-olive-50 tracking-wide rounded cursor-pointer
             bg-linear-to-r from-fuchsia-500 to-fuchsia-300
             hover:shadow-brand-btn-shadow hover:scale-90
-            transition-transform duration-400 transform-gpu
+            transition-transform duration-200 transform-gpu
             "
           >
             Get Started

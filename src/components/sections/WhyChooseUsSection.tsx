@@ -58,12 +58,10 @@ const WhyChooseUsSection = () => {
           <li
             key={f.id}
             className="
-            bg-diagonal
-            p-4 font-playpen rounded-xl
-            text-sm font-semibold
+            bg-diagonal p-4 rounded-xl
 
-            ring-4 ring-pink-50
-            ring-offset-2 ring-offset-pink-100
+            ring-4 ring-offset-2
+            ring-pink-50 ring-offset-pink-100
             dark:ring-gray-800 dark:ring-offset-gray-700
             "
           >

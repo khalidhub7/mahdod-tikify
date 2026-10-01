@@ -6,11 +6,11 @@ import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 const Home = () => {
   /* main tag content */
   return (
-    <div className="max-w-[90%] mx-auto">
+    <div className="max-w-[90%] mx-auto space-y-16 ">
       <HeroSection />
       <WhyChooseUsSection />
-      {/* <HowItWorksSection/>
-      <FAQSection /> */}
+      <HowItWorksSection/>
+      <FAQSection />
     </div>
   );
 };

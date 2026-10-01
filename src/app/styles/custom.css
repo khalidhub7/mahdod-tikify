@@ -35,12 +35,11 @@
 }
 
 .section-header {
-  @apply flex justify-center;
+  @apply flex justify-center md:justify-start;
 }
 
 .section-title {
-  @apply p-2 text-2xl md:text-3xl w-fit
-  font-semibold text-center md:text-start;
+  @apply p-2 w-fit text-2xl md:text-3xl font-semibold;
 }
 
 .section {
