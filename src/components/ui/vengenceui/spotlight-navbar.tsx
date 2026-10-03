@@ -86,9 +86,9 @@ const SpotlightNavbar = ({
       )}
     >
       {/* Content */}
-      <ul className="h-full px-5 flex gap-1 z-30 relative">
+      <ul className={cn("h-full px-5 flex gap-1 z-30 relative")}>
         {items.map((item, idx) => (
-          <li key={idx} className="relative flex items-center">
+          <li key={idx} className={cn("relative flex items-center")}>
             <a
               href={item.href}
 
@@ -131,12 +131,12 @@ const SpotlightNavbar = ({
 
       {/* spotlight layer */}
       <motion.div
-        className="
-        z-10 inset-0
-        pointer-events-none absolute
-        opacity-0 group-hover:opacity-100
-        transition-opacity duration-300
-        "
+        className={cn(
+          "z-10 inset-0",
+          "pointer-events-none absolute",
+          "opacity-0 group-hover:opacity-100",
+          "transition-opacity duration-300",
+        )}
         aria-hidden="true"
         style={
           {

@@ -9,6 +9,7 @@
 ├── package.json
 ├── postcss.config.mjs
 ├── public
+│   ├── faq.svg
 │   ├── hero.png
 │   └── tiktok.svg
 ├── src
@@ -32,11 +33,12 @@
 │   │   ├── o
 │   │   │   └── [slug]
 │   │   │       └── page.tsx
+│   │   ├── providers.tsx
 │   │   ├── styles
 │   │   │   ├── bg-patterns.css
 │   │   │   ├── custom.css
-│   │   │   ├── magicui.css
-│   │   │   └── scrollxui.css
+│   │   │   ├── layout.css
+│   │   │   └── magicui.css
 │   │   └── temp.css
 │   ├── components
 │   │   ├── layout
@@ -44,7 +46,11 @@
 │   │   │   ├── DarkModeToggle.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   ├── Header.tsx
-│   │   │   └── MobileMenu.tsx
+│   │   │   ├── MobileMenu.tsx
+│   │   │   ├── ShinyText.tsx
+│   │   │   ├── SmoothTextReveal.tsx
+│   │   │   ├── TextEffect.tsx
+│   │   │   └── Timeline.tsx
 │   │   ├── sections
 │   │   │   ├── FAQSection.tsx
 │   │   │   ├── HeroSection.tsx
@@ -53,17 +59,10 @@
 │   │   └── ui
 │   │       ├── aceternity
 │   │       │   ├── background-beams-with-collision.tsx
-│   │       │   ├── magnetic-button.tsx
-│   │       │   └── typewriter-effect.tsx
+│   │       │   └── magnetic-button.tsx
 │   │       ├── magicui
 │   │       │   ├── ripple-button.tsx
 │   │       │   └── ripple-link.tsx
-│   │       ├── motion-primitives
-│   │       │   └── text-effect.tsx
-│   │       ├── reactbits
-│   │       │   └── ShinyText.tsx
-│   │       ├── scrollxui
-│   │       │   └── accordion.tsx
 │   │       ├── shadcn
 │   │       │   ├── avatar.tsx
 │   │       │   ├── button.tsx
@@ -73,6 +72,7 @@
 │   └── lib
 │       └── utils.ts
 ├── struct.txt
+├── test.js
 └── tsconfig.json
 
-25 directories, 50 files
+22 directories, 53 files

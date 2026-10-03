@@ -4,7 +4,6 @@
   --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   --brand-ring: oklch(93% 0.007 106.5); /* olive-200 */
 
-
   --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
   --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
 
@@ -27,15 +26,14 @@
   --shadow-brand-header-shadow: var(--brand-header-shadow);
   --color-brand-ring: var(--brand-ring);
 
-
   --shadow-brand-btn-shadow: var(--brand-btn-shadow);
   --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
 
-  --font-playpen: var(--font-playpen);
+  --font-playpen: var(--playpen);
 }
 
 .section-header {
-  @apply flex justify-center md:justify-start;
+  @apply flex justify-center md:justify-start md:pl-6;
 }
 
 .section-title {

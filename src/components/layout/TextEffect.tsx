@@ -16,9 +16,7 @@ const childVariants: Variants = {
 
 const TextEffect = ({ words }: TextEffectProps) => (
   <motion.p
-    className="
-    text-xl text-foreground tracking-wider leading-10
-    "
+    className="text-xl text-foreground tracking-wider leading-10"
     variants={parentVariants}
     initial="hidden"
     animate="visible"

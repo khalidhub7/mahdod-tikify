@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { BackgroundBeamsWithCollision } from "@/components/ui/aceternity/background-beams-with-collision";
+// import { BackgroundBeamsWithCollision } from "@/components/ui/aceternity/background-beams-with-collision";
 // import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
 
 const blobClipPath = `
@@ -40,7 +40,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className="
-      min-h-screen bg-background overflow-hidden
+      min-h-screen overflow-hidden
       
       relative isolate
       grid grid-rows-[auto_1fr_auto]

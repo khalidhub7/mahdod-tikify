@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { motion, LayoutGroup } from "motion/react";
+import { cn } from "@/lib/utils";
 
 const questions = [
   {
@@ -46,32 +47,32 @@ const questions = [
 const FAQSection = () => {
   const [activeItem, setActiveItem] = useState(1);
   return (
-    <section className="section" >
+    <section className="section">
       {/* section header */}
-      <header className="section-header  ">
+      <header className="section-header">
         <h3
-          className="
-          section-title text-transparent
-          bg-clip-text bg-linear-to-r from-blue-500 to-purple-500
-          "
+          className={cn(
+            "section-title text-transparent",
+            "bg-clip-text bg-linear-to-r from-blue-500 to-purple-500",
+          )}
         >
           How It Works
         </h3>
       </header>
       {/* section content */}
       <div
-        className="
-        grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0
-        place-items-center
-        "
+        className={cn(
+          "grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0",
+          "place-items-center",
+        )}
       >
         {/* faq image */}
-        <div className="relative">
-          <Image src="/faq.svg" width={600} height={600} alt="faq" />
+        <div className="relative size-150 ">
+          <Image src="/faq.svg" fill alt="faq" />
         </div>
         {/* faq questions */}
         <LayoutGroup>
-          <ul className=" flex flex-col justify-center gap-5 pl-10 md:pl-0">
+          <ul className="flex flex-col justify-center gap-5 pl-10 md:pl-0">
             {questions.map((q) => (
               <motion.li key={q.id} className="list-none space-y-3" layout>
                 <button
@@ -91,10 +92,10 @@ const FAQSection = () => {
 
                 {activeItem === q.id ? (
                   <p
-                    className="
-                    ml-8 rounded p-3 [word-spacing:5px] max-w-4/5
-                    ring ring-brand-ring
-                    "
+                    className={cn(
+                      "ml-8 rounded p-3 [word-spacing:5px] max-w-4/5",
+                      "ring ring-brand-ring",
+                    )}
                   >
                     {q.answer}
                   </p>

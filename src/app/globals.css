@@ -86,8 +86,8 @@
   /* shadcn  */
 
   /* Fonts */
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-sans);
+  --font-heading: var(--font-geist);
+  --font-sans: var(--font-geist);
   /* App Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -139,7 +139,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
+    @apply bg-background text-foreground;
   }
   html {
     @apply font-sans;

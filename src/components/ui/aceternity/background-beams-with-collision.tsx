@@ -72,12 +72,10 @@ export const BackgroundBeamsWithCollision = ({
       {children}
       <div
         ref={containerRef}
-        className="
-  absolute bottom-0
-  bg-neutral-100
-  w-full inset-x-0
-  pointer-events-none
-"
+        className={cn(
+          "absolute bottom-0",
+          "bg-neutral-100 w-full inset-x-0 pointer-events-none",
+        )}
         style={{
           boxShadow: [
             "0 0 24px rgba(34, 42, 53, 0.06)",
@@ -236,12 +234,12 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="
-  absolute -inset-x-10 top-0 m-auto
-  h-2 w-10 rounded-full
-  bg-linear-to-r from-transparent via-indigo-500 to-transparent
-  blur-sm
-"
+        className={cn(
+          "absolute -inset-x-10 top-0 m-auto",
+          "h-2 w-10 rounded-full",
+          "bg-linear-to-r from-transparent via-indigo-500 to-transparent",
+          "blur-sm",
+        )}
       ></motion.div>
       {spans.map((span) => (
         <motion.span
@@ -253,11 +251,11 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
             opacity: 0,
           }}
           transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
-          className="
-  absolute
-  h-1 w-1 rounded-full
-  bg-linear-to-b from-indigo-500 to-purple-500
-"
+          className={cn(
+            "absolute",
+            "h-1 w-1 rounded-full",
+            "bg-linear-to-b from-indigo-500 to-purple-500",
+          )}
         />
       ))}
     </div>

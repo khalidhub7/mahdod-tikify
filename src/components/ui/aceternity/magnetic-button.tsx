@@ -69,9 +69,7 @@ export const MagneticButton = ({
       ref={parentRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="
-      cursor-pointer rounded border border-dashed
-      "
+      className="cursor-pointer rounded border border-dashed"
       style={{ borderColor, backgroundColor }}
     >
       <motion.div style={{ x: motionX, y: motionY }}>{children}</motion.div>

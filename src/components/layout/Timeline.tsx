@@ -110,7 +110,7 @@ const TimeLineItem = ({
             animate={{ opacity: 1 }}
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
           >
-            <Icon size={20} className="text-fuchsia-400" />
+            <Icon size={15} className="text-fuchsia-400" />
           </motion.span>
           <p>{title}</p>
         </div>

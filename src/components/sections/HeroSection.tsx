@@ -63,7 +63,6 @@ const HeroSection = () => {
             Get Started
           </Link>
 
-
           <MagneticButton>
             <button
               className="
@@ -77,7 +76,6 @@ const HeroSection = () => {
               Watch 45-second demo →
             </button>
           </MagneticButton>
-
         </div>
       </div>
 

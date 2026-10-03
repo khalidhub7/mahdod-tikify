@@ -1,6 +1,7 @@
 "use client";
 import { TimeLine } from "@/components/layout/Timeline";
 import { type TimeLineItemData } from "@/components/layout/Timeline";
+import { cn } from "@/lib/utils";
 import { Sparkles, LayoutDashboard, Link2, Radio } from "lucide-react";
 
 const steps: Array<TimeLineItemData> = [
@@ -47,11 +48,11 @@ const HowItWorksSection = () => {
     <section className="section space-y-10">
       <header className="section-header">
         <h3
-          className="
-          section-title
-          text-transparent
-          bg-clip-text bg-linear-to-r from-blue-500 to-purple-500
-          "
+          className={cn(
+            "section-title",
+            "text-transparent",
+            "bg-clip-text bg-linear-to-r from-blue-500 to-purple-500",
+          )}
         >
           How It Works
         </h3>

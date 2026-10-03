@@ -5,10 +5,20 @@ import { Providers } from "./providers";
 import { Geist, Playpen_Sans_Deva } from "next/font/google";
 
 /* Fonts */
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  // fallback: ["var(--playpen)"]
+});
+
 const playpen = Playpen_Sans_Deva({
   subsets: ["latin"],
-  variable: "--font-playpen",
+  variable: "--playpen",
+
+  // Just for learning
+  // next/font provides a default fallback font
+  // Usually, you don't need to add a custom fallback
+  // fallback: ["var(--font-sans, sans-serif)"],
 });
 
 /* Metadata */
@@ -16,19 +26,16 @@ export const metadata: Metadata = { title: "", description: "" };
 
 /* Providers */
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  // console.log(`*** ${geist.variable} ***`)
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+  /* console.log("***");
+  console.log("geist: ", geist);
+  console.log("***"); */
   return (
     <html
       suppressHydrationWarning
       lang="en"
       className={cn(
-        "font-sans",
-        /* "dark", */
+        // "dark",
         geist.variable,
         playpen.variable,
       )}
@@ -38,4 +45,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
