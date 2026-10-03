@@ -40,19 +40,16 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className="
-      min-h-screen overflow-hidden
-      
-      relative isolate
       grid grid-rows-[auto_1fr_auto]
-      space-y-5
-      bg-grid
+      min-h-screen overflow-hidden relative isolate
+      space-y-5 bg-grid
       "
     >
       {/* Top background blob */}
       <div
         aria-hidden="true"
         className="
-        absolute -z-10
+        absolute z-10
         inset-x-0 -top-40 sm:-top-80
         transform-gpu overflow-hidden blur-3xl
         "
@@ -70,17 +67,19 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
 
       {/* main content */}
-      <Header />
+      <div className="z-20" >
+        <Header />
 
       <main>{children}</main>
 
       <Footer />
+      </div>
 
       {/* Bottom background blob */}
       <div
         aria-hidden="true"
         className="
-        absolute inset-x-0 top-[calc(100%-13rem)] -z-10
+        absolute inset-x-0 top-[calc(100%-13rem)] z-10
         transform-gpu overflow-hidden blur-3xl
         sm:top-[calc(100%-30rem)]
         "
