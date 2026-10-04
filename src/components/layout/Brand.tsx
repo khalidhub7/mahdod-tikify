@@ -16,7 +16,8 @@ const Brand = ({ className }: { className?: string }) => {
     <Link href="/" className={cn("flex items-center gap-5", className)}>
       <MotionAvatar
         className="
-        ring-4 ring-brand-ring ring-offset-2 ring-offset-background
+        ring-4 ring-brand-ring
+        ring-offset-2 ring-offset-background
         "
         whileHover={{ scale: 0.9, rotate: -20 }}
       >

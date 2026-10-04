@@ -2,6 +2,7 @@ import { Brand } from "./Brand";
 import { MobileMenu } from "./MobileMenu";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { SpotlightNavbar } from "@/components/ui/vengenceui/spotlight-navbar";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { id: 1, label: "Home", href: "/" },
@@ -10,13 +11,14 @@ const navLinks = [
   { id: 4, label: "Register", href: "/register" },
 ];
 
-const Header = () => {
+const Header = ({ className }: { className?: string }) => {
   return (
     <header
-      className="
-    sticky top-0 
-    flex items-center justify-center h-16
-    "
+      className={cn(
+        "sticky top-0",
+        "flex items-center justify-center h-16",
+        className,
+      )}
     >
       <div
         className="

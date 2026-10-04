@@ -1,100 +1,17 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-// import { BackgroundBeamsWithCollision } from "@/components/ui/aceternity/background-beams-with-collision";
-// import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
-
-const blobClipPath = `
-  polygon(
-    74.1% 44.1%, 100% 61.6%,
-    97.5% 26.9%, 85.5% 0.1%,
-    80.7% 2%, 72.5% 32.5%,
-    60.2% 62.4%, 52.4% 68.1%,
-    47.5% 58.3%, 45.2% 34.5%,
-    27.5% 76.7%, 0.1% 64.9%,
-    17.9% 100%, 27.6% 76.8%,
-    76.1% 97.7%, 74.1% 44.1%
-  )
-`;
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  /* return (
-    <div>
-      <GravityStarsBackground className="absolute inset-0 -z-10" />
-      <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
-        <Header />
-        {children}
-        <Footer />
-      </div>
-    </div>
-  ); */
-  /* return (
-    <BackgroundBeamsWithCollision className="">
-      <div className=" grid grid-rows-[auto_1fr_auto] min-h-screen w-full ">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
-    </BackgroundBeamsWithCollision>
-  ); */
-
   return (
     <div
       className="
-      grid grid-rows-[auto_1fr_auto]
-      min-h-screen overflow-hidden relative isolate
-      space-y-5 bg-grid
+      min-h-screen grid grid-rows-[auto_1fr_auto]
+      bg-hex
       "
     >
-      {/* Top background blob */}
-      <div
-        aria-hidden="true"
-        className="
-        absolute z-10
-        inset-x-0 -top-40 sm:-top-80
-        transform-gpu overflow-hidden blur-3xl
-        "
-      >
-        <div
-          style={{ clipPath: blobClipPath }}
-          className="
-          relative left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)]
-          aspect-1155/678 w-144.5 sm:w-288.75
-          -translate-x-1/2 rotate-30
-          bg-linear-to-tr from-[#ff80b5] to-[#9089fc]
-          opacity-30
-          "
-        />
-      </div>
-
-      {/* main content */}
-      <div className="z-20" >
-        <Header />
-
+      <Header className="z-50" />
       <main>{children}</main>
-
       <Footer />
-      </div>
-
-      {/* Bottom background blob */}
-      <div
-        aria-hidden="true"
-        className="
-        absolute inset-x-0 top-[calc(100%-13rem)] z-10
-        transform-gpu overflow-hidden blur-3xl
-        sm:top-[calc(100%-30rem)]
-        "
-      >
-        <div
-          style={{ clipPath: blobClipPath }}
-          className="
-          relative left-[calc(50%+3rem)] sm:left-[calc(50%+36rem)]
-          aspect-1155/678 w-144.5 sm:w-288.75
-          -translate-x-1/2
-          bg-linear-to-tr from-[#ff80b5] to-[#9089fc]
-          opacity-30
-          "
-        />
-      </div>
     </div>
   );
 };
