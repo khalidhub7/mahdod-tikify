@@ -32,7 +32,12 @@ const SmoothTextReveal = ({
         viewport={{ once: true }}
         transition={{ duration: 3, ease: "linear", delay: 1 }}
       >
-        <Tag className="text-3xl lg:text-4xl font-bold whitespace-nowrap">
+        <Tag
+          className="
+          antialiased text-[clamp(1rem,3.5vw,2rem)]
+          font-bold max-w-full overflow-hidden
+          "
+        >
           {words.map((word, idx) => (
             <span
               key={idx}
@@ -47,7 +52,8 @@ const SmoothTextReveal = ({
       {/* cursor */}
       <span
         className={cn(
-          "rounded-full w-1 h-10 lg:h-12 bg-blue-500",
+          "w-[clamp(0.125rem,0.50vw,0.2rem)] h-[clamp(1rem,6vw,2.6rem)]",
+          "rounded-full bg-blue-500",
           "animate-[cursor-blink_2s_ease-in-out_infinite]",
           cursorClassName,
         )}

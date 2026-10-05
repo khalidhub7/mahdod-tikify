@@ -16,13 +16,17 @@ const childVariants: Variants = {
 
 const TextEffect = ({ words }: TextEffectProps) => (
   <motion.p
-    className="text-xl text-foreground tracking-wider leading-10"
+    className="
+    text-foreground tracking-wider
+    leading-10
+    text-[clamp(1rem,4vw,1.25rem)]
+    "
     variants={parentVariants}
     initial="hidden"
     animate="visible"
   >
     {words.map((w, idx) => (
-      <motion.span className="inline-block" key={idx} variants={childVariants}>
+      <motion.span className="block" key={idx} variants={childVariants}>
         {w}
       </motion.span>
     ))}

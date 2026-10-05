@@ -21,15 +21,17 @@ const HeroSection = () => {
   return (
     <section
       className="
-      section md:pt-10 md:min-h-screen
-      grid grid-cols-1 md:grid-cols-2
-      gap-12 md:gap-24
+      section min-h-screen
+      grid grid-cols-1 gap-10
+
+      lg:grid-cols-2 lg:gap-24
+      place-items-center
       "
     >
       {/* Left Content */}
       <div
         className="
-        p-5 flex flex-col
+        p-5 flex flex-col flex-wrap
         items-center gap-y-8 text-center
         md:items-start md:gap-y-10 md:text-left
         "
@@ -52,9 +54,9 @@ const HeroSection = () => {
           <Link
             href={"/"}
             className="
-            px-11 py-3
+            px-11 py-3 font-bold
             flex justify-center items-center
-            text-olive-50 tracking-wide rounded cursor-pointer
+            text-olive-50 tracking-wide rounded-full cursor-pointer
             bg-linear-to-r from-fuchsia-500 to-fuchsia-300
             hover:shadow-brand-btn-shadow hover:scale-90
             transition-transform duration-200 transform-gpu

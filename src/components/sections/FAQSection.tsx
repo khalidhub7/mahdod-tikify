@@ -67,9 +67,15 @@ const FAQSection = () => {
         )}
       >
         {/* faq image */}
-        <div className="relative size-150 ">
-          <Image src="/faq.svg" fill alt="faq" />
+        <div className="relative w-full max-w-xl aspect-square">
+          <Image
+            src="/faq.svg"
+            fill
+            alt="faq"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
+        
         {/* faq questions */}
         <LayoutGroup>
           <ul className="flex flex-col justify-center gap-5 pl-10 md:pl-0">

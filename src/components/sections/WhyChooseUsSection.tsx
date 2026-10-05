@@ -59,13 +59,12 @@ const WhyChooseUsSection = () => {
             key={f.id}
             className="
             bg-diagonal p-4 rounded
-
             ring-2 ring-offset-1
             ring-zinc-200 ring-offset-zinc-300
             dark:ring-gray-800 dark:ring-offset-gray-700
             "
           >
-            <Plus className=" text-red-400 inline mr-2 size-4" />
+            <Plus className="text-red-400 inline mr-2 size-4" />
             {f.description}
           </li>
         ))}
