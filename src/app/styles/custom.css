@@ -6,9 +6,10 @@
 
   --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
   --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
-
-  --brand-btn-shadow: 0 0 24px rgb(0 0 0 / 0.18);
   --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
+
+  /* buttons */
+  --btn-shadow: 0 4px 12px rgb(0 0 0 / 15%);
 }
 
 .dark {
@@ -18,8 +19,10 @@
   --shiny-text: oklch(98.8% 0.003 106.5); /* olive-50 */
   --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
 
-  --brand-btn-shadow: 0 0 24px rgb(255 255 255 / 0.12);
   --brand-drop-shadow: 0 40px 80px rgba(252, 251, 251, 0.25);
+
+  /* buttons */
+  --btn-shadow: 0 4px 12px rgb(255 255 255 / 12%);
 }
 
 /* dynamic variables */
@@ -27,18 +30,27 @@
 @theme inline {
   --shadow-brand-header-shadow: var(--brand-header-shadow);
   --color-brand-ring: var(--brand-ring);
-
-  --shadow-brand-btn-shadow: var(--brand-btn-shadow);
   --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
-
   --font-playpen: var(--playpen);
+
+  /* buttons */
+  --shadow-btn-shadow: var(--btn-shadow);
 }
 
 /* static variables */
 
-/* @theme {
-  --text-responsive-lg: clamp(1rem, 5vw, 2rem);
-} */
+@theme {
+  /* buttons */
+  --spacing-btn-px: clamp(0.7rem, 2vw, 3rem);
+  --spacing-btn-py: clamp(0.3rem, 1vw, 0.8rem);
+
+  
+}
+
+.btn {
+  @apply px-btn-px py-btn-py tracking-wide cursor-pointer text-neutral-50
+  hover:shadow-btn-shadow whitespace-nowrap text-[clamp(0.5rem,2.5vw,1rem)];
+}
 
 .section-header {
   @apply flex justify-center md:justify-start md:pl-6;

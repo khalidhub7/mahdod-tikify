@@ -19,9 +19,8 @@ const navLinks = [
 // don't try to use AnimatePresence in shadcn comps
 
 const parentVariants: Variants = {
-  visible: {
-    transition: { staggerChildren: 0.2, delayChildren: 0.5, when: false },
-  },
+  hidden: {}, // for clarity
+  visible: { transition: { staggerChildren: 0.2, delayChildren: 0.5 } },
 };
 
 const childVariants: Variants = {
@@ -29,42 +28,48 @@ const childVariants: Variants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const MobileMenu = () => {
+const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
   return (
     <Sheet>
       <SheetTrigger
         render={
           <Button
-            size={"lg"}
             variant={"outline"}
             aria-label="Open menu"
             className="
-            ring-4 ring-brand-ring ring-offset-2 ring-offset-background
-            size-8 cursor-pointer rounded-full hover:text-purple-600
-            "
+            size-[clamp(2rem,8vw,2.25rem)] cursor-pointer rounded-full
+            ring-4 ring-brand-ring
+            ring-offset-2 ring-offset-background
+            hover:text-purple-600
+             "
           />
         }
       >
-        <PanelLeftOpen className="size-5" />
+        <PanelLeftOpen className="size-[clamp(1.125rem,4.5vw,1.25rem)]" />
       </SheetTrigger>
 
       <SheetContent
         className="
-        m-2 p-2 rounded gap-40 items-center
+        rounded items-center
+        gap-[clamp(4rem,15vw,10rem)]
+        m-[clamp(0.25rem,1.5vw,0.5rem)] p-[clamp(0.25rem,1.5vw,0.5rem)]
         
-        [&>button]:static
+        [&>button]:size-[clamp(2.5rem,10vw,3rem)]
+        [&>button]:static [&>button]:bg-accent
+        [&>button]:rounded-full [&>button]:cursor-pointer
         [&>button]:ring-2 [&>button]:ring-brand-ring
         [&>button]:ring-offset-2 [&>button]:ring-offset-background
-        [&>button]:rounded-full [&>button]:cursor-pointer
-        [&>button]:size-12 [&>button]:bg-accent
-        [&>button]:hover:scale-90
+        [&>button]:hover:scale-110 [&>button]:transition-transform
         "
       >
         <SheetTitle className="sr-only">Menu</SheetTitle>
-        <nav aria-label="Mobile navigation" className="mt-24 w-full">
+        <nav
+          aria-label="Mobile navigation"
+          className="mt-[clamp(4rem,15vw,6rem)] w-full"
+        >
           <motion.ul
             variants={parentVariants}
-            className="flex flex-col gap-5"
+            className="flex flex-col gap-[clamp(0.75rem,4vw,1.25rem)]"
 
             initial="hidden"
             animate="visible"
@@ -73,29 +78,27 @@ const MobileMenu = () => {
               const Icon = l.icon;
 
               return (
-                <motion.li
-                  key={l.href}
-                  variants={childVariants}
-                  whileHover={{ scale: 0.9 }}
-                >
+                <motion.li key={l.href} variants={childVariants}>
                   <SheetClose
                     render={
                       <Link
                         href={l.href}
                         className="
-                        flex gap-5 items-center
-
-                        rounded-md p-3 mx-3 text-base text-foreground
-                        ring-2 ring-brand-ring ring-offset-2 ring-offset-background
+                        p-[clamp(0.5rem,3vw,0.75rem)] mx-[clamp(0.5rem,3vw,0.75rem)]
+                        text-[clamp(0.875rem,3.5vw,1rem)]
+                        flex gap-[clamp(0.75rem,4vw,1.25rem)] items-center
+                        rounded-md text-foreground
+                        ring-2 ring-brand-ring
+                        ring-offset-2 ring-offset-background
                         hover:bg-accent
                         "
                       />
                     }
                   >
-                    <Icon className="size-4" /> {l.label}
+                    <Icon className="size-[clamp(0.875rem,3.5vw,1rem)]" />
+                    {l.label}
                     <ChevronRight
-                      className="ml-auto"
-                      size={17}
+                      className="ml-auto size-[clamp(0.875rem,3.5vw,1.0625rem)]"
                       aria-hidden="true"
                     />
                   </SheetClose>
@@ -104,6 +107,7 @@ const MobileMenu = () => {
             })}
           </motion.ul>
         </nav>
+        {children}
       </SheetContent>
     </Sheet>
   );

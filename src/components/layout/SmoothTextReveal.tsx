@@ -23,26 +23,22 @@ const SmoothTextReveal = ({
   const Tag = as;
 
   return (
-    <div className={cn("flex gap-1 p-2", className)}>
+    <div className={cn("flex gap-[clamp(0.25rem,1vw,0.5rem)]", className)}>
       {/* text */}
       <motion.div
-        className="overflow-hidden"
-        initial={{ width: "0%" }}
+        initial={{ width: 0 }}
         whileInView={{ width: "fit-content" }}
         viewport={{ once: true }}
         transition={{ duration: 3, ease: "linear", delay: 1 }}
       >
         <Tag
           className="
-          antialiased text-[clamp(1rem,3.5vw,2rem)]
-          font-bold max-w-full overflow-hidden
+          antialiased text-[clamp(0.8rem,5vw,2rem)] leading-[1.2]
+          flex gap-[clamp(0.25rem,1.5vw,0.5rem)] font-bold overflow-hidden
           "
         >
           {words.map((word, idx) => (
-            <span
-              key={idx}
-              className={cn("dark:text-white text-black mr-2", word.className)}
-            >
+            <span key={idx} className={cn("text-foreground", word.className)}>
               {word.text}
             </span>
           ))}
@@ -52,7 +48,7 @@ const SmoothTextReveal = ({
       {/* cursor */}
       <span
         className={cn(
-          "w-[clamp(0.125rem,0.50vw,0.2rem)] h-[clamp(1rem,6vw,2.6rem)]",
+          "w-[clamp(0.125rem,0.5vw,0.2rem)] h-[clamp(0.96rem,6vw,2.4rem)]",
           "rounded-full bg-blue-500",
           "animate-[cursor-blink_2s_ease-in-out_infinite]",
           cursorClassName,
