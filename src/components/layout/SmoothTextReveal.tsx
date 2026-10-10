@@ -32,10 +32,10 @@ const SmoothTextReveal = ({
         transition={{ duration: 3, ease: "linear", delay: 1 }}
       >
         <Tag
-          className="
-          antialiased text-[clamp(0.8rem,5vw,2rem)] leading-[1.2]
-          flex gap-[clamp(0.25rem,1.5vw,0.5rem)] font-bold overflow-hidden
-          "
+          className={`
+            antialiased text-[clamp(0.8rem,5vw,2rem)] leading-[1.2]
+            flex gap-[clamp(0.25rem,1.5vw,0.5rem)] font-bold overflow-hidden
+            `}
         >
           {words.map((word, idx) => (
             <span key={idx} className={cn("text-foreground", word.className)}>

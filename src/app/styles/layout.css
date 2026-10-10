@@ -40,3 +40,20 @@ src/components/ui/vengenceui/spotlight-navbar.tsx
   --spotlight-color: rgba(255, 255, 255, 0.18);
   --ambience-color: rgba(255, 255, 255, 1);
 }
+
+/* src/components/ui/shadcn/sheet.tsx */
+
+button[data-slot="sheet-close"] {
+  @apply size-[clamp(2.5rem,10vw,3rem)] static bg-accent
+  rounded-full cursor-pointer
+  ring-2 ring-brand-ring
+  ring-offset-2 ring-offset-background
+  hover:scale-110 transition-transform;
+}
+
+/* src/components/layout/DarkModeToggle.tsx */
+
+@theme {
+  --toggle-k: clamp(1rem, 3.5vw, 1.1875rem); /* knob */
+  --toggle-l: clamp(0.125rem, 0.5vw, 0.1875rem); /* pad */
+}

@@ -2,7 +2,10 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Providers } from "./providers";
-import { Geist, Playpen_Sans_Deva } from "next/font/google";
+import {
+  Geist,
+  // Playpen_Sans_Deva
+} from "next/font/google";
 
 /* Fonts */
 const geist = Geist({
@@ -11,7 +14,7 @@ const geist = Geist({
   // fallback: ["var(--playpen)"]
 });
 
-const playpen = Playpen_Sans_Deva({
+/* const playpen = Playpen_Sans_Deva({
   subsets: ["latin"],
   variable: "--playpen",
 
@@ -19,7 +22,7 @@ const playpen = Playpen_Sans_Deva({
   // next/font provides a default fallback font
   // Usually, you don't need to add a custom fallback
   // fallback: ["var(--font-sans, sans-serif)"],
-});
+}); */
 
 /* Metadata */
 export const metadata: Metadata = { title: "", description: "" };
@@ -37,7 +40,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
       className={cn(
         // "dark",
         geist.variable,
-        playpen.variable,
+        // playpen.variable,
       )}
     >
       <body>

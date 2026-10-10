@@ -37,39 +37,34 @@ const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
             variant={"outline"}
             aria-label="Open menu"
             className="
-            size-[clamp(2rem,8vw,2.25rem)] cursor-pointer rounded-full
-            ring-4 ring-brand-ring
+            size-[clamp(1.5rem,4.3vw,2.25rem)] cursor-pointer rounded-full
+            ring-[clamp(0.125rem,1vw,0.25rem)] ring-brand-ring
             ring-offset-2 ring-offset-background
             hover:text-purple-600
              "
           />
         }
       >
-        <PanelLeftOpen className="size-[clamp(1.125rem,4.5vw,1.25rem)]" />
+        <PanelLeftOpen className="size-[clamp(0.875rem,4.5vw,1.25rem)]" />
       </SheetTrigger>
 
       <SheetContent
         className="
         rounded items-center
-        gap-[clamp(4rem,15vw,10rem)]
-        m-[clamp(0.25rem,1.5vw,0.5rem)] p-[clamp(0.25rem,1.5vw,0.5rem)]
-        
-        [&>button]:size-[clamp(2.5rem,10vw,3rem)]
-        [&>button]:static [&>button]:bg-accent
-        [&>button]:rounded-full [&>button]:cursor-pointer
-        [&>button]:ring-2 [&>button]:ring-brand-ring
-        [&>button]:ring-offset-2 [&>button]:ring-offset-background
-        [&>button]:hover:scale-110 [&>button]:transition-transform
+        gap-[clamp(2rem,15vw,10rem)]
+        m-[clamp(0.125rem,1.5vw,0.5rem)] p-[clamp(0.125rem,1.5vw,0.5rem)]
         "
       >
         <SheetTitle className="sr-only">Menu</SheetTitle>
+        {children}
+        
         <nav
           aria-label="Mobile navigation"
-          className="mt-[clamp(4rem,15vw,6rem)] w-full"
+          className="w-full"
         >
           <motion.ul
             variants={parentVariants}
-            className="flex flex-col gap-[clamp(0.75rem,4vw,1.25rem)]"
+            className="flex flex-col gap-[clamp(0.5rem,2.625vw,0.75rem)]"
 
             initial="hidden"
             animate="visible"
@@ -84,10 +79,11 @@ const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
                       <Link
                         href={l.href}
                         className="
-                        p-[clamp(0.5rem,3vw,0.75rem)] mx-[clamp(0.5rem,3vw,0.75rem)]
-                        text-[clamp(0.875rem,3.5vw,1rem)]
-                        flex gap-[clamp(0.75rem,4vw,1.25rem)] items-center
-                        rounded-md text-foreground
+                        px-[clamp(0.5rem,2.625vw,0.75rem)] py-[clamp(0.375rem,1.75vw,0.5rem)] mx-[clamp(0.375rem,1.75vw,0.5rem)]
+                        text-[clamp(0.75rem,3.5vw,1rem)]
+                        flex gap-[clamp(0.5rem,2.625vw,0.75rem)] items-center
+
+                        rounded-full text-foreground
                         ring-2 ring-brand-ring
                         ring-offset-2 ring-offset-background
                         hover:bg-accent
@@ -95,10 +91,10 @@ const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
                       />
                     }
                   >
-                    <Icon className="size-[clamp(0.875rem,3.5vw,1rem)]" />
+                    <Icon className="size-[clamp(0.75rem,3.5vw,1rem)]" />
                     {l.label}
                     <ChevronRight
-                      className="ml-auto size-[clamp(0.875rem,3.5vw,1.0625rem)]"
+                      className="ml-auto size-[clamp(0.75rem,3.5vw,1rem)]"
                       aria-hidden="true"
                     />
                   </SheetClose>
@@ -107,7 +103,7 @@ const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
             })}
           </motion.ul>
         </nav>
-        {children}
+        
       </SheetContent>
     </Sheet>
   );

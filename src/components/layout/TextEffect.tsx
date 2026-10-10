@@ -16,11 +16,11 @@ const childVariants: Variants = {
 
 const TextEffect = ({ words }: TextEffectProps) => (
   <motion.p
-    className="
-    text-foreground
-    text-[clamp(0.7rem,3vw,1.25rem)] leading-[clamp(1.4rem,6vw,2.5rem)]
-    tracking-wide md:tracking-wider
-    "
+    className={`
+      text-foreground
+      text-[clamp(0.7rem,3vw,1.25rem)] leading-[clamp(1.4rem,6vw,2.5rem)]
+      tracking-wide md:tracking-wider
+      `}
     variants={parentVariants}
     initial="hidden"
     animate="visible"

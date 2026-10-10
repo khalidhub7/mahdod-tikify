@@ -23,12 +23,12 @@ const Header = ({ className }: { className?: string }) => {
       {/* rounded-tl-full rounded-br-full */}
       <div
         className="
+        bg-background
         w-[95%] md:max-w-5xl h-[80%] px-[clamp(0.5rem,4vw,2.5rem)]
         
         flex items-center justify-between
-        rounded
+        rounded-lg
         shadow-brand-header-shadow
-        transition-[width] duration-1000
         "
       >
         <Brand className="whitespace-nowrap" />
@@ -37,21 +37,25 @@ const Header = ({ className }: { className?: string }) => {
 
         {/* settings */}
         <div
-          className="
-          flex justify-end items-center h-[80%] rounded
-          "
+          className="rounded hidden md:flex items-center"
         >
           <DarkModeToggle />
         </div>
 
         {/* MobileMenu */}
         <div
-          className="
-          flex items-center justify-center md:hidden
-          h-full aspect-square 
-          "
+          className="flex md:hidden"
         >
-          <MobileMenu />
+          <MobileMenu >
+            {/* settings */}
+            <div className="
+            p-[clamp(0.5rem,3vw,1rem)]
+            w-full rounded
+            border-b-[clamp(1px,0.3vw,2px)]
+            " >
+              <DarkModeToggle />
+            </div>
+          </MobileMenu>
         </div>
       </div>
     </header>

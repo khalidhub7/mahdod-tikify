@@ -6,7 +6,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     <div
       className="
       min-h-screen grid grid-rows-[auto_1fr_auto]
-      bg-hex
+      bg-grid
       "
     >
       <Header className="z-50" />

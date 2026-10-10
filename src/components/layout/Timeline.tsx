@@ -1,29 +1,16 @@
-// eg: data
-/* const items: TimeLineItemData[] = [
-  { id: 1, position: "left", title: "sign up" },
-  { id: 2, position: "right", title: "setup dashboard" },
-  { id: 3, position: "left", title: "custom your overlay" },
-  { id: 4, position: "right", title: "take browser source" },
-]; */
+"use client";
+
+// components/layout/Timeline.tsx
 
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
-import { useMotionValueEvent } from "motion/react";
-import { motion, useSpring, useScroll } from "motion/react";
+import { motion, useScroll, useSpring, useMotionValueEvent } from "motion/react";
 
-type SeparatorProps = { className?: string };
+/* ---------------------------------- Types --------------------------------- */
 
-type TimeLineItemProps = {
-  position: "left" | "right";
-  title: string;
-  description: string;
-  icon: LucideIcon;
-};
-
-type TimeLineItemData = {
+export type TimeLineItemData = {
   id: number;
-  position: "left" | "right";
   title: string;
   description: string;
   icon: LucideIcon;
@@ -31,112 +18,135 @@ type TimeLineItemData = {
 
 type TimeLineProps = { items: TimeLineItemData[] };
 
-const Separator = ({ className = "" }: SeparatorProps) => {
-  // line
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 90%", "start 75%"],
-    trackContentSize: true, // watch content size changes
-  });
+/* ------------------------------ Style tokens ------------------------------ */
+/* All clamps synced to 640px–960px range. Verified at endpoints. */
 
-  const scaleY = useSpring(0, { stiffness: 100, damping: 10 });
+const cardStyles = cn(
+  "w-full rounded-2xl",
+  "p-[clamp(0.85rem,2vw_+_0.05rem,1.25rem)] space-y-2",
+  "bg-background/60 backdrop-blur-sm border border-border/60",
+  "border-l-[3px] border-l-blue-500",
+  "transition-all duration-300",
+  "hover:-translate-y-0.5 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/10"
+);
 
-  useMotionValueEvent(scrollYProgress, "change", (newValue) => {
-    if (newValue < scaleY.get()) return;
-    scaleY.set(newValue);
-  });
+const nodeStyles = cn(
+  "flex size-[clamp(2rem,2.5vw_+_1rem,2.5rem)] shrink-0 items-center justify-center rounded-full",
+  "bg-linear-to-br from-blue-500 to-purple-500",
+  "text-white shadow-md shadow-blue-500/25",
+  "ring-4 ring-background"
+);
 
-  return (
-    <div className={cn("flex flex-col items-center gap-2", className)}>
-      <span
-        aria-hidden="true"
-        className="size-1 rounded ring-4 ring-fuchsia-200 mb-1"
-      />
+const titleStyles =
+  "flex items-center gap-2 text-base font-semibold";
 
-      <motion.div
-        className="w-px h-28 rounded-full origin-top"
-        whileInView={{ backgroundColor: "oklch(54.6% 0.245 262.881)" }}
+const descriptionStyles =
+  "text-sm leading-relaxed text-foreground/65";
 
-        ref={ref}
-        style={{ scaleY }}
-      />
-    </div>
-  );
-};
+/* ------------------------------ Sub-components ----------------------------- */
 
 const TimeLineItem = ({
-  position,
-  title,
-  description,
-  icon,
-}: TimeLineItemProps) => {
-  const Icon = icon;
+  item,
+  index,
+  total,
+}: {
+  item: TimeLineItemData;
+  index: number;
+  total: number;
+}) => {
+  const Icon = item.icon;
+  const isLeft = index % 2 === 0;
+  const isLast = index === total - 1;
+
   return (
-    <div
+    <li
       className={cn(
-        "px-3 py-1 grid justify-items-center",
-        "grid-cols-[30px_1fr] md:grid-cols-[1fr_30px_1fr]",
+        "relative grid grid-cols-[clamp(2.5rem,2.5vw_+_1.5rem,3rem)_1fr] items-start",
+        "gap-x-[clamp(0.75rem,3.75vw_-_0.75rem,1.5rem)]",
+        "md:grid-cols-[1fr_clamp(3rem,5vw_+_1rem,4rem)_1fr]",
+        isLast ? "pb-0" : "pb-[clamp(1.5rem,7.5vw_-_1.5rem,3rem)]"
       )}
     >
-      {/* empty */}
-      <div
-        aria-hidden="true"
-        className={cn("hidden md:block", { "md:order-3": position === "left" })}
-      />
+      {/* Node */}
+      <div className="col-start-1 flex justify-center md:col-start-2 md:row-start-1">
+        <motion.span
+          className={nodeStyles}
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.15 }}
+          aria-hidden
+        >
+          <Icon className="size-[clamp(1rem,1vw_+_0.6rem,1.2rem)]" />
+        </motion.span>
+      </div>
 
-      <Separator className={cn({ "md:order-2": position === "left" })} />
-
-      {/* card */}
+      {/* Card */}
       <motion.div
         className={cn(
-          "p-5 w-full shadow space-y-5",
-          "border-t-2 border-blue-400",
-          { "md:order-1": position === "left" },
-
-          position === "left"
-            ? "md:rounded-tl-2xl md:rounded-br-2xl"
-            : "md:rounded-tr-2xl md:rounded-bl-2xl",
+          cardStyles,
+          "col-start-2 row-start-1",
+          isLeft ? "md:col-start-1" : "md:col-start-3"
         )}
-
-        initial={{ x: -50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: "spring", stiffness: 900, delay: 1 }}
+        initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.05 }}
       >
-        <div className="flex gap-4">
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-          >
-            <Icon size={15} className="text-fuchsia-400" />
-          </motion.span>
-          <p>{title}</p>
-        </div>
-
-        <p className="[word-spacing:5px]">{description}</p>
+        <h3 className={titleStyles}>
+          <span className="text-xs font-bold text-blue-500">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          {item.title}
+        </h3>
+        <p className={descriptionStyles}>{item.description}</p>
       </motion.div>
-    </div>
+    </li>
   );
 };
 
+/* -------------------------------- Component -------------------------------- */
+
 const TimeLine = ({ items }: TimeLineProps) => {
+  const listRef = useRef<HTMLUListElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ["start 0.75", "end 0.6"],
+  });
+
+  const scaleY = useSpring(0, { stiffness: 90, damping: 20 });
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v > scaleY.get()) scaleY.set(v);
+  });
+
+  const lineClass = cn(
+    "absolute top-0 bottom-0 w-[2px] -translate-x-1/2 rounded-full",
+    "left-[clamp(1.25rem,1.25vw_+_0.75rem,1.5rem)] md:left-1/2"
+  );
+
   return (
-    <ul className="max-w-xl md:max-w-6xl mx-auto">
-      {items.map((c) => (
-        <li key={c.id}>
-          <TimeLineItem
-            position={c.position}
-            title={c.title}
-            description={c.description}
-            icon={c.icon}
-          />
-        </li>
+    <ul ref={listRef} className="relative mx-auto max-w-xl md:max-w-5xl">
+      <div aria-hidden className={cn(lineClass, "bg-border/60")} />
+      <motion.div
+        aria-hidden
+        className={cn(
+          lineClass,
+          "origin-top bg-linear-to-b from-blue-500 to-purple-500"
+        )}
+        style={{ scaleY }}
+      />
+
+      {items.map((item, index) => (
+        <TimeLineItem
+          key={item.id}
+          item={item}
+          index={index}
+          total={items.length}
+        />
       ))}
     </ul>
   );
 };
 
 export { TimeLine };
-export type { TimeLineItemData };

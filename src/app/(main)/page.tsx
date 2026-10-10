@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <div className="max-w-[90%] mx-auto space-y-16">
       <HeroSection />
-      <WhyChooseUsSection />
+      {/* <WhyChooseUsSection />
       <HowItWorksSection />
-      <FAQSection />
+      <FAQSection /> */}
     </div>
   );
 };

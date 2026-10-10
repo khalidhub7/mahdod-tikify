@@ -3,17 +3,20 @@
 "use client";
 import { useRef, type ReactNode } from "react";
 import { motion, useTransform, useSpring } from "motion/react";
+import { cn } from "@/lib/utils";
 
 type MagneticButtonProps = {
   children: ReactNode;
   strength?: number;
   maxDistance?: number;
+  className?: string
 };
 
 export const MagneticButton = ({
   children,
   strength = 0.8,
   maxDistance = 40,
+  className = ""
 }: MagneticButtonProps) => {
   // ref
   const parentRef = useRef<HTMLDivElement>(null);
@@ -69,7 +72,7 @@ export const MagneticButton = ({
       ref={parentRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="cursor-pointer rounded border border-dashed"
+      className={cn("cursor-pointer rounded border border-dashed", className)}
       style={{ borderColor, backgroundColor }}
     >
       <motion.div style={{ x: motionX, y: motionY }}>{children}</motion.div>

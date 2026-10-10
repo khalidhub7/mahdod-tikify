@@ -18,8 +18,8 @@ export const DarkModeToggle = () => {
         "flex items-center",
         "bg-zinc-200 dark:bg-gray-600",
         "isolate relative rounded-full cursor-pointer",
-        "w-[calc(2*clamp(1.25rem,3.5vw,1.5rem)+2*clamp(0.125rem,0.5vw,0.25rem))]",
-        "h-[calc(clamp(1.25rem,3.5vw,1.5rem)+2*clamp(0.125rem,0.5vw,0.25rem))]",
+        "w-[calc(2*var(--toggle-k)+2*var(--toggle-l))]",
+        "h-[calc(var(--toggle-k)+2*var(--toggle-l))]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
       )}
     >
@@ -27,21 +27,19 @@ export const DarkModeToggle = () => {
         aria-hidden="true"
         className={cn(
           "absolute rounded-full bg-background",
-          "left-[clamp(0.125rem,0.5vw,0.25rem)]",
-          "size-[clamp(1.25rem,3.5vw,1.5rem)]",
+          "left-(--toggle-l)",
+          "size-(--toggle-k)",
           "transition-transform duration-200",
-          isDark
-            ? "translate-x-[clamp(1.25rem,3.5vw,1.5rem)]"
-            : "translate-x-0",
+          isDark ? "translate-x-(--toggle-k)" : "translate-x-0",
         )}
       />
       <Sun
         aria-hidden="true"
         className={cn(
           "z-10 absolute",
-          "w-[clamp(0.75rem,2.5vw,1rem)] h-[clamp(0.75rem,2.5vw,1rem)]",
+          "w-[calc(var(--toggle-k)*0.75)] h-[calc(var(--toggle-k)*0.75)]",
           "top-1/2 -translate-y-1/2",
-          "left-[calc(clamp(0.125rem,0.5vw,0.25rem)+clamp(1.25rem,3.5vw,1.5rem)/2-clamp(0.75rem,2.5vw,1rem)/2)]",
+          "left-[calc(var(--toggle-l)+var(--toggle-k)/2-var(--toggle-k)*0.375)]",
           isDark ? "invisible" : "text-yellow-400",
         )}
       />
@@ -49,9 +47,9 @@ export const DarkModeToggle = () => {
         aria-hidden="true"
         className={cn(
           "z-10 absolute",
-          "w-[clamp(0.75rem,2.5vw,1rem)] h-[clamp(0.75rem,2.5vw,1rem)]",
+          "w-[calc(var(--toggle-k)*0.75)] h-[calc(var(--toggle-k)*0.75)]",
           "top-1/2 -translate-y-1/2",
-          "right-[calc(clamp(0.125rem,0.5vw,0.25rem)+clamp(1.25rem,3.5vw,1.5rem)/2-clamp(0.75rem,2.5vw,1rem)/2)]",
+          "right-[calc(var(--toggle-l)+var(--toggle-k)/2-var(--toggle-k)*0.375)]",
           isDark ? "text-purple-400" : "invisible",
         )}
       />
