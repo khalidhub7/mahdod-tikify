@@ -53,7 +53,7 @@ const questions = [
 const accordionItemStyles = cn(
   "overflow-hidden rounded-xl border border-transparent",
   "transition-colors duration-200",
-  "data-[open]:border-border data-[open]:bg-background/50"
+  "data-[open]:border-border data-[open]:bg-background/50",
 );
 
 const questionButtonStyles = cn(
@@ -62,13 +62,13 @@ const questionButtonStyles = cn(
   "text-left font-medium",
   "hover:bg-foreground/5",
   "transition-colors duration-200",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400",
 );
 
 const answerPanelStyles = cn(
   "px-[clamp(0.85rem,2vw_+_0.05rem,1.25rem)] pb-[clamp(0.85rem,2vw_+_0.05rem,1.25rem)]",
   "pl-[clamp(2rem,3vw_+_0.8rem,2.6rem)]",
-  "text-sm leading-relaxed text-foreground/70"
+  "text-sm leading-relaxed text-foreground/70",
 );
 
 /* ------------------------------ Sub-components ----------------------------- */
@@ -135,7 +135,7 @@ const FaqItem = ({ item, isOpen, onToggle }: FaqItemProps) => (
           aria-hidden
           className={cn(
             "size-4 shrink-0 text-blue-500 transition-transform duration-300",
-            isOpen && "rotate-180"
+            isOpen && "rotate-180",
           )}
         />
       </button>
@@ -163,7 +163,7 @@ const FAQSection = () => {
       <div
         className={cn(
           "mx-auto grid max-w-6xl grid-cols-1 items-center",
-          "gap-[clamp(2rem,10vw_-_2rem,4rem)] lg:grid-cols-[5fr_7fr]"
+          "gap-[clamp(2rem,10vw_-_2rem,4rem)] lg:grid-cols-[5fr_7fr]",
         )}
       >
         <FaqIllustration />

@@ -133,15 +133,24 @@
   hover:shadow-btn-shadow whitespace-nowrap;
 }
 
+/* sections */
 .section {
-  @apply px-fluid-6;
+  @apply px-fluid-6 space-y-fluid-6;
 }
 
 .section-header {
-  @apply flex justify-center md:justify-start md:pl-fluid-5;
+  @apply flex justify-center md:justify-start;
 }
 
 .section-title {
-  @apply p-fluid-3 w-fit
-  text-fluid-2xl font-semibold;
+  @apply text-transparent bg-clip-text whitespace-nowrap
+  text-fluid-xl font-semibold;
+}
+
+.section-subtitle {
+  @apply text-foreground/60 text-fluid-base text-center;
+}
+
+.section-content {
+  @apply flex flex-col gap-fluid-6;
 }

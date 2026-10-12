@@ -20,14 +20,14 @@ const Header = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      {/* rounded-tl-full rounded-br-full */}
+      
       <div
         className="
-        bg-background
+        bg-background bg-diagonal
         w-[95%] md:max-w-5xl h-[80%] px-[clamp(0.5rem,4vw,2.5rem)]
         
         flex items-center justify-between
-        rounded-lg
+        rounded-lg sm:rounded-tl-full sm:rounded-br-full
         shadow-brand-header-shadow
         "
       >
