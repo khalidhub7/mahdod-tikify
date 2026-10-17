@@ -2,8 +2,6 @@
 
 :root {
   --brand-header-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  --brand-ring: oklch(93% 0.007 106.5); /* olive-200 */
-
   --shiny-text: oklch(21% 0.034 264.665); /* gray-900 */
   --shiny-shine: oklch(98.8% 0.003 106.5); /* olive-50 */
   --brand-drop-shadow: 0 40px 80px rgb(17 24 39 / 25%);
@@ -14,13 +12,9 @@
 
 .dark {
   --brand-header-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-  --brand-ring: oklch(44.6% 0.043 257.281); /* slate-600 */
-
   --shiny-text: oklch(98.8% 0.003 106.5); /* olive-50 */
   --shiny-shine: oklch(21% 0.034 264.665); /* gray-900 */
-
   --brand-drop-shadow: 0 40px 80px rgba(252, 251, 251, 0.25);
-
   /* buttons */
   --btn-shadow: 0 4px 12px rgb(255 255 255 / 12%);
 }
@@ -29,7 +23,6 @@
 
 @theme inline {
   --shadow-brand-header-shadow: var(--brand-header-shadow);
-  --color-brand-ring: var(--brand-ring);
   --drop-shadow-brand-drop-shadow: var(--brand-drop-shadow);
   --font-playpen: var(--playpen);
 
@@ -144,7 +137,8 @@
 
 .section-title {
   @apply text-transparent bg-clip-text whitespace-nowrap
-  text-fluid-xl font-semibold;
+  text-fluid-xl font-semibold
+  bg-linear-to-r from-foreground/60 via-foreground to-foreground/60;
 }
 
 .section-subtitle {

@@ -23,7 +23,7 @@ const Brand = ({ className }: { className?: string }) => {
       <MotionAvatar
         className="
         size-[clamp(1.5rem,4vw,2rem)]
-        ring-[clamp(0.125rem,1vw,0.25rem)] ring-brand-ring
+        ring-[clamp(0.125rem,1vw,0.25rem)] ring-ring/20
         ring-offset-[clamp(0.0625rem,0.5vw,0.125rem)] ring-offset-background
         "
         whileHover={{ scale: 0.9, rotate: -20 }}

@@ -13,12 +13,12 @@ type TimeLineItemData = {
 
 type TimeLineProps = { items: TimeLineItemData[] };
 
-type TimeLineItem = {
+type TimeLineItemProps = {
   item: TimeLineItemData;
   index: number;
 };
 
-const TimeLineItem = ({ item, index }: TimeLineItem) => {
+const TimeLineItem = ({ item, index }: TimeLineItemProps) => {
   const isLeft = index % 2 === 0;
 
   return (
@@ -32,14 +32,16 @@ const TimeLineItem = ({ item, index }: TimeLineItem) => {
       <div
         aria-hidden
         className={`
+          row-start-1
+          flex justify-center bg-background z-20
           col-start-1 md:col-start-2
-          flex justify-center items-center
           `}
       >
         <span
           className={`
-            size-3 rounded-full z-20 animate-pulse
-            bg-fuchsia-500 ring-2 ring-taupe-300
+            size-2 rounded-full motion-safe:animate-pulse
+            bg-fuchsia-500 dark:bg-fuchsia-300
+            ring-2 ring-taupe-300 dark:ring-taupe-600
             `}
         />
       </div>
@@ -48,27 +50,31 @@ const TimeLineItem = ({ item, index }: TimeLineItem) => {
       <motion.div
         className={cn(
           `
+          row-start-1
           w-full rounded-lg p-fluid-5 space-y-fluid-3
           bg-background/60 border border-border shadow
-          hover:-translate-y-0.5 hover:border-fuchsia-500/40
-          hover:rotate-0
-          transition-all duration-300
+          
+          hover:border-fuchsia-500/40
+          hover:-translate-y-1 md:hover:rotate-0
+          transition-[translate,rotate,border-color] duration-500
           `,
           isLeft ? "md:col-start-1 md:-rotate-1" : "md:col-start-3 md:rotate-1",
         )}
 
         initial={{ opacity: 0, y: isLeft ? -20 : 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 600, delay: 0.2 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.5 }}
       >
         <h3
           className={`
+            tracking-wide
             flex items-center gap-fluid-3 text-fluid-base font-semibold
             `}
         >
           <span
             className={`
-              text-fluid-sm font-bold text-blue-500 
+              text-fluid-sm font-bold text-blue-500 dark:text-blue-300
               `}
           >
             {String(index + 1).padStart(2, "0")}
@@ -78,7 +84,8 @@ const TimeLineItem = ({ item, index }: TimeLineItem) => {
 
         <p
           className={`
-            text-fluid-sm sm:text-fluid-base leading-relaxed text-foreground/65
+            leading-relaxed text-foreground/65
+            text-fluid-sm sm:text-fluid-base
             `}
         >
           {item.description}
@@ -89,8 +96,11 @@ const TimeLineItem = ({ item, index }: TimeLineItem) => {
 };
 
 const TimeLine = ({ items }: TimeLineProps) => {
+  // ref
+  const progress = useRef(0);
   const listRef = useRef<HTMLUListElement>(null);
 
+  // motion
   const { scrollYProgress } = useScroll({
     target: listRef,
     offset: ["start 75%", "end 60%"],
@@ -99,14 +109,16 @@ const TimeLine = ({ items }: TimeLineProps) => {
   const scaleY = useSpring(0, { stiffness: 90, damping: 20 });
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v > scaleY.get()) scaleY.set(v);
+    if (v > progress.current) {
+      progress.current = v;
+      scaleY.set(v);
+    }
   });
 
   return (
-    <ul
-      ref={listRef}
+    <div
       className={`
-        isolate relative space-y-fluid-6
+        isolate relative
         max-w-xl md:max-w-5xl mx-auto
         `}
     >
@@ -117,16 +129,20 @@ const TimeLine = ({ items }: TimeLineProps) => {
           origin-top
           absolute top-0 bottom-0 left-5 md:left-1/2 z-10
           w-px sm:w-0.5 -translate-x-1/2 rounded-full
-          bg-zinc-300/80
+          bg-zinc-300/80 dark:bg-zinc-600/90
           `}
 
         style={{ scaleY }}
       />
-
-      {items.map((item, index) => (
-        <TimeLineItem key={item.id} item={item} index={index} />
-      ))}
-    </ul>
+      <ul
+        ref={listRef}
+        className="space-y-fluid-6"
+      >
+        {items.map((item, index) => (
+          <TimeLineItem key={item.id} item={item} index={index} />
+        ))}
+      </ul>
+    </div>
   );
 };
 

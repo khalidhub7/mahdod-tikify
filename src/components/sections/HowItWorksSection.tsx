@@ -1,4 +1,3 @@
-
 import { TimeLine, type TimeLineItemData } from "@/components/layout/Timeline";
 
 const steps: TimeLineItemData[] = [
@@ -32,10 +31,7 @@ const HowItWorksSection = () => (
   <section aria-labelledby="how-it-works-section" className="section">
     {/* header */}
     <header className="section-header">
-      <h2
-        id="how-it-works-section"
-        className="section-title bg-linear-to-r from-blue-500 to-purple-500"
-      >
+      <h2 id="how-it-works-section" className="section-title">
         How It Works
       </h2>
     </header>

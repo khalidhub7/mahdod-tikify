@@ -20,10 +20,9 @@ const Header = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      
       <div
         className="
-        bg-background bg-diagonal
+        bg-background bg-dots
         w-[95%] md:max-w-5xl h-[80%] px-[clamp(0.5rem,4vw,2.5rem)]
         
         flex items-center justify-between
@@ -36,23 +35,21 @@ const Header = ({ className }: { className?: string }) => {
         <SpotlightNavbar items={navLinks} className="hidden md:flex" />
 
         {/* settings */}
-        <div
-          className="rounded hidden md:flex items-center"
-        >
+        <div className="rounded hidden md:flex items-center">
           <DarkModeToggle />
         </div>
 
         {/* MobileMenu */}
-        <div
-          className="flex md:hidden"
-        >
-          <MobileMenu >
+        <div className="flex md:hidden">
+          <MobileMenu>
             {/* settings */}
-            <div className="
+            <div
+              className="
             p-[clamp(0.5rem,3vw,1rem)]
             w-full rounded
             border-b-[clamp(1px,0.3vw,2px)]
-            " >
+            "
+            >
               <DarkModeToggle />
             </div>
           </MobileMenu>

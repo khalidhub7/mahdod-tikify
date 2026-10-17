@@ -10,4 +10,6 @@ npx shadcn@latest add avatar
 # most used
 cat /mnt/c/Users/winusr4/AppData/Roaming/Code/User/settings.json
 
+grep -rl --exclude-dir=node_modules --exclude-dir=.next "brand-ring" .
+
 rm -rf .next && npm run dev

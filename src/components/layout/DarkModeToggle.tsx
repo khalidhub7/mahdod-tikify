@@ -2,10 +2,14 @@
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export const DarkModeToggle = () => {
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+
+  useEffect(() => setMounted(true), []);
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <button

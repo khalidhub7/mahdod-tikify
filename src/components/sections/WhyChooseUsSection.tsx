@@ -51,10 +51,7 @@ const WhyChooseUsSection = () => (
   <section aria-labelledby="why-choose-us-section" className="section">
     {/* header */}
     <header className="section-header">
-      <h2
-        id="why-choose-us-section"
-        className="section-title bg-linear-to-r from-blue-500 to-purple-500"
-      >
+      <h2 id="why-choose-us-section" className="section-title">
         Why Choose Us
       </h2>
     </header>
@@ -65,25 +62,29 @@ const WhyChooseUsSection = () => (
       <p className="section-subtitle">
         Built for streamers who want power without the setup headache.
       </p>
+
       {/* features */}
       <ul
         className={`
-            grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-            mx-auto max-w-6xl gap-fluid-5
-            `}
+          grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+          mx-auto max-w-6xl gap-fluid-5
+          `}
       >
         {features.map(({ id, icon: Icon, title, description }) => (
           <li
             key={id}
             className={`
-                flex flex-col gap-fluid-3 p-fluid-5
-                rounded-md backdrop-blur-sm
-                border border-border/60
-                bg-foreground/2 dark:bg-foreground/5
-                transition-all duration-300
-                hover:-translate-y-1 hover:border-blue-500/40
-                hover:shadow-md hover:shadow-blue-500/10
-                `}
+              flex flex-col gap-fluid-3
+              p-fluid-5 rounded-md backdrop-blur-sm
+              bg-foreground/2 dark:bg-foreground/5
+              
+              border border-foreground/30
+              ring-2 ring-ring/20
+              ring-offset-2 ring-offset-background
+              
+              hover:-translate-y-1 hover:shadow-md hover:shadow-blue-500/10
+              transition-all duration-300
+              `}
           >
             <div className="flex items-center gap-fluid-4">
               <Icon
@@ -91,7 +92,7 @@ const WhyChooseUsSection = () => (
                 className="size-fluid-icon-lg text-blue-500/90 dark:text-blue-200"
               />
 
-              <h3 className="wrap-break-word text-fluid-sm font-semibold ">
+              <h3 className="wrap-break-word text-fluid-sm font-semibold">
                 {title}
               </h3>
             </div>

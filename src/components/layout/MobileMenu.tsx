@@ -38,7 +38,7 @@ const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
             aria-label="Open menu"
             className="
             size-[clamp(1.5rem,4.3vw,2.25rem)] cursor-pointer rounded-full
-            ring-[clamp(0.125rem,1vw,0.25rem)] ring-brand-ring
+            ring-[clamp(0.125rem,1vw,0.25rem)] ring-ring/20
             ring-offset-2 ring-offset-background
             hover:text-purple-600
              "
@@ -84,7 +84,7 @@ const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
                         flex gap-[clamp(0.5rem,2.625vw,0.75rem)] items-center
 
                         rounded-full text-foreground
-                        ring-2 ring-brand-ring
+                        ring-2 ring-ring/20
                         ring-offset-2 ring-offset-background
                         hover:bg-accent
                         "

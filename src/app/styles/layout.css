@@ -46,7 +46,7 @@ src/components/ui/vengenceui/spotlight-navbar.tsx
 button[data-slot="sheet-close"] {
   @apply size-[clamp(2.5rem,10vw,3rem)] static bg-accent
   rounded-full cursor-pointer
-  ring-2 ring-brand-ring
+  ring-2 ring-ring/20
   ring-offset-2 ring-offset-background
   hover:scale-110 transition-transform;
 }

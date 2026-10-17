@@ -10,6 +10,7 @@
 ├── postcss.config.mjs
 ├── public
 │   ├── faq.svg
+│   ├── hero-neon.png
 │   ├── hero.png
 │   └── tiktok.svg
 ├── src
@@ -75,4 +76,4 @@
 ├── test.js
 └── tsconfig.json
 
-22 directories, 53 files
+23 directories, 54 files
