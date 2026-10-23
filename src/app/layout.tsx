@@ -71,6 +71,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
       lang="en"
       className={cn(
         // "dark",
+        "antialiased",
         geist.variable,
         // playpen.variable,
       )}

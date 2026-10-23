@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowRight, Check, Play } from "lucide-react";
 import { TextEffect } from "@/components/layout/TextEffect";
 import { SmoothTextReveal } from "@/components/layout/SmoothTextReveal";
-import { MagneticButton } from "@/components/ui/aceternity/magnetic-button";
+import { MagneticWrapper } from "@/components/ui/aceternity/magnetic-wrapper";
 
 // data
 const headline = [
@@ -73,7 +73,7 @@ const HeroSection = () => (
         <Link
           href="/"
           className={`
-            btn group rounded-full
+            btn group rounded-full text-neutral-50
             bg-linear-to-r from-fuchsia-500 to-fuchsia-400
             shadow-lg shadow-fuchsia-500/25
             transition-all duration-300
@@ -94,7 +94,7 @@ const HeroSection = () => (
         </Link>
 
         {/* second cta */}
-        <MagneticButton className="rounded-full">
+        <MagneticWrapper className="rounded-full">
           <button
             type="button"
             className={`
@@ -114,7 +114,7 @@ const HeroSection = () => (
             />
             Watch 45-sec demo
           </button>
-        </MagneticButton>
+        </MagneticWrapper>
       </div>
 
       {/* Reassurance row under the CTAs */}

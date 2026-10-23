@@ -12,7 +12,7 @@ type MagneticButtonProps = {
   className?: string
 };
 
-export const MagneticButton = ({
+const MagneticWrapper = ({
   children,
   strength = 0.8,
   maxDistance = 40,
@@ -79,3 +79,5 @@ export const MagneticButton = ({
     </motion.div>
   );
 };
+
+export { MagneticWrapper }

@@ -122,8 +122,7 @@
 
 .btn {
   @apply text-fluid-sm px-fluid-6 py-fluid-3
-  tracking-wide cursor-pointer text-neutral-50
-  hover:shadow-btn-shadow whitespace-nowrap;
+  tracking-wide cursor-pointer whitespace-nowrap;
 }
 
 /* sections */
