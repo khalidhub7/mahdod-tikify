@@ -16,3 +16,6 @@ grep -rl \
   "process.env.EULER_STREAM_API_KEY" .
 
 rm -rf .next && npm run dev
+
+
+npx tsx --env-file=.env src/lib/euler.ts

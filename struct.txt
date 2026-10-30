@@ -28,6 +28,9 @@
 │   │   │   │   └── page.tsx
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
+│   │   ├── api
+│   │   │   └── create_token
+│   │   │       └── route.ts
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -42,6 +45,8 @@
 │   │   │   └── magicui.css
 │   │   └── temp.css
 │   ├── components
+│   │   ├── dashboard
+│   │   │   └── CopyOverlayUrlButton.tsx
 │   │   ├── layout
 │   │   │   ├── Brand.tsx
 │   │   │   ├── DarkModeToggle.tsx
@@ -57,23 +62,28 @@
 │   │   │   ├── HeroSection.tsx
 │   │   │   ├── HowItWorksSection.tsx
 │   │   │   └── WhyChooseUsSection.tsx
-│   │   └── ui
-│   │       ├── aceternity
-│   │       │   ├── background-beams-with-collision.tsx
-│   │       │   └── magnetic-button.tsx
-│   │       ├── magicui
-│   │       │   ├── ripple-button.tsx
-│   │       │   └── ripple-link.tsx
-│   │       ├── shadcn
-│   │       │   ├── avatar.tsx
-│   │       │   ├── button.tsx
-│   │       │   └── sheet.tsx
-│   │       └── vengenceui
-│   │           └── spotlight-navbar.tsx
-│   └── lib
-│       └── utils.ts
+│   │   ├── ui
+│   │   │   ├── aceternity
+│   │   │   │   ├── background-beams-with-collision.tsx
+│   │   │   │   └── magnetic-wrapper.tsx
+│   │   │   ├── magicui
+│   │   │   │   ├── ripple-button.tsx
+│   │   │   │   └── ripple-link.tsx
+│   │   │   ├── shadcn
+│   │   │   │   ├── avatar.tsx
+│   │   │   │   ├── button.tsx
+│   │   │   │   └── sheet.tsx
+│   │   │   └── vengenceui
+│   │   │       └── spotlight-navbar.tsx
+│   │   └── widgets
+│   ├── lib
+│   │   ├── euler.ts
+│   │   ├── site.ts
+│   │   └── utils.ts
+│   └── workers
+│       └── tiktok-live.ts
 ├── struct.txt
 ├── test.js
 └── tsconfig.json
 
-23 directories, 54 files
+28 directories, 59 files
