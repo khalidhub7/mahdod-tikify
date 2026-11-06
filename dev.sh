@@ -3,8 +3,11 @@ npx create-next-app@latest .
 tree ./ -I 'node_modules' > struct.txt
 prettier --write --print-width 80 file
 
+# shadcn
 npx shadcn@latest init
 npx shadcn@latest add avatar
+
+# supabase
 
 
 # most used
@@ -16,6 +19,4 @@ grep -rl \
   "process.env.EULER_STREAM_API_KEY" .
 
 rm -rf .next && npm run dev
-
-
 npx tsx --env-file=.env src/lib/euler.ts
