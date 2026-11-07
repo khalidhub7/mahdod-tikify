@@ -14,8 +14,8 @@ const createEulerJwt = async (uniqueId: string) => {
   }
   const client = new EulerStreamApiClient({ apiKey: API_KEY });
 
-  // Best Practice:
-  // Short lifetime + restrict to one creator/connection
+  // best Practice:
+  // short lifetime + restrict to one creator/connection
   const response = await client.authentication.createJWT(Number(ACCOUNT_ID), {
     expireAfter: 60, // 60 seconds is recommended
     websockets: {
@@ -34,8 +34,11 @@ const connectToLive = (
 
   // Best Practice: Frontend uses jwtKey, Backend uses apiKey
 
-  if ("jwtKey" in auth) params.append("jwtKey", auth.jwtKey);
-  else params.append("apiKey", auth.apiKey);
+  if ("jwtKey" in auth) {
+    params.append("jwtKey", auth.jwtKey);
+  } else {
+    params.append("apiKey", auth.apiKey);
+  }
 
   const ws = new WebSocket(`${EULER_WS_URL}?${params.toString()}`);
 

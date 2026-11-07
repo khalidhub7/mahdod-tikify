@@ -3,6 +3,7 @@ import "server-only";
 import { createEulerJwt } from "@/lib/euler";
 import { NextRequest, NextResponse } from "next/server";
 import { createHash, timingSafeEqual } from "node:crypto";
+import { createClient } from "@/lib/supabase/server";
 
 /*
 https://app.com/o/overlay_123?key=YOUR_SECRET_TOKEN
@@ -10,25 +11,30 @@ https://app.com/o/overlay_123?key=YOUR_SECRET_TOKEN
 
 const POST = async (request: NextRequest) => {
   try {
+    const supabase = await createClient();
+    const user = supabase.auth.getUser();
+
     const { overlayId, key } = await request.json();
 
     if (typeof overlayId !== "string" || typeof key !== "string" || !key) {
       return NextResponse.json({ error: "Invalid request" }, { status: 400 });
     }
 
-    // Find the requested overlay and its owner.
-    const overlay = await db.overlay.findUnique({
-      where: { id: overlayId },
-      include: { user: true },
-    });
+    // find the requested overlay
+    // todo: later try to exclude the secret_hash in query
+    const { data: overlay } = await supabase
+      .from("overlays")
+      .select("*")
+      .eq("id", overlayId)
+      .single();
 
-    if (!overlay || !overlay.user.request_token_hash) {
+    if (!overlay || !overlay.secret_hash) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Hash the supplied secret and compare it safely.
     const suppliedHash = createHash("sha256").update(key).digest();
-    const storedHash = Buffer.from(overlay.user.request_token_hash, "hex");
+    const storedHash = Buffer.from(overlay.secret_hash, "hex");
 
     if (
       storedHash.length !== suppliedHash.length ||

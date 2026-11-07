@@ -29,7 +29,7 @@
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
 │   │   ├── api
-│   │   │   └── create_token
+│   │   │   └── create-token
 │   │   │       └── route.ts
 │   │   ├── favicon.ico
 │   │   ├── globals.css
@@ -62,28 +62,36 @@
 │   │   │   ├── HeroSection.tsx
 │   │   │   ├── HowItWorksSection.tsx
 │   │   │   └── WhyChooseUsSection.tsx
-│   │   ├── ui
-│   │   │   ├── aceternity
-│   │   │   │   ├── background-beams-with-collision.tsx
-│   │   │   │   └── magnetic-wrapper.tsx
-│   │   │   ├── magicui
-│   │   │   │   ├── ripple-button.tsx
-│   │   │   │   └── ripple-link.tsx
-│   │   │   ├── shadcn
-│   │   │   │   ├── avatar.tsx
-│   │   │   │   ├── button.tsx
-│   │   │   │   └── sheet.tsx
-│   │   │   └── vengenceui
-│   │   │       └── spotlight-navbar.tsx
-│   │   └── widgets
+│   │   └── ui
+│   │       ├── aceternity
+│   │       │   ├── background-beams-with-collision.tsx
+│   │       │   └── magnetic-wrapper.tsx
+│   │       ├── magicui
+│   │       │   ├── ripple-button.tsx
+│   │       │   └── ripple-link.tsx
+│   │       ├── shadcn
+│   │       │   ├── avatar.tsx
+│   │       │   ├── button.tsx
+│   │       │   └── sheet.tsx
+│   │       └── vengenceui
+│   │           └── spotlight-navbar.tsx
 │   ├── lib
 │   │   ├── euler.ts
 │   │   ├── site.ts
+│   │   ├── supabase
+│   │   │   ├── admin.ts
+│   │   │   ├── client.ts
+│   │   │   └── server.ts
 │   │   └── utils.ts
 │   └── workers
 │       └── tiktok-live.ts
 ├── struct.txt
+├── supabase
+│   ├── config.toml
+│   └── migrations
+│       └── 20261106083510_create_widgets_table.sql
+├── tempproxy.ts
 ├── test.js
 └── tsconfig.json
 
-28 directories, 59 files
+30 directories, 65 files
