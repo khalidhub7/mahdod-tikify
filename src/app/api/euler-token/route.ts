@@ -1,57 +1,43 @@
-import "server-only";
+import { createHash } from "node:crypto";
 import { createEulerJwt } from "@/lib/euler";
 import { NextRequest, NextResponse } from "next/server";
-import { createHash, timingSafeEqual } from "node:crypto";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { eulerTokenSchema } from "@/lib/validations/euler.schema";
 
 /*
-https://app.com/o/overlay_123?key=YOUR_SECRET_TOKEN
+https://<YOUR_DOMAIN>/o/<OVERLAY_ID>?key=<OVERLAY_SECRET>
+
+- isActive: Controls whether this overlay is allowed to request Euler JWTs.
+
+TODO: rate limiter
 */
 
 const POST = async (request: NextRequest) => {
   try {
-    const supabase = await createClient();
-    const { overlayId, key } = await request.json();
+    const data = await request.json();
 
-    if (
-      !overlayId ||
-      !key ||
-      typeof overlayId !== "string" ||
-      typeof key !== "string"
-    ) {
+    // validate
+    const result = eulerTokenSchema.safeParse(data);
+    if (!result.success) {
       return NextResponse.json({ error: "Invalid request" }, { status: 400 });
     }
+    const { overlayId, key } = result.data;
 
-    // find the requested overlay
-    // todo: later try to exclude the secret_hash in query
-    const { data: overlay } = await supabase
+    // create client
+    const supabase = createAdminClient();
+
+    // find the requested overlay, bypass RLS
+    const submittedHash = createHash("sha256").update(key).digest("hex");
+    const { data: overlay, error } = await supabase
       .from("overlays")
-      .select("id, secret_hash, is_active, tiktok_username")
+      .select("id, is_active, tiktok_username")
       .eq("id", overlayId)
-      .single();
+      .eq("secret_hash", submittedHash)
+      .maybeSingle();
 
-    if (!overlay || !overlay.secret_hash) {
+    if (error) throw error;
+    if (!overlay || !overlay.is_active) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    // hash key
-    const submittedHash = createHash("sha256").update(key).digest();
-    // stored hashed key
-    const storedHash = Buffer.from(overlay.secret_hash, "hex");
-    // compare
-    if (
-      storedHash.length !== submittedHash.length ||
-      !timingSafeEqual(storedHash, submittedHash)
-    ) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    // Ensure the overlay is active and has a valid TikTok creator.
-    if (!overlay.is_active || !overlay.tiktok_username) {
-      return NextResponse.json(
-        { error: "Overlay unavailable" },
-        { status: 403 },
-      );
     }
 
     // get a short-lived Euler JWT restricted to this creator

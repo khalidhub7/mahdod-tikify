@@ -29,7 +29,7 @@
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
 │   │   ├── api
-│   │   │   └── create-token
+│   │   │   └── euler-token
 │   │   │       └── route.ts
 │   │   ├── favicon.ico
 │   │   ├── globals.css
@@ -82,16 +82,20 @@
 │   │   │   ├── admin.ts
 │   │   │   ├── client.ts
 │   │   │   └── server.ts
-│   │   └── utils.ts
+│   │   ├── utils.ts
+│   │   └── validations
+│   │       └── euler.ts
 │   └── workers
 │       └── tiktok-live.ts
 ├── struct.txt
 ├── supabase
 │   ├── config.toml
 │   └── migrations
-│       └── 20261106083510_create_widgets_table.sql
+│       ├── 20261106083510_create_widgets_table.sql
+│       ├── 20261107002628_create_overlays_table.sql
+│       └── 20261108075922_create_profiles_table.sql
 ├── tempproxy.ts
 ├── test.js
 └── tsconfig.json
 
-30 directories, 65 files
+30 directories, 68 files
