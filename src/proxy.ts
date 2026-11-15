@@ -7,11 +7,12 @@ const protectedPages = ["/dashboard"];
 const proxy = async (request: NextRequest) => {
   const { pathname, searchParams } = request.nextUrl;
 
+  // store supabase cache headers to avoid losing them during redirects
+  let cacheHeaders: Record<string, string> = {};
+
   // prevent bad redirects
   const isAuthPage = ["/login", "/register"].includes(pathname);
   const redirectTo = searchParams.get("redirect");
-
-  // console.log(`*** ${pathname} ***`);
 
   if (redirectTo && isAuthPage) {
     const shouldRemoveRedirect = !isSafeRedirect(redirectTo);
@@ -35,7 +36,7 @@ const proxy = async (request: NextRequest) => {
     {
       cookies: {
         getAll: () => request.cookies.getAll(),
-        setAll: (cookiesToSet) => {
+        setAll: (cookiesToSet, headers) => {
           // update the incoming request (for server.ts)
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value),
@@ -48,6 +49,11 @@ const proxy = async (request: NextRequest) => {
           cookiesToSet.forEach(({ name, value, options }) =>
             response.cookies.set(name, value, options),
           );
+          // Apply Supabase cache headers
+          cacheHeaders = headers;
+          Object.entries(cacheHeaders).forEach(([key, value]) => {
+            response.headers.set(key, value);
+          });
         },
       },
     },
@@ -65,8 +71,17 @@ const proxy = async (request: NextRequest) => {
   // preserve refreshed cookies on redirects
   const redirectWithCookies = (url: URL) => {
     const redirectResponse = NextResponse.redirect(url);
+    // preserves refreshed authentication cookies.
     response.cookies.getAll().forEach((cookie) => {
       redirectResponse.cookies.set(cookie);
+    });
+
+    // preserves Supabase's cache-related headers.
+    // for more info check
+    // https://supabase.com/docs/guides/auth/server-side/creating-a-client?environment=client-component
+    // https://supabase.com/docs/guides/auth/server-side/advanced-guide
+    Object.entries(cacheHeaders).forEach(([key, value]) => {
+      redirectResponse.headers.set(key, value);
     });
     return redirectResponse;
   };

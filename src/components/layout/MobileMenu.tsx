@@ -75,6 +75,7 @@ const MobileMenu = ({ children }: { children?: React.ReactNode }) => {
               return (
                 <motion.li key={l.href} variants={childVariants}>
                   <SheetClose
+                  nativeButton={false}
                     render={
                       <Link
                         href={l.href}

@@ -1,42 +1,42 @@
 ./
-├── README.md
 ├── components.json
 ├── dev.sh
 ├── eslint.config.mjs
-├── next-env.d.ts
 ├── next.config.ts
-├── package-lock.json
+├── next-env.d.ts
 ├── package.json
+├── package-lock.json
 ├── postcss.config.mjs
 ├── public
 │   ├── faq.svg
 │   ├── hero-neon.png
 │   ├── hero.png
 │   └── tiktok.svg
+├── README.md
 ├── scripts
 │   └── delete-user.ts
 ├── src
 │   ├── app
+│   │   ├── api
+│   │   │   ├── euler-token
+│   │   │   │   └── route.ts
+│   │   │   └── verify-email
+│   │   │       └── route.ts
 │   │   ├── (app)
 │   │   │   ├── (auth)
 │   │   │   │   ├── login
 │   │   │   │   │   └── page.tsx
 │   │   │   │   └── register
 │   │   │   │       └── page.tsx
-│   │   │   ├── (main)
-│   │   │   │   ├── dashboard
-│   │   │   │   │   ├── edit
-│   │   │   │   │   │   └── [id]
-│   │   │   │   │   │       └── page.tsx
-│   │   │   │   │   └── page.tsx
-│   │   │   │   ├── layout.tsx
-│   │   │   │   └── page.tsx
-│   │   │   └── layout.tsx
-│   │   ├── api
-│   │   │   ├── euler-token
-│   │   │   │   └── route.ts
-│   │   │   └── verify-email
-│   │   │       └── route.ts
+│   │   │   ├── layout.tsx
+│   │   │   └── (main)
+│   │   │       ├── dashboard
+│   │   │       │   ├── edit
+│   │   │       │   │   └── [id]
+│   │   │       │   │       └── page.tsx
+│   │   │       │   └── page.tsx
+│   │   │       ├── layout.tsx
+│   │   │       └── page.tsx
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -114,4 +114,4 @@
 ├── test.js
 └── tsconfig.json
 
-34 directories, 80 files
+35 directories, 80 files
