@@ -24,7 +24,7 @@ const proxy = async (request: NextRequest) => {
     }
   }
 
-  // init the response
+  // init the continue response
   let response = NextResponse.next({
     request: { headers: request.headers },
   });
