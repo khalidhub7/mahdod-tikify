@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { RegisterForm } from "@/components/auth/RegisterForm";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Create Account",
@@ -9,11 +10,15 @@ export const metadata: Metadata = {
   },
 };
 
+// Suspense required because RegisterForm uses useSearchParams()
+
 const RegisterPage = () => {
   return (
-    <main className="flex min-h-screen items-center justify-center p-4">
-      <RegisterForm />
-    </main>
+    <Suspense fallback={<div>Loading...</div>}>
+      <main className="flex min-h-screen items-center justify-center p-4">
+        <RegisterForm />
+      </main>
+    </Suspense>
   );
 };
 

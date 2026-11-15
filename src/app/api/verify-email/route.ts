@@ -1,6 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse, type NextRequest } from "next/server";
 
+/*
+/api/verify-email
+*/
+
 const GET = async (request: NextRequest) => {
   const { searchParams } = request.nextUrl;
 

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/shadcn/button";
 import { CopyOverlayUrlButton } from "@/components/dashboard/CopyOverlayUrlButton";
+import { Suspense } from "react";
+import { VerificationToast } from "@/components/auth/VerificationToast";
 
 const metadata = {
   title: "Dashboard",
@@ -41,7 +43,6 @@ const overlays = [
 ];
 
 const Dashboard = () => {
-
   const formatDate = (date: string) =>
     new Intl.DateTimeFormat("en-US", {
       month: "short",
@@ -51,85 +52,90 @@ const Dashboard = () => {
     }).format(new Date(date));
 
   return (
-    <div
-      className={`
+    <>
+      <Suspense fallback={null}>
+        <VerificationToast />
+      </Suspense>
+      <div
+        className={`
         min-h-screen my-fluid-4 mx-fluid-5 space-y-fluid-5
         rounded-md ring ring-ring/25
         `}
-    >
-      {/* dashboard header */}
-      <div
-        className={`
+      >
+        {/* dashboard header */}
+        <div
+          className={`
         h-fluid-7
         flex items-center justify-end px-fluid-6
         `}
-      >
-        <Button size={"lg"} className={`cursor-pointer`}>
-          <Plus aria-hidden="true" />
-          New overlay
-        </Button>
-      </div>
+        >
+          <Button size={"lg"} className={`cursor-pointer`}>
+            <Plus aria-hidden="true" />
+            New overlay
+          </Button>
+        </div>
 
-      {/* content */}
-      {/* list of overlays */}
-      <ul className={`shadow rounded-md divide-y md:w-4/6 md:mx-auto `}>
-        {overlays.map((overlay) => (
-          <li
-            key={overlay.id}
-            className={`
+        {/* content */}
+        {/* list of overlays */}
+        <ul className={`shadow rounded-md divide-y md:w-4/6 md:mx-auto `}>
+          {overlays.map((overlay) => (
+            <li
+              key={overlay.id}
+              className={`
               px-fluid-5 py-fluid-4
               flex flex-col sm:flex-row
               gap-fluid-5 justify-between
               transition-colors hover:bg-muted/60 dark:hover:bg-muted/20
               `}
-          >
-            <div className="space-y-1">
-              <h2
-                className={`
+            >
+              <div className="space-y-1">
+                <h2
+                  className={`
                   tracking-wide
                   font-semibold text-blue-500 dark:text-blue-400
                   `}
-              >
-                {overlay.name}
-              </h2>
+                >
+                  {overlay.name}
+                </h2>
 
-              <p className="text-sm text-muted-foreground">
-                {overlay.widgetCount}{" "}
-                {overlay.widgetCount === 1 ? "widget" : "widgets"}
-              </p>
+                <p className="text-sm text-muted-foreground">
+                  {overlay.widgetCount}{" "}
+                  {overlay.widgetCount === 1 ? "widget" : "widgets"}
+                </p>
 
-              <p className="text-xs text-muted-foreground">
-                Created {formatDate(overlay.createdAt)} · Edited{" "}
-                {formatDate(overlay.updatedAt)}
-              </p>
-            </div>
+                <p className="text-xs text-muted-foreground">
+                  Created {formatDate(overlay.createdAt)} · Edited{" "}
+                  {formatDate(overlay.updatedAt)}
+                </p>
+              </div>
 
-            <div className="flex shrink-0 items-center gap-2">
-              <CopyOverlayUrlButton slug={overlay.id} />
-              <Button
-                size="sm"
-                variant="outline"
-                className="cursor-pointer"
-                render={
-                  <Link href={`/dashboard/edit/${overlay.id}`}>
-                    Edit overlay
-                  </Link>
-                }
-              ></Button>
+              <div className="flex shrink-0 items-center gap-2">
+                <CopyOverlayUrlButton slug={overlay.id} />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="cursor-pointer"
+                  render={
+                    <Link href={`/dashboard/edit/${overlay.id}`}>
+                      Edit overlay
+                    </Link>
+                  }
+                ></Button>
 
-              <Button
-                type="button"
-                size="sm"
-                variant="destructive"
-                className="cursor-pointer"
-              >
-                Delete
-              </Button>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="destructive"
+                  className="cursor-pointer"
+                >
+                  Delete
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

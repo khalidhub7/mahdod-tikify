@@ -1,43 +1,42 @@
 ./
+├── README.md
 ├── components.json
 ├── dev.sh
 ├── eslint.config.mjs
-├── next.config.ts
 ├── next-env.d.ts
-├── package.json
+├── next.config.ts
 ├── package-lock.json
+├── package.json
 ├── postcss.config.mjs
-├── proxy.ts
 ├── public
 │   ├── faq.svg
 │   ├── hero-neon.png
 │   ├── hero.png
 │   └── tiktok.svg
-├── README.md
 ├── scripts
 │   └── delete-user.ts
 ├── src
 │   ├── app
-│   │   ├── api
-│   │   │   ├── euler-token
-│   │   │   │   └── route.ts
-│   │   │   └── verify-email
-│   │   │       └── route.ts
 │   │   ├── (app)
 │   │   │   ├── (auth)
 │   │   │   │   ├── login
 │   │   │   │   │   └── page.tsx
 │   │   │   │   └── register
 │   │   │   │       └── page.tsx
-│   │   │   ├── layout.tsx
-│   │   │   └── (main)
-│   │   │       ├── dashboard
-│   │   │       │   ├── edit
-│   │   │       │   │   └── [id]
-│   │   │       │   │       └── page.tsx
-│   │   │       │   └── page.tsx
-│   │   │       ├── layout.tsx
-│   │   │       └── page.tsx
+│   │   │   ├── (main)
+│   │   │   │   ├── dashboard
+│   │   │   │   │   ├── edit
+│   │   │   │   │   │   └── [id]
+│   │   │   │   │   │       └── page.tsx
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── layout.tsx
+│   │   │   │   └── page.tsx
+│   │   │   └── layout.tsx
+│   │   ├── api
+│   │   │   ├── euler-token
+│   │   │   │   └── route.ts
+│   │   │   └── verify-email
+│   │   │       └── route.ts
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -54,7 +53,8 @@
 │   ├── components
 │   │   ├── auth
 │   │   │   ├── LoginForm.tsx
-│   │   │   └── RegisterForm.tsx
+│   │   │   ├── RegisterForm.tsx
+│   │   │   └── VerificationToast.tsx
 │   │   ├── dashboard
 │   │   │   └── CopyOverlayUrlButton.tsx
 │   │   ├── layout
@@ -101,6 +101,7 @@
 │   │       ├── auth.schema.ts
 │   │       ├── euler.schema.ts
 │   │       └── redirect-validation.ts
+│   ├── proxy.ts
 │   └── workers
 │       └── tiktok-live.ts
 ├── struct.txt
@@ -113,4 +114,4 @@
 ├── test.js
 └── tsconfig.json
 
-35 directories, 79 files
+34 directories, 80 files

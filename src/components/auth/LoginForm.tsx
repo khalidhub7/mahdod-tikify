@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { toast } from "sonner";
+import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Brand } from "../layout/Brand";
@@ -12,22 +13,24 @@ import { Label } from "@/components/ui/shadcn/label";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/shadcn/button";
 import { loginSchema } from "@/lib/validations/auth.schema";
-import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/shadcn/card";
 import { CardHeader, CardTitle } from "@/components/ui/shadcn/card";
 import { type LoginFormValues } from "@/lib/validations/auth.schema";
 import { isSafeRedirect } from "@/lib/validations/redirect-validation";
-import { useEffect } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 const messages: Record<string, string> = {
   email_not_confirmed: "Please confirm your email before signing in.",
   invalid_credentials: "Invalid email or password.",
   over_request_rate_limit: "Too many attempts. Try again later.",
+  over_email_send_rate_limit:
+    "Please wait a minute before requesting another email.",
 };
 
 const LoginForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   const form = useForm<LoginFormValues>({
     mode: "onChange",
@@ -51,6 +54,30 @@ const LoginForm = () => {
       });
 
       if (error) {
+        if (error.code === "email_not_confirmed") {
+          toast.error(messages.email_not_confirmed, {
+            id: "email-not-confirmed",
+            duration: 15000,
+            action: {
+              label: "Resend email",
+              onClick: async () => {
+                const { error } = await supabase.auth.resend({
+                  type: "signup",
+                  email: data.email,
+                });
+
+                if (error) {
+                  toast.error(
+                    messages[error.code || ""] || "Unable to resend the email.",
+                  );
+                  return;
+                }
+                toast.success("Confirmation email sent. Check your inbox.");
+              },
+            },
+          });
+          return;
+        }
         toast.error(
           messages[error.code || ""] || "Unable to sign in. Please try again.",
         );
@@ -70,9 +97,18 @@ const LoginForm = () => {
   // verify email status
   useEffect(() => {
     if (searchParams.get("verification-status") === "failed") {
-      toast.error("Email verification failed. Please try again.");
+      // id prevents a duplicate toast from Strict Mode's double effect in dev
+      toast.error("Email verification failed. Please try again.", {
+        id: "verification-failed",
+      });
+
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("verification-status");
+      const query = params.toString();
+
+      router.replace(query ? `${pathname}?${query}` : pathname);
     }
-  }, [searchParams]);
+  }, [searchParams, pathname, router]);
 
   return (
     <motion.div

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Brand } from "../layout/Brand";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/shadcn/input";
 import { Label } from "@/components/ui/shadcn/label";
 import { createClient } from "@/lib/supabase/client";
@@ -19,6 +20,7 @@ import { type RegisterFormValues } from "@/lib/validations/auth.schema";
 
 const RegisterForm = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const form = useForm<RegisterFormValues>({
     mode: "onChange",
@@ -45,10 +47,13 @@ const RegisterForm = () => {
         toast.error("Unable to create your account. Please try again.");
         return;
       }
+      // email confirmation enabled
+      toast.success(
+        "Account created! Please check your email to verify your account.",
+      );
 
-      toast.success("Account created successfully!");
-      router.replace("/dashboard");
-      router.refresh();
+      const query = searchParams.toString();
+      router.replace(query ? `/login?${query}` : "/login");
     } catch {
       toast.error("Something went wrong. Please try again.");
     }
@@ -87,11 +92,13 @@ const RegisterForm = () => {
                 type="email"
                 placeholder="you@example.com"
                 autoComplete="email"
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? "email-error" : undefined}
                 {...register("email")}
               />
 
               {errors.email && (
-                <p className="text-sm text-destructive">
+                <p id="email-error" className="text-sm text-destructive">
                   {errors.email.message}
                 </p>
               )}
@@ -106,11 +113,15 @@ const RegisterForm = () => {
                 type="password"
                 placeholder="Password"
                 autoComplete="new-password"
+                aria-invalid={!!errors.password}
+                aria-describedby={
+                  errors.password ? "password-error" : undefined
+                }
                 {...register("password")}
               />
 
               {errors.password && (
-                <p className="text-sm text-destructive">
+                <p id="password-error" className="text-sm text-destructive">
                   {errors.password.message}
                 </p>
               )}
@@ -125,11 +136,18 @@ const RegisterForm = () => {
                 type="password"
                 placeholder="Confirm password"
                 autoComplete="new-password"
+                aria-invalid={!!errors.confirmPassword}
+                aria-describedby={
+                  errors.confirmPassword ? "confirmPassword-error" : undefined
+                }
                 {...register("confirmPassword")}
               />
 
               {errors.confirmPassword && (
-                <p className="text-sm text-destructive">
+                <p
+                  id="confirmPassword-error"
+                  className="text-sm text-destructive"
+                >
                   {errors.confirmPassword.message}
                 </p>
               )}
@@ -139,21 +157,15 @@ const RegisterForm = () => {
             <Button
               type="submit"
               disabled={!isValid || isSubmitting}
+              aria-busy={isSubmitting}
               className="w-full cursor-pointer"
             >
               {isSubmitting ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                "Create account"
-              )}
+              ) : undefined}
+              {isSubmitting ? "Creating account..." : "Create account"}
             </Button>
           </form>
-
-          {/* {errors.root && (
-            <p role="alert" className="text-center text-sm text-destructive">
-              {errors.root.message}
-            </p>
-          )} */}
 
           <p className="mt-6 text-center text-sm">
             Already have an account?

@@ -1,16 +1,19 @@
 import { z } from "zod";
 
-const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .email("Please enter a valid email"),
+const emailSchema = z
+  .string()
+  .min(1, "Email is required")
+  .pipe(z.email({ error: "Please enter a valid email" }));
 
-  password: z.string().min(8, "Password must be at least 8 characters"),
+const loginSchema = z.object({
+  email: emailSchema,
+  password: z.string().min(1, "Password is required"),
 });
 
-const registerSchema = loginSchema
-  .extend({
+const registerSchema = z
+  .object({
+    email: emailSchema,
+    password: z.string().min(8, "Password must be at least 8 characters"),
     confirmPassword: z.string().min(1, "Please confirm your password"),
   })
   .refine((data) => data.password === data.confirmPassword, {
