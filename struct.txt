@@ -1,36 +1,43 @@
 ./
-├── README.md
 ├── components.json
 ├── dev.sh
 ├── eslint.config.mjs
-├── next-env.d.ts
 ├── next.config.ts
-├── package-lock.json
+├── next-env.d.ts
 ├── package.json
+├── package-lock.json
 ├── postcss.config.mjs
+├── proxy.ts
 ├── public
 │   ├── faq.svg
 │   ├── hero-neon.png
 │   ├── hero.png
 │   └── tiktok.svg
+├── README.md
+├── scripts
+│   └── delete-user.ts
 ├── src
 │   ├── app
-│   │   ├── (main)
+│   │   ├── api
+│   │   │   ├── euler-token
+│   │   │   │   └── route.ts
+│   │   │   └── verify-email
+│   │   │       └── route.ts
+│   │   ├── (app)
 │   │   │   ├── (auth)
 │   │   │   │   ├── login
 │   │   │   │   │   └── page.tsx
 │   │   │   │   └── register
 │   │   │   │       └── page.tsx
-│   │   │   ├── dashboard
-│   │   │   │   ├── edit
-│   │   │   │   │   └── [id]
-│   │   │   │   │       └── page.tsx
-│   │   │   │   └── page.tsx
 │   │   │   ├── layout.tsx
-│   │   │   └── page.tsx
-│   │   ├── api
-│   │   │   └── euler-token
-│   │   │       └── route.ts
+│   │   │   └── (main)
+│   │   │       ├── dashboard
+│   │   │       │   ├── edit
+│   │   │       │   │   └── [id]
+│   │   │       │   │       └── page.tsx
+│   │   │       │   └── page.tsx
+│   │   │       ├── layout.tsx
+│   │   │       └── page.tsx
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -45,6 +52,9 @@
 │   │   │   └── magicui.css
 │   │   └── temp.css
 │   ├── components
+│   │   ├── auth
+│   │   │   ├── LoginForm.tsx
+│   │   │   └── RegisterForm.tsx
 │   │   ├── dashboard
 │   │   │   └── CopyOverlayUrlButton.tsx
 │   │   ├── layout
@@ -72,7 +82,11 @@
 │   │       ├── shadcn
 │   │       │   ├── avatar.tsx
 │   │       │   ├── button.tsx
-│   │       │   └── sheet.tsx
+│   │       │   ├── card.tsx
+│   │       │   ├── input.tsx
+│   │       │   ├── label.tsx
+│   │       │   ├── sheet.tsx
+│   │       │   └── toast.tsx
 │   │       └── vengenceui
 │   │           └── spotlight-navbar.tsx
 │   ├── lib
@@ -84,7 +98,9 @@
 │   │   │   └── server.ts
 │   │   ├── utils.ts
 │   │   └── validations
-│   │       └── euler.ts
+│   │       ├── auth.schema.ts
+│   │       ├── euler.schema.ts
+│   │       └── redirect-validation.ts
 │   └── workers
 │       └── tiktok-live.ts
 ├── struct.txt
@@ -94,8 +110,7 @@
 │       ├── 20261106083510_create_widgets_table.sql
 │       ├── 20261107002628_create_overlays_table.sql
 │       └── 20261108075922_create_profiles_table.sql
-├── tempproxy.ts
 ├── test.js
 └── tsconfig.json
 
-30 directories, 68 files
+35 directories, 79 files

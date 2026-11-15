@@ -1,34 +1,24 @@
-
 import { z } from "zod";
 
-export const authSchema = z
-  .object({
-    mode: z.enum(["login", "register"]),
-    email: z
-      .string()
-      .min(1, "Email is required")
-      .email("Please enter a valid email"),
-    password: z
-      .string()
-      .min(8, "Password must be at least 8 characters"),
-    confirmPassword: z.string().optional(),
+const loginSchema = z.object({
+  email: z
+    .string()
+    .min(1, "Email is required")
+    .email("Please enter a valid email"),
+
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
+
+const registerSchema = loginSchema
+  .extend({
+    confirmPassword: z.string().min(1, "Please confirm your password"),
   })
-  .superRefine((data, ctx) => {
-    if (data.mode === "register") {
-      if (!data.confirmPassword) {
-        ctx.addIssue({
-          code: "custom",
-          path: ["confirmPassword"],
-          message: "Please confirm your password",
-        });
-      } else if (data.password !== data.confirmPassword) {
-        ctx.addIssue({
-          code: "custom",
-          path: ["confirmPassword"],
-          message: "Passwords do not match",
-        });
-      }
-    }
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
   });
 
-export type AuthFormValues = z.infer<typeof authSchema>;
+export type LoginFormValues = z.infer<typeof loginSchema>;
+export type RegisterFormValues = z.infer<typeof registerSchema>;
+
+export { loginSchema, registerSchema };

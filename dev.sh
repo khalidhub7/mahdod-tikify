@@ -20,3 +20,5 @@ grep -rl \
 
 rm -rf .next && npm run dev
 npx tsx --env-file=.env src/lib/euler.ts
+
+node --env-file=.env --import=tsx scripts/delete-user.ts

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AuthForm } from "@/components/auth/AuthForm";
+import { RegisterForm } from "@/components/auth/RegisterForm";
 
 export const metadata: Metadata = {
   title: "Create Account",
@@ -12,8 +12,9 @@ export const metadata: Metadata = {
 const RegisterPage = () => {
   return (
     <main className="flex min-h-screen items-center justify-center p-4">
-      <AuthForm mode="register" />
+      <RegisterForm />
     </main>
   );
 };
+
 export default RegisterPage;

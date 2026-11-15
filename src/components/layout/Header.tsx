@@ -23,7 +23,7 @@ const Header = ({ className }: { className?: string }) => {
       <div
         className="
         bg-background/75
-        w-[95%] md:max-w-5xl h-[80%] px-[clamp(0.5rem,4vw,2.5rem)]
+        w-[95%] md:max-w-5xl h-[75%] px-[clamp(0.5rem,4vw,2.5rem)]
         
         flex items-center justify-between
         rounded-lg sm:rounded-tl-full sm:rounded-br-full

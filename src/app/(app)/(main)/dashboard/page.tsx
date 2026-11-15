@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/shadcn/button";
-import { Plus } from "lucide-react";
 import Link from "next/link";
+import { Plus } from "lucide-react";
+import { Button } from "@/components/ui/shadcn/button";
 import { CopyOverlayUrlButton } from "@/components/dashboard/CopyOverlayUrlButton";
 
 const metadata = {
@@ -41,6 +41,7 @@ const overlays = [
 ];
 
 const Dashboard = () => {
+
   const formatDate = (date: string) =>
     new Intl.DateTimeFormat("en-US", {
       month: "short",
@@ -71,9 +72,7 @@ const Dashboard = () => {
 
       {/* content */}
       {/* list of overlays */}
-      <ul
-        className={`shadow rounded-md divide-y md:w-4/6 md:mx-auto `}
-      >
+      <ul className={`shadow rounded-md divide-y md:w-4/6 md:mx-auto `}>
         {overlays.map((overlay) => (
           <li
             key={overlay.id}

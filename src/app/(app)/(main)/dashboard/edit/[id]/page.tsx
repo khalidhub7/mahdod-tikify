@@ -5,6 +5,8 @@ const metadata = {
 
 type Props = { params: Promise<{ id: string }> };
 
+// todo: invalid uuid / overlay_id
+
 const EditOverlay = async ({ params }: Props) => {
   const { id } = await params;
 

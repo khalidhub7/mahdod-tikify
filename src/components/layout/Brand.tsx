@@ -11,7 +11,12 @@ const blackOps = Black_Ops_One({ subsets: ["latin"], weight: "400" });
 
 const MotionAvatar = motion.create(Avatar);
 
-const Brand = ({ className }: { className?: string }) => {
+type BrandProps = {
+  className?: string;
+  withAvatar?: boolean;
+};
+
+const Brand = ({ className, withAvatar = true }: BrandProps) => {
   return (
     <Link
       href="/"
@@ -20,21 +25,23 @@ const Brand = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      <MotionAvatar
-        className="
+      {withAvatar ? (
+        <MotionAvatar
+          className="
         size-[clamp(1.5rem,4vw,2rem)]
         ring-[clamp(0.125rem,1vw,0.25rem)] ring-ring/20
         ring-offset-[clamp(0.0625rem,0.5vw,0.125rem)] ring-offset-background
         "
-        whileHover={{ scale: 0.9, rotate: -20 }}
-      >
-        <AvatarImage
-          src="/tiktok.svg"
-          alt=""
-          className="p-[clamp(0.125rem,0.75vw,0.25rem)]"
-        />
-        <AvatarFallback>MT</AvatarFallback>
-      </MotionAvatar>
+          whileHover={{ scale: 0.9, rotate: -20 }}
+        >
+          <AvatarImage
+            src="/tiktok.svg"
+            alt=""
+            className="p-[clamp(0.125rem,0.75vw,0.25rem)]"
+          />
+          <AvatarFallback>MT</AvatarFallback>
+        </MotionAvatar>
+      ) : undefined}
 
       <ShinyText
         className={cn(
