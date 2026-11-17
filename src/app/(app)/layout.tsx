@@ -1,4 +1,4 @@
-import { Toaster } from "@/components/ui/shadcn/toast";
+import { Toaster } from "sonner";
 
 const AppLayout = ({
   children,
@@ -8,7 +8,7 @@ const AppLayout = ({
   return (
     <>
       {children}
-      <Toaster />
+      <Toaster richColors position="top-center"  />
     </>
   );
 };

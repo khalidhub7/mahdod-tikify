@@ -5,6 +5,7 @@ import { isSafeRedirect } from "@/lib/validations/redirect-validation";
 const protectedPages = ["/dashboard"];
 
 const proxy = async (request: NextRequest) => {
+
   const { pathname, searchParams } = request.nextUrl;
 
   // store supabase cache headers to avoid losing them during redirects

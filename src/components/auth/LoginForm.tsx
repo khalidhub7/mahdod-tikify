@@ -54,6 +54,8 @@ const LoginForm = () => {
       });
 
       if (error) {
+        /* console.log(`*** ${error.code} ***`);
+        console.log(`*** ${error.message} ***`); */
         if (error.code === "email_not_confirmed") {
           toast.error(messages.email_not_confirmed, {
             id: "email-not-confirmed",
