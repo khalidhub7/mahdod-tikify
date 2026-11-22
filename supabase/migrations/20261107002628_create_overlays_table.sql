@@ -51,7 +51,7 @@ create policy "Users can delete their own overlays" on public.overlays for delet
 );
 
 /* Functions */
--- auto update updated_at function
+-- auto update overlay updated_at function
 create function public.set_overlay_updated_at () returns trigger language plpgsql as $$
 begin
   new.updated_at = now();
@@ -77,7 +77,7 @@ end;
 $$;
 
 /* Triggers */
--- auto update updated_at trigger
+-- auto update overlay updated_at trigger
 create trigger set_overlay_updated_at
 before update on public.overlays for each row
 execute function public.set_overlay_updated_at ();
@@ -96,7 +96,7 @@ update (
 from
   authenticated;
 
--- Revoke RPC execution permissions on internal functions
+-- Revoke RPC execution permissions
 revoke
 execute on function public.activate_overlay (),
 public.set_overlay_updated_at ()

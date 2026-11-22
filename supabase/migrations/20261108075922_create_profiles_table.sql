@@ -50,7 +50,7 @@ begin
 end;
 $$;
 
--- auto update updated_at
+-- auto update profile updated_at
 create function public.set_profile_updated_at () returns trigger language plpgsql
 set
   search_path = '' as $$
@@ -66,7 +66,7 @@ create trigger create_profile_after_user_signup
 after insert on auth.users for each row
 execute function public.create_profile_for_new_user ();
 
--- auto update updated_at trigger
+-- auto update profile updated_at trigger
 create trigger set_profile_updated_at_before_update
 before update on public.profiles for each row
 execute function public.set_profile_updated_at ();

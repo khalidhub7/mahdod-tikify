@@ -63,7 +63,7 @@ create policy "Users can delete their widgets" on public.widgets for delete to a
 );
 
 /* Functions */
--- auto update updated_at function
+-- auto update widget updated_at function
 create function public.set_updated_at () returns trigger language plpgsql
 set
   search_path = '' as $$
@@ -74,7 +74,7 @@ end;
 $$;
 
 /* Triggers */
--- auto update updated_at trigger
+-- auto update widget updated_at trigger
 create trigger set_widgets_updated_at
 before update on public.widgets for each row
 execute function public.set_updated_at ();
@@ -98,7 +98,7 @@ revoke insert (id, user_id, overlay_id, created_at, updated_at) on public.widget
 from
   authenticated;
 
--- revoke RPC execution permissions on internal functions
+-- revoke RPC execution permissions
 revoke
 execute on function public.set_updated_at ()
 from
