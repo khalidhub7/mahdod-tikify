@@ -1,42 +1,46 @@
 ./
+├── README.md
 ├── components.json
 ├── dev.sh
 ├── eslint.config.mjs
-├── next.config.ts
 ├── next-env.d.ts
-├── package.json
+├── next.config.ts
 ├── package-lock.json
+├── package.json
 ├── postcss.config.mjs
 ├── public
 │   ├── faq.svg
 │   ├── hero-neon.png
 │   ├── hero.png
 │   └── tiktok.svg
-├── README.md
 ├── scripts
 │   └── delete-user.ts
 ├── src
 │   ├── app
-│   │   ├── api
-│   │   │   ├── euler-token
-│   │   │   │   └── route.ts
-│   │   │   └── verify-email
-│   │   │       └── route.ts
 │   │   ├── (app)
 │   │   │   ├── (auth)
 │   │   │   │   ├── login
 │   │   │   │   │   └── page.tsx
 │   │   │   │   └── register
 │   │   │   │       └── page.tsx
-│   │   │   ├── layout.tsx
-│   │   │   └── (main)
-│   │   │       ├── dashboard
-│   │   │       │   ├── edit
-│   │   │       │   │   └── [id]
-│   │   │       │   │       └── page.tsx
-│   │   │       │   └── page.tsx
-│   │   │       ├── layout.tsx
-│   │   │       └── page.tsx
+│   │   │   ├── (main)
+│   │   │   │   ├── dashboard
+│   │   │   │   │   ├── edit
+│   │   │   │   │   │   └── [id]
+│   │   │   │   │   │       └── page.tsx
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── layout.tsx
+│   │   │   │   └── page.tsx
+│   │   │   └── layout.tsx
+│   │   ├── api
+│   │   │   ├── euler-token
+│   │   │   │   └── route.ts
+│   │   │   ├── overlays
+│   │   │   │   ├── [id]
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── route.ts
+│   │   │   └── verify-email
+│   │   │       └── route.ts
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
@@ -67,6 +71,8 @@
 │   │   │   ├── SmoothTextReveal.tsx
 │   │   │   ├── TextEffect.tsx
 │   │   │   └── Timeline.tsx
+│   │   ├── overlay
+│   │   │   └── OverlayClient.tsx
 │   │   ├── sections
 │   │   │   ├── FAQSection.tsx
 │   │   │   ├── HeroSection.tsx
@@ -85,12 +91,12 @@
 │   │       │   ├── card.tsx
 │   │       │   ├── input.tsx
 │   │       │   ├── label.tsx
-│   │       │   ├── sheet.tsx
-│   │       │   └── toast.tsx
+│   │       │   └── sheet.tsx
 │   │       └── vengenceui
 │   │           └── spotlight-navbar.tsx
 │   ├── lib
 │   │   ├── euler.ts
+│   │   ├── overlay-token-generator.ts
 │   │   ├── site.ts
 │   │   ├── supabase
 │   │   │   ├── admin.ts
@@ -99,7 +105,6 @@
 │   │   ├── utils.ts
 │   │   └── validations
 │   │       ├── auth.schema.ts
-│   │       ├── euler.schema.ts
 │   │       └── redirect-validation.ts
 │   ├── proxy.ts
 │   └── workers
@@ -114,4 +119,4 @@
 ├── test.js
 └── tsconfig.json
 
-35 directories, 80 files
+37 directories, 82 files

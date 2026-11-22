@@ -20,9 +20,8 @@ import { isSafeRedirect } from "@/lib/validations/redirect-validation";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 const messages: Record<string, string> = {
-  email_not_confirmed: "Please confirm your email before signing in.",
-  invalid_credentials: "Invalid email or password.",
   over_request_rate_limit: "Too many attempts. Try again later.",
+  email_not_confirmed: "Please confirm your email before signing in.",
   over_email_send_rate_limit:
     "Please wait a minute before requesting another email.",
 };
@@ -53,13 +52,13 @@ const LoginForm = () => {
         password: data.password,
       });
 
+      // email_not_confirmed
       if (error) {
-        /* console.log(`*** ${error.code} ***`);
-        console.log(`*** ${error.message} ***`); */
         if (error.code === "email_not_confirmed") {
           toast.error(messages.email_not_confirmed, {
             id: "email-not-confirmed",
-            duration: 15000,
+            duration: Infinity,
+            dismissible: true,
             action: {
               label: "Resend email",
               onClick: async () => {
@@ -74,17 +73,30 @@ const LoginForm = () => {
                   );
                   return;
                 }
+
                 toast.success("Confirmation email sent. Check your inbox.");
               },
             },
           });
           return;
         }
+
+        // invalid_credentials
+        if (error.code === "invalid_credentials") {
+          form.setError("email", { type: "server" });
+          form.setError("password", {
+            type: "server",
+            message: "Invalid email or password.",
+          });
+          return;
+        }
+
         toast.error(
           messages[error.code || ""] || "Unable to sign in. Please try again.",
         );
         return;
       }
+
       const redirectTo = searchParams.get("redirect");
 
       router.replace(

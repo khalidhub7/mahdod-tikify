@@ -50,6 +50,7 @@ const RegisterForm = () => {
       // email confirmation enabled
       toast.success(
         "Account created! Please check your email to verify your account.",
+        { duration: Infinity, dismissible: true },
       );
 
       const query = searchParams.toString();

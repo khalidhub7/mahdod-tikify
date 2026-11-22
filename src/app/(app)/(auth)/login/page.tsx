@@ -14,7 +14,11 @@ export const metadata: Metadata = {
 
 const LoginPage = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center">Loading...</div>
+      }
+    >
       <main className="flex min-h-screen items-center justify-center p-4">
         <LoginForm />
       </main>

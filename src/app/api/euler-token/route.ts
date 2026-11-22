@@ -1,37 +1,49 @@
-import { createHash } from "node:crypto";
+import { z } from "zod";
 import { createEulerJwt } from "@/lib/euler";
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { eulerTokenSchema } from "@/lib/validations/euler.schema";
+import { hashOverlaySecret } from "@/lib/overlay-token-generator";
+
+const eulerTokenSchema = z.object({
+  overlay_id: z.uuid(),
+  secret: z.string().length(43),
+});
 
 /*
-https://<YOUR_DOMAIN>/o/<OVERLAY_ID>?key=<OVERLAY_SECRET>
+passwordless route
 
-- isActive: Controls whether this overlay is allowed to request Euler JWTs.
+eg: https://<YOUR_DOMAIN>/o/<OVERLAY_ID>?secret=<OVERLAY_SECRET>
+
+- is_active:
+  Controls whether this overlay is allowed to request Euler JWTs
+  maybe related with max active overlays per user or subscriptions
 
 TODO: rate limiter
 */
 
 const POST = async (request: NextRequest) => {
   try {
-    const data = await request.json();
-
     // validate
-    const result = eulerTokenSchema.safeParse(data);
-    if (!result.success) {
+    let parsed;
+    try {
+      const body = await request.json();
+      parsed = eulerTokenSchema.safeParse(body);
+      if (!parsed.success) throw new Error();
+    } catch (error) {
       return NextResponse.json({ error: "Invalid request" }, { status: 400 });
     }
-    const { overlayId, key } = result.data;
+
+    const { overlay_id, secret } = parsed.data;
 
     // create client
     const supabase = createAdminClient();
 
     // find the requested overlay, bypass RLS
-    const submittedHash = createHash("sha256").update(key).digest("hex");
+    const submittedHash = hashOverlaySecret(secret);
     const { data: overlay, error } = await supabase
       .from("overlays")
       .select("id, is_active, tiktok_username")
-      .eq("id", overlayId)
+      .eq("id", overlay_id)
       .eq("secret_hash", submittedHash)
       .maybeSingle();
 

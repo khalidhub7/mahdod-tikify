@@ -6,36 +6,33 @@ import { NextResponse, type NextRequest } from "next/server";
 */
 
 const GET = async (request: NextRequest) => {
-  const { searchParams } = request.nextUrl;
+  try {
+    const { searchParams } = request.nextUrl;
 
-  const type = searchParams.get("type");
-  const tokenHash = searchParams.get("token_hash");
+    const type = searchParams.get("type");
+    const tokenHash = searchParams.get("token_hash");
 
-  // validate the confirmation parameters
-  if (!tokenHash || type !== "email") {
+    // validate the confirmation parameters
+    if (!tokenHash || type !== "email") throw new Error();
+
+    // Verify the token and establish the session
+    const supabase = await createClient();
+
+    const { error } = await supabase.auth.verifyOtp({
+      token_hash: tokenHash,
+      type: "email",
+    });
+    if (error) throw new Error();
+
+    // email confirmed successfully
+    return NextResponse.redirect(
+      new URL("/dashboard?verification-status=success", request.url),
+    );
+  } catch {
     return NextResponse.redirect(
       new URL("/login?verification-status=failed", request.url),
     );
   }
-
-  // Verify the token and establish the session
-  const supabase = await createClient();
-
-  const { error } = await supabase.auth.verifyOtp({
-    token_hash: tokenHash,
-    type: "email",
-  });
-
-  if (error) {
-    return NextResponse.redirect(
-      new URL("/login?verification-status=failed", request.url),
-    );
-  }
-
-  // email confirmed successfully
-  return NextResponse.redirect(
-    new URL("/dashboard?verification-status=success", request.url),
-  );
 };
 
 export { GET };

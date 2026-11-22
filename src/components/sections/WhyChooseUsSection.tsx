@@ -70,26 +70,28 @@ const WhyChooseUsSection = () => (
           mx-auto max-w-6xl gap-fluid-5
           `}
       >
+        
         {features.map(({ id, icon: Icon, title, description }) => (
           <li
             key={id}
             className={`
-              flex flex-col gap-fluid-3
-              p-fluid-5 rounded-md backdrop-blur-sm
-              bg-foreground/2 dark:bg-foreground/5
               
-              border border-foreground/30
-              ring-2 ring-ring/20
+              flex flex-col gap-fluid-3
+              p-fluid-5 rounded backdrop-blur-sm
+              bg-foreground/1 dark:bg-foreground/4
+              border border-foreground/20
+              ring-2 ring-ring/10
               ring-offset-2 ring-offset-background
               
               hover:-translate-y-1 hover:shadow-md hover:shadow-blue-500/10
               transition-all duration-300
+              
               `}
           >
             <div className="flex items-center gap-fluid-4">
               <Icon
                 aria-hidden
-                className="size-fluid-icon-lg text-blue-500/90 dark:text-blue-200"
+                className="size-fluid-icon-lg text-pink-400"
               />
 
               <h3 className="wrap-break-word text-fluid-sm font-semibold">

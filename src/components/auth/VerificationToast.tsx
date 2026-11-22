@@ -1,11 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
 import { toast } from "sonner";
+import { useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-// shows a toast after email verification, then cleans the url
-// separate client component: the dashboard page is a server component
+/*
+shows a toast after email verification,
+                    then cleans the url
+separated client component bcs of
+      the dashboard page is a server component
+*/
 
 const VerificationToast = () => {
   const router = useRouter();
@@ -15,7 +19,10 @@ const VerificationToast = () => {
   useEffect(() => {
     if (searchParams.get("verification-status") !== "success") return;
 
-    // id prevents a duplicate toast from Strict Mode's double effect in dev
+    /*
+    id used just to prevents a duplicate toast
+    from Strict Mode's double effect in dev
+    */
     toast.success("Email confirmed. Welcome!", { id: "verification-success" });
 
     const params = new URLSearchParams(searchParams.toString());
