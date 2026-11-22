@@ -1,9 +1,9 @@
--- Create overlays table
+-- create overlays table
 create table public.overlays (
-  -- Custom columns
+  -- custom columns
   name text not null,
   tiktok_username text not null,
-  -- System-managed columns
+  -- system-managed columns
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users (id) on delete cascade,
   is_active boolean not null default false,
@@ -12,10 +12,10 @@ create table public.overlays (
   updated_at timestamptz not null default now()
 );
 
--- Enable RLS
+-- enable RLS
 alter table public.overlays enable row level security;
 
--- Read policy
+-- read policy
 create policy "Users can view their own overlays" on public.overlays for
 select
   to authenticated using (
@@ -25,7 +25,7 @@ select
     ) = user_id
   );
 
--- Update policy
+-- update policy
 create policy "Users can update their own overlays" on public.overlays
 for update
   to authenticated using (
@@ -42,7 +42,7 @@ with
     ) = user_id
   );
 
--- Delete policy
+-- delete policy
 create policy "Users can delete their own overlays" on public.overlays for delete to authenticated using (
   (
     select
@@ -51,7 +51,7 @@ create policy "Users can delete their own overlays" on public.overlays for delet
 );
 
 /* Functions */
--- Auto-update updated_at on overlay updates
+-- auto update updated_at function
 create function public.set_overlay_updated_at () returns trigger language plpgsql as $$
 begin
   new.updated_at = now();
@@ -59,7 +59,7 @@ begin
 end;
 $$;
 
--- Atomically activate an overlay and deactivate the user's previous one
+-- atomically activate an overlay and deactivate the user's previous one
 create function public.activate_overlay (overlay_id uuid, owner_id uuid) returns void language plpgsql security definer
 set
   search_path = '' as $$
@@ -77,13 +77,13 @@ end;
 $$;
 
 /* Triggers */
--- Auto-update updated_at on overlay updates
+-- auto update updated_at trigger
 create trigger set_overlay_updated_at_before_update
 before update on public.overlays for each row
 execute function public.set_overlay_updated_at ();
 
 /* Revocations */
--- Prevent authenticated users from updating system-managed columns
+-- prevent updating System-managed columns
 revoke
 update (
   id,
@@ -106,7 +106,7 @@ from
   authenticated;
 
 /* Indexes */
--- Ensure each user has at most one active overlay
+-- ensure each user has at most one active overlay
 create unique index one_active_overlay_per_user on public.overlays (user_id)
 where
   is_active = true;

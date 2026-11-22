@@ -61,18 +61,18 @@ end;
 $$;
 
 /* Triggers */
--- Automatically create a profile on sign-up
+-- auto create a profile on sign-up
 create trigger create_profile_after_user_signup
 after insert on auth.users for each row
 execute function public.create_profile_for_new_user ();
 
--- Automatically update updated_at on profile updates
+-- auto update updated_at trigger
 create trigger set_profile_updated_at_before_update
 before update on public.profiles for each row
 execute function public.set_profile_updated_at ();
 
 /* Revocations */
--- Revoke RPC execution permissions
+-- revoke RPC execution permissions
 revoke
 execute on function public.create_profile_for_new_user (),
 public.set_profile_updated_at ()
@@ -81,7 +81,7 @@ from
   anon,
   authenticated;
 
--- Prevent authenticated users from modifying system-managed columns
+-- prevent authenticated users from modifying system-managed columns
 revoke insert (id, created_at, updated_at),
 update (id, created_at, updated_at) on public.profiles
 from
