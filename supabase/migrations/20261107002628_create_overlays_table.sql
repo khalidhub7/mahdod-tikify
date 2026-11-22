@@ -78,7 +78,7 @@ $$;
 
 /* Triggers */
 -- auto update updated_at trigger
-create trigger set_overlay_updated_at_before_update
+create trigger set_overlay_updated_at
 before update on public.overlays for each row
 execute function public.set_overlay_updated_at ();
 
