@@ -1,16 +1,16 @@
--- Create profiles table
+-- create profiles table
 create table public.profiles (
-  -- System-managed columns
+  -- system-managed columns
   id uuid primary key references auth.users (id) on delete cascade,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
-  -- Custom columns
+  -- custom columns
 );
 
--- Enable RLS
+-- enable RLS
 alter table public.profiles enable row level security;
 
--- Read policy
+-- read policy
 create policy "Users can view their own profile" on public.profiles for
 select
   to authenticated using (
@@ -20,7 +20,7 @@ select
     ) = id
   );
 
--- Update policy
+-- update policy
 create policy "Users can update their own profile" on public.profiles
 for update
   to authenticated using (
@@ -38,7 +38,7 @@ with
   );
 
 /* Functions */
--- Automatically create a profile on sign-up
+-- auto create a profile on sign-up
 create function public.create_profile_for_new_user () returns trigger language plpgsql security definer
 set
   search_path = '' as $$
@@ -50,7 +50,7 @@ begin
 end;
 $$;
 
--- Automatically update updated_at
+-- auto update updated_at
 create function public.set_profile_updated_at () returns trigger language plpgsql
 set
   search_path = '' as $$

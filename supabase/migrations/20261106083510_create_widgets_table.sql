@@ -73,6 +73,7 @@ begin
 end;
 $$;
 
+/* Triggers */
 create trigger set_widgets_updated_at
 before update on public.widgets for each row
 execute function public.set_updated_at ();
