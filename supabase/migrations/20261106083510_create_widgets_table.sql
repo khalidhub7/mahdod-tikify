@@ -63,7 +63,7 @@ create policy "Users can delete their widgets" on public.widgets for delete to a
 );
 
 /* Functions */
--- auto update updated_at
+-- auto update updated_at function
 create function public.set_updated_at () returns trigger language plpgsql
 set
   search_path = '' as $$
@@ -74,6 +74,7 @@ end;
 $$;
 
 /* Triggers */
+-- auto update updated_at trigger
 create trigger set_widgets_updated_at
 before update on public.widgets for each row
 execute function public.set_updated_at ();
@@ -106,4 +107,5 @@ from
   authenticated;
 
 /* Indexes */
+-- optimize queries filtering by overlay_id
 create index widgets_overlay_id_idx on public.widgets (overlay_id);
