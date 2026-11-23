@@ -28,7 +28,8 @@ const GET = async (request: NextRequest) => {
     return NextResponse.redirect(
       new URL("/dashboard?verification-status=success", request.url),
     );
-  } catch {
+  } catch (error) {
+    console.error("[Email Verification Error]:", error);
     return NextResponse.redirect(
       new URL("/login?verification-status=failed", request.url),
     );

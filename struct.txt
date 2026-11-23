@@ -107,16 +107,18 @@
 │   │       ├── auth.schema.ts
 │   │       └── redirect-validation.ts
 │   ├── proxy.ts
+│   ├── types
+│   │   └── index.ts
 │   └── workers
 │       └── tiktok-live.ts
 ├── struct.txt
 ├── supabase
 │   ├── config.toml
 │   └── migrations
-│       ├── 20261106083510_create_widgets_table.sql
+│       ├── 20261106083510_create_profiles_table.sql
 │       ├── 20261107002628_create_overlays_table.sql
-│       └── 20261108075922_create_profiles_table.sql
+│       └── 20261108075922_create_widgets_table.sql
 ├── test.js
 └── tsconfig.json
 
-37 directories, 82 files
+38 directories, 83 files

@@ -29,7 +29,8 @@ const POST = async (request: Request) => {
   try {
     const body = await request.json();
     parsed = overlaySchema.safeParse(body);
-  } catch {
+  } catch (error) {
+    console.error("[Overlay Validation Error]:", error);
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 
@@ -72,6 +73,7 @@ const POST = async (request: Request) => {
     .single();
 
   if (error) {
+    console.error("[Overlay Creation Error]:", error);
     return NextResponse.json(
       { error: "Failed to create overlay" },
       { status: 500 },

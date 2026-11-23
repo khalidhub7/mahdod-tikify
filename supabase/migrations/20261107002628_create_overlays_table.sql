@@ -1,9 +1,9 @@
--- create overlays table
+-- Create overlays table
 create table public.overlays (
-  -- custom columns
+  -- Custom columns
   name text not null,
   tiktok_username text not null,
-  -- system-managed columns
+  -- System-managed columns
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users (id) on delete cascade,
   is_active boolean not null default false,
@@ -12,10 +12,10 @@ create table public.overlays (
   updated_at timestamptz not null default now()
 );
 
--- enable RLS
+-- Enable RLS
 alter table public.overlays enable row level security;
 
--- read policy
+-- Read policy
 create policy "Users can view their own overlays" on public.overlays for
 select
   to authenticated using (
@@ -25,7 +25,7 @@ select
     ) = user_id
   );
 
--- update policy
+-- Update policy
 create policy "Users can update their own overlays" on public.overlays
 for update
   to authenticated using (
@@ -42,7 +42,7 @@ with
     ) = user_id
   );
 
--- delete policy
+-- Delete policy
 create policy "Users can delete their own overlays" on public.overlays for delete to authenticated using (
   (
     select
@@ -51,24 +51,52 @@ create policy "Users can delete their own overlays" on public.overlays for delet
 );
 
 /* Functions */
--- auto update overlay updated_at function
-create function public.set_overlay_updated_at () returns trigger language plpgsql as $$
+-- Auto update overlay updated_at function
+create function public.set_overlay_updated_at () returns trigger language plpgsql
+set
+  search_path = '' as $$
 begin
   new.updated_at = now();
+
   return new;
 end;
 $$;
 
--- atomically activate an overlay and deactivate the user's previous one
-create function public.activate_overlay (overlay_id uuid, owner_id uuid) returns void language plpgsql security definer
+-- Activate an overlay while enforcing the user's maximum active overlay limit
+create function public.activate_overlay (
+  overlay_id uuid,
+  owner_id uuid,
+  max_active_overlays integer
+) returns void language plpgsql security definer
 set
   search_path = '' as $$
 begin
+
+  perform pg_advisory_xact_lock(hashtext(owner_id::text));
+
+  -- Deactivate oldest active overlays if limit is reached
   update public.overlays
   set is_active = false
-  where user_id = owner_id
-    and is_active = true;
+  where id in (
+    select id
+    from public.overlays
+    where user_id = owner_id
+      and is_active = true
+      and id != overlay_id
+    order by created_at asc
+    limit (
+      select greatest(
+        count(*) - max_active_overlays + 1,
+        0
+      )
+      from public.overlays
+      where user_id = owner_id
+        and is_active = true
+        and id != overlay_id
+    )
+  );
 
+  -- Activate the requested overlay
   update public.overlays
   set is_active = true
   where id = overlay_id
@@ -77,13 +105,13 @@ end;
 $$;
 
 /* Triggers */
--- auto update overlay updated_at trigger
+-- Auto update overlay updated_at trigger
 create trigger set_overlay_updated_at
 before update on public.overlays for each row
 execute function public.set_overlay_updated_at ();
 
 /* Revocations */
--- prevent updating System-managed columns
+-- Prevent updating system-managed columns
 revoke
 update (
   id,
@@ -96,9 +124,16 @@ update (
 from
   authenticated;
 
+-- Prevent authenticated users from reading secret_hash
+revoke
+select
+  (secret_hash) on public.overlays
+from
+  authenticated;
+
 -- Revoke RPC execution permissions
 revoke
-execute on function public.activate_overlay (),
+execute on function public.activate_overlay (uuid, uuid, integer),
 public.set_overlay_updated_at ()
 from
   public,
@@ -106,7 +141,5 @@ from
   authenticated;
 
 /* Indexes */
--- ensure each user has at most one active overlay
-create unique index one_active_overlay_per_user on public.overlays (user_id)
-where
-  is_active = true;
+-- optimize the activate_overlay function and RLS policies
+create index overlays_user_active_idx on public.overlays (user_id, is_active);

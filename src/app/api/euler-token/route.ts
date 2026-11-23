@@ -30,6 +30,7 @@ const POST = async (request: NextRequest) => {
       parsed = eulerTokenSchema.safeParse(body);
       if (!parsed.success) throw new Error();
     } catch (error) {
+      console.error("[Euler Token Validation Error]:", error);
       return NextResponse.json({ error: "Invalid request" }, { status: 400 });
     }
 
@@ -59,7 +60,8 @@ const POST = async (request: NextRequest) => {
       { jwtKey },
       { headers: { "Cache-Control": "no-store" } },
     );
-  } catch {
+  } catch (error) {
+    console.error("[Euler Token Issuance Error]:", error);
     return NextResponse.json(
       { error: "Unable to issue token" },
       { status: 500, headers: { "Cache-Control": "no-store" } },

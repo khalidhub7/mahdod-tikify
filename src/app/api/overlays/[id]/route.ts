@@ -1,7 +1,9 @@
 import { z } from "zod";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+
 import { hashOverlaySecret } from "@/lib/overlay-token-generator";
 import { isValidUUID } from "@/lib/validations/redirect-validation";
 import { generateOverlaySecret } from "@/lib/overlay-token-generator";
@@ -24,6 +26,8 @@ const patchSchema = z.discriminatedUnion("action", [
   }),
 ]);
 
+const MAX_ACTIVE_OVERLAYS = 1;
+
 const PATCH = async (
   request: Request,
   { params }: { params: Promise<{ id: string }> },
@@ -37,7 +41,8 @@ const PATCH = async (
     const body = await request.json();
     parsed = patchSchema.safeParse(body);
     if (!parsed.success) throw new Error();
-  } catch {
+  } catch (error) {
+    console.error("[PATCH Overlay Validation Error]:", error);
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
@@ -83,6 +88,7 @@ const PATCH = async (
         const { error } = await admin.rpc("activate_overlay", {
           overlay_id: id,
           owner_id: user.id,
+          max_active_overlays: MAX_ACTIVE_OVERLAYS
         });
 
         if (error) throw new Error();
@@ -94,29 +100,34 @@ const PATCH = async (
           .eq("user_id", user.id);
         if (error) throw new Error();
       }
+      revalidatePath("/dashboard");
     } catch (error) {
+      console.error("[PATCH Overlay Activation Error]:", error);
       return NextResponse.json({ error: "Update failed" }, { status: 500 });
     }
   }
 
   // rotate secret
   if (action === "rotate-secret") {
-    const secret = generateOverlaySecret();
-    const secret_hash = hashOverlaySecret(secret);
+    try {
+      const secret = generateOverlaySecret();
+      const secret_hash = hashOverlaySecret(secret);
 
-    const { error } = await admin
-      .from("overlays")
-      .update({ secret_hash })
-      .eq("user_id", user.id)
-      .eq("id", id);
+      const { error } = await admin
+        .from("overlays")
+        .update({ secret_hash })
+        .eq("user_id", user.id)
+        .eq("id", id);
+      if (error) throw new Error();
 
-    if (error) {
+      return NextResponse.json(
+        { message: "Secret rotated successfully", secret },
+        { status: 200 },
+      );
+    } catch (error) {
+      console.error("[PATCH Overlay Secret Rotation Error]:", error);
       return NextResponse.json({ error: "Rotation failed" }, { status: 500 });
     }
-    return NextResponse.json(
-      { message: "Secret rotated successfully", secret },
-      { status: 200 },
-    );
   }
 
   return NextResponse.json({ error: "Invalid action" }, { status: 400 });
