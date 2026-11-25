@@ -3,12 +3,11 @@
 import { Rnd } from "react-rnd";
 import { cn } from "@/lib/utils";
 import type { Widget } from "@/types";
+import { Layers, Monitor } from "lucide-react";
 import { Input } from "@/components/ui/shadcn/input";
 import { Label } from "@/components/ui/shadcn/label";
 import { Button } from "@/components/ui/shadcn/button";
 import { Type, Clock, Target, Trash2 } from "lucide-react";
-import { Layers, Monitor } from "lucide-react";
-
 import { memo, useCallback, useEffect, useId, useRef, useState } from "react";
 
 /* TYPES */
@@ -72,8 +71,10 @@ const RATIO_OPTIONS = (Object.keys(RESOLUTIONS) as Ratio[]).map((value) => {
 const MIN_WIDGET_W = 100;
 const MIN_WIDGET_H = 50;
 const DEFAULT_WIDGET_SIZE = { w: 400, h: 120 };
-const SELECT_CLASS =
-  "w-full rounded-md border bg-background px-fluid-4 py-fluid-3 text-fluid-sm";
+const SELECT_CLASS = `
+w-full rounded-md px-fluid-4 py-fluid-3
+border bg-background text-fluid-sm
+`;
 
 /* HELPERS */
 
@@ -105,21 +106,18 @@ const useFitScale = (width: number, height: number) => {
   const [scale, setScale] = useState<number | null>(null);
 
   useEffect(() => {
-    
     const stage = stageRef.current;
     if (!stage) return;
 
     const observer = new ResizeObserver(([entry]) => {
+      const { width: stageWidth, height: stageHeight } = entry.contentRect;
+      if (stageWidth === 0 || stageHeight === 0) return;
 
-      const { width: availW, height: availH } = entry.contentRect;
-      if (availW === 0 || availH === 0) return;
-
-      setScale(Math.min(availW / width, availH / height, 1));
+      setScale(Math.min(stageWidth / width, stageHeight / height, 1));
     });
 
     observer.observe(stage);
     return () => observer.disconnect();
-
   }, [width, height]);
 
   return { stageRef, scale };
