@@ -51,7 +51,6 @@ const metadata: Metadata = {
   },
 };
 
-
 const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
@@ -74,6 +73,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
         "antialiased",
         geist.variable,
         // playpen.variable,
+        "scrollbar-thin scrollbar-thumb-pink-300",
       )}
     >
       <body>

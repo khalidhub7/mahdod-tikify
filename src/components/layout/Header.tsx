@@ -32,15 +32,15 @@ const Header = ({ className }: { className?: string }) => {
       >
         <Brand className="whitespace-nowrap" />
 
-        <SpotlightNavbar items={navLinks} className="hidden md:flex" />
+        <SpotlightNavbar items={navLinks} className="hidden lg:flex" />
 
         {/* settings */}
-        <div className="rounded hidden md:flex items-center">
+        <div className="rounded hidden lg:flex items-center">
           <DarkModeToggle />
         </div>
 
         {/* MobileMenu */}
-        <div className="flex md:hidden">
+        <div className="flex lg:hidden">
           <MobileMenu>
             {/* settings */}
             <div

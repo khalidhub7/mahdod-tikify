@@ -1,24 +1,13 @@
-import { z } from "zod";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { overlaySchema } from "@/lib/validations/overlay.schema";
 import { hashOverlaySecret } from "@/lib/overlay-token-generator";
 import { generateOverlaySecret } from "@/lib/overlay-token-generator";
 
 /* src/app/api/overlays/route.ts
 Handle updates to sensitive overlay fields
 - create overlay and handle sensitive fields separately */
-
-const overlaySchema = z
-  .object({
-    name: z.string().trim().min(1, "Name is required").max(50),
-    tiktok_username: z
-      .string()
-      .trim()
-      .min(1, "TikTok username is required")
-      .max(50),
-  })
-  .strict();
 
 // POST: create an overlay
 const POST = async (request: Request) => {

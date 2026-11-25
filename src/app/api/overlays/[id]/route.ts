@@ -43,7 +43,7 @@ const PATCH = async (
     if (!parsed.success) throw new Error();
   } catch (error) {
     console.error("[PATCH Overlay Validation Error]:", error);
-    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 
   const { action, data } = parsed.data;
@@ -88,22 +88,40 @@ const PATCH = async (
         const { error } = await admin.rpc("activate_overlay", {
           overlay_id: id,
           owner_id: user.id,
-          max_active_overlays: MAX_ACTIVE_OVERLAYS
+          max_active_overlays: MAX_ACTIVE_OVERLAYS,
         });
 
-        if (error) throw new Error();
+        if (error) {
+          if (error.message === "overlay limit reached") {
+            return NextResponse.json(
+              {
+                error: `You've reached your active overlay limit.
+                Deactivate another overlay before activating this one.`,
+              },
+              { status: 409 },
+            );
+          } else throw error;
+        }
       } else {
         const { error } = await admin
           .from("overlays")
           .update({ is_active: false })
           .eq("id", id)
           .eq("user_id", user.id);
-        if (error) throw new Error();
+        if (error) throw error;
       }
       revalidatePath("/dashboard");
+      return NextResponse.json({
+        message: is_active
+          ? "Overlay activated successfully."
+          : "Overlay deactivated successfully.",
+      });
     } catch (error) {
       console.error("[PATCH Overlay Activation Error]:", error);
-      return NextResponse.json({ error: "Update failed" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Failed to update overlay status." },
+        { status: 500 },
+      );
     }
   }
 

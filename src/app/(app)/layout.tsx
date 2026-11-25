@@ -8,7 +8,7 @@ const AppLayout = ({
   return (
     <>
       {children}
-      <Toaster richColors position="top-center" />
+      <Toaster position="top-center" />
     </>
   );
 };
