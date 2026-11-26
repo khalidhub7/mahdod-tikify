@@ -1,14 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useId, useState } from "react";
-import type { Widget } from "@/types";
-import { DEFAULT_WIDGET_SIZE, RESOLUTIONS } from "./editor-constants";
-import type { Overlay, WidgetType } from "./editor-types";
-import { clampWidget, isWidgetType } from "./editor-helpers";
 import { Toolbar } from "./Toolbar";
+import type { Widget } from "@/types";
 import { WidgetLibrary } from "./WidgetLibrary";
-import { EditorCanvas, useFitScale } from "./EditorCanvas";
 import { EditorSettings } from "./EditorSettings";
+import type { Overlay, WidgetType } from "./editor-types";
+import { EditorCanvas, useFitScale } from "./EditorCanvas";
+import { clampWidget, isWidgetType } from "./editor-helpers";
+import { useCallback, useEffect, useId, useState } from "react";
+import { DEFAULT_WIDGET_SIZE, RESOLUTIONS } from "./editor-constants";
 
 const Editor = ({ overlayId }: { overlayId: string }) => {
   const settingsId = useId();
@@ -23,6 +23,7 @@ const Editor = ({ overlayId }: { overlayId: string }) => {
   });
 
   const size = RESOLUTIONS[overlay.ratio];
+
   const { stageRef, scale } = useFitScale(size.width, size.height);
 
   const selectedWidget =

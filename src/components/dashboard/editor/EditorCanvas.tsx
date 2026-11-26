@@ -152,9 +152,8 @@ const CanvasStage = ({
   <div
     ref={stageRef}
     className={`
-      bg-amber-100
       flex flex-1 items-center justify-center
-    `}
+      `}
   >
     {scale !== null && (
       // Outer wrapper (scaled size, reserves preview space)
