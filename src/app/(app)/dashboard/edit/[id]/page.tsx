@@ -1,4 +1,4 @@
-import { Editor } from "@/components/dashboard/Editor";
+import { Editor } from "@/components/dashboard/editor/Editor";
 
 const metadata = {
   title: "Edit overlay",
