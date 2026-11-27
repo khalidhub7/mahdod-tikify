@@ -31,4 +31,7 @@ const CmntVote = memo(
   ),
 );
 
-export { CmntVote };
+// default sizes used in canvas
+const CmntVoteMeta = { defaultSize: { w: 240, h: 56 } };
+
+export { CmntVote, CmntVoteMeta };

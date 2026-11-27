@@ -1,9 +1,7 @@
 import type { Widget } from "@/types";
-import type { RESOLUTIONS } from "./editor-constants";
 
 type WidgetLabel = "Comment Vote";
-type Ratio = keyof typeof RESOLUTIONS;
-type Overlay = { ratio: Ratio; background: string };
+
 type Size = { width: number; height: number };
 
 type NumberFieldProps = {
@@ -29,5 +27,5 @@ type WidgetItemProps = {
   onUpdate: (id: string, values: Partial<Widget>) => void;
 };
 
-export type { WidgetLabel, Ratio, Overlay, Size };
+export type { WidgetLabel, Size };
 export type { NumberFieldProps, SelectFieldProps, WidgetItemProps };

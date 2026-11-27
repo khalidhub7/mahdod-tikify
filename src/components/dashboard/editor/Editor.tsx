@@ -1,53 +1,68 @@
 "use client";
 
 import { Toolbar } from "./Toolbar";
-import type { Widget } from "@/types";
+import { Ratio } from "lucide-react";
+import type { Widget, Overlay } from "@/types";
+import { clampWidget } from "./editor-helpers";
 import { WidgetLibrary } from "./WidgetLibrary";
 import { EditorSettings } from "./EditorSettings";
+import { DEFAULT_WIDGET_SIZE } from "./editor-constants";
 import { EditorCanvas, useFitScale } from "./EditorCanvas";
-import { clampWidget } from "./editor-helpers";
 import { useCallback, useEffect, useId, useState } from "react";
-import { DEFAULT_WIDGET_SIZE, RESOLUTIONS } from "./editor-constants";
+
+type Ratio = keyof typeof RESOLUTIONS;
+const RESOLUTIONS = {
+  "16/9": { width: 1920, height: 1080, label: "Landscape (16:9)" },
+  "9/16": { width: 1080, height: 1920, label: "Portrait (9:16)" },
+  "1/1": { width: 1080, height: 1080, label: "Square (1:1)" },
+};
+/* return like
+
+[
+  { value: "16/9", label: "Landscape (16:9)" },
+  ...
+]
+
+*/
+const RATIO_OPTIONS = (Object.keys(RESOLUTIONS) as Ratio[]).map((value) => {
+  return {
+    value,
+    label: RESOLUTIONS[value].label,
+  };
+});
 
 // right imports
-import { Overlay } from "@/types";
 
 type EditorProps = {
-  overlay: Overlay
+  overlay: Overlay;
+  initialWidgets: Array<Widget>;
+};
 
-}
-
-const Editor = ({ overlayId }: EditorProps) => {
+const Editor = ({ overlay, initialWidgets }: EditorProps) => {
+  // states
   const settingsId = useId();
   const [isDirty, setIsDirty] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const [widgets, setWidgets] = useState<Widget[]>([]);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [ratio, setRatio] = useState<Ratio>("16/9");
+  const [background, setBackground] = useState("transparent");
+  const [widgets, setWidgets] = useState<Widget[]>(initialWidgets);
+  const [selectedWidget, setSelectedWidget] = useState<Widget | null>(null);
 
-  const [overlay, setOverlay] = useState<Overlay>({
-    ratio: "16/9",
-    background: "transparent",
-  });
-
-  const size = RESOLUTIONS[overlay.ratio];
-
-  const { stageRef, scale } = useFitScale(size.width, size.height);
-
-  const selectedWidget =
-    widgets.find((widget) => widget.id === selectedId) ?? null;
+  const canvasSize = RESOLUTIONS[ratio];
+  const { stageRef, scale } = useFitScale(canvasSize.width, canvasSize.height);
 
   const addWidget = useCallback(
     (component: WidgetType, x = 100, y = 100) => {
       const widget = clampWidget(
         { id: crypto.randomUUID(), component, x, y, ...DEFAULT_WIDGET_SIZE },
-        size,
+        canvasSize,
       );
 
       setWidgets((current) => [...current, widget]);
       setSelectedId(widget.id);
       setIsDirty(true);
     },
-    [size],
+    [canvasSize],
   );
 
   const updateWidget = useCallback(
@@ -146,7 +161,7 @@ const Editor = ({ overlayId }: EditorProps) => {
         `}
     >
       <Toolbar
-        overlayId={overlayId}
+        overlayId={overlay.id}
         isDirty={isDirty}
         isSaving={isSaving}
         onSave={handleSave}
@@ -162,8 +177,8 @@ const Editor = ({ overlayId }: EditorProps) => {
         <WidgetLibrary onAddWidget={addWidget} />
 
         <EditorCanvas
-          size={size}
-          background={overlay.background}
+          size={canvasSize}
+          background={background}
           widgets={widgets}
           selectedId={selectedId}
           onSelect={setSelectedId}
@@ -177,7 +192,7 @@ const Editor = ({ overlayId }: EditorProps) => {
           settingsId={settingsId}
           overlay={overlay}
           selectedWidget={selectedWidget}
-          size={size}
+          size={canvasSize}
           onUpdateOverlay={updateOverlay}
           onUpdateWidget={updateWidget}
           onDeleteWidget={deleteWidget}
