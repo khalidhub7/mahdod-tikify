@@ -1,12 +1,12 @@
 import type { Widget } from "@/types";
 import type { RESOLUTIONS } from "./editor-constants";
 
-export type WidgetType = "text" | "clock" | "username" | "goal";
-export type Ratio = keyof typeof RESOLUTIONS;
-export type Overlay = { ratio: Ratio; background: string };
-export type Size = { width: number; height: number };
+type WidgetLabel = "Comment Vote";
+type Ratio = keyof typeof RESOLUTIONS;
+type Overlay = { ratio: Ratio; background: string };
+type Size = { width: number; height: number };
 
-export type NumberFieldProps = {
+type NumberFieldProps = {
   label: string;
   value: number;
   min: number;
@@ -14,17 +14,20 @@ export type NumberFieldProps = {
   onChange: (value: number) => void;
 };
 
-export type SelectFieldProps = {
+type SelectFieldProps = {
   label: string;
   value: string;
   options: readonly { value: string; label: string }[];
   onChange: (value: string) => void;
 };
 
-export type WidgetItemProps = {
+type WidgetItemProps = {
   widget: Widget;
   scale: number;
   selected: boolean;
   onSelect: (id: string) => void;
   onUpdate: (id: string, values: Partial<Widget>) => void;
 };
+
+export type { WidgetLabel, Ratio, Overlay, Size };
+export type { NumberFieldProps, SelectFieldProps, WidgetItemProps };

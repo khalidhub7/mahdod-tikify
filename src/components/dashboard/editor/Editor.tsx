@@ -4,13 +4,20 @@ import { Toolbar } from "./Toolbar";
 import type { Widget } from "@/types";
 import { WidgetLibrary } from "./WidgetLibrary";
 import { EditorSettings } from "./EditorSettings";
-import type { Overlay, WidgetType } from "./editor-types";
 import { EditorCanvas, useFitScale } from "./EditorCanvas";
-import { clampWidget, isWidgetType } from "./editor-helpers";
+import { clampWidget } from "./editor-helpers";
 import { useCallback, useEffect, useId, useState } from "react";
 import { DEFAULT_WIDGET_SIZE, RESOLUTIONS } from "./editor-constants";
 
-const Editor = ({ overlayId }: { overlayId: string }) => {
+// right imports
+import { Overlay } from "@/types";
+
+type EditorProps = {
+  overlay: Overlay
+
+}
+
+const Editor = ({ overlayId }: EditorProps) => {
   const settingsId = useId();
   const [isDirty, setIsDirty] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -136,7 +143,7 @@ const Editor = ({ overlayId }: { overlayId: string }) => {
       className={`
         min-h-[calc(100dvh-4rem)] rounded-xl overflow-hidden
         flex flex-col border bg-background
-      `}
+        `}
     >
       <Toolbar
         overlayId={overlayId}
@@ -150,7 +157,7 @@ const Editor = ({ overlayId }: { overlayId: string }) => {
         className={`
           grid grid-cols-1 flex-1
           md:grid-cols-[2fr_5fr] lg:grid-cols-[1fr_3fr_1fr]
-        `}
+          `}
       >
         <WidgetLibrary onAddWidget={addWidget} />
 
