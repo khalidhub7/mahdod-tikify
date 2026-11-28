@@ -1,18 +1,21 @@
+import type { WidgetType } from "@/components/dashboard/editor/editor-constants";
+
 type Widget = {
   id: string;
   x: number;
   y: number;
   w: number;
   h: number;
-  component: string;
+  widget_type: WidgetType;
 };
 
 type Overlay = {
   id: string;
+  user_id: string;
   name: string;
+  ratio: string;
   tiktok_username: string;
   is_active: boolean;
-  user_id: string;
   created_at: string;
   updated_at: string;
 };

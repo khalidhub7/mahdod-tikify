@@ -1,11 +1,11 @@
 import { memo } from "react";
 
 type CmntVoteProps = {
-  optionA: string;
-  optionB: string;
+  optionA?: string;
+  optionB?: string;
 
-  optionACount: number;
-  optionBCount: number;
+  optionACount?: number;
+  optionBCount?: number;
 };
 
 const CmntVote = memo(

@@ -1,34 +1,23 @@
 "use client";
 
-import type { Widget } from "@/types";
-import type { Overlay, Size } from "./editor-types";
-import {
-  BACKGROUNDS,
-  MIN_WIDGET_H,
-  MIN_WIDGET_W,
-  RATIO_OPTIONS,
-} from "./editor-constants";
-import { isRatio } from "./editor-helpers";
+import type { Widget, Overlay } from "@/types";
+import type { Size } from "./editor-types";
+import { BACKGROUNDS, Ratio } from "./editor-constants";
+import { MIN_WIDGET_H, MIN_WIDGET_W } from "./editor-constants";
+
+import { RATIO_OPTIONS } from "./editor-constants";
 import { NumberField, SelectField } from "./EditorFields";
 import { Button } from "@/components/ui/shadcn/button";
 import { Trash2 } from "lucide-react";
 
-type EditorSettingsProps = {
-  settingsId: string;
-  overlay: Overlay;
-  selectedWidget: Widget | null;
-  size: Size;
-  onUpdateOverlay: (values: Partial<Overlay>) => void;
-  onUpdateWidget: (id: string, values: Partial<Widget>) => void;
-  onDeleteWidget: (id: string) => void;
-};
+
 
 const OverlaySettings = ({
-  overlay,
+  ratio,
   onUpdateOverlay,
 }: {
-  overlay: Overlay;
-  onUpdateOverlay: (values: Partial<Overlay>) => void;
+  ratio: Ratio;
+  onUpdateOverlay: (ratio?: Ratio) => void;
 }) => (
   <section className="space-y-fluid-4">
     <h3
@@ -42,18 +31,9 @@ const OverlaySettings = ({
     <div className="grid grid-cols-2 gap-fluid-4 lg:grid-cols-1">
       <SelectField
         label="Aspect ratio"
-        value={overlay.ratio}
+        value={ratio}
         options={RATIO_OPTIONS}
-        onChange={(value) => {
-          if (isRatio(value)) onUpdateOverlay({ ratio: value });
-        }}
-      />
-
-      <SelectField
-        label="Background"
-        value={overlay.background}
-        options={BACKGROUNDS}
-        onChange={(background) => onUpdateOverlay({ background })}
+        onChange={(value) => onUpdateOverlay(value as Ratio)}
       />
     </div>
   </section>
@@ -126,17 +106,19 @@ const WidgetSizeFields = ({
   </>
 );
 
+type WidgetSettingsProps = {
+  widget: Widget;
+  size: Size;
+  onUpdateWidget: (id: string, values: Partial<Widget>) => void;
+  onDeleteWidget: (id: string) => void;
+}
+
 const WidgetSettings = ({
   widget,
   size,
   onUpdateWidget,
   onDeleteWidget,
-}: {
-  widget: Widget;
-  size: Size;
-  onUpdateWidget: (id: string, values: Partial<Widget>) => void;
-  onDeleteWidget: (id: string) => void;
-}) => (
+}: WidgetSettingsProps) => (
   <section className="space-y-fluid-4 border-t pt-fluid-5">
     <div className="flex items-center justify-between">
       <h3 className="text-fluid-xs font-medium text-muted-foreground">
@@ -161,9 +143,20 @@ const WidgetSettings = ({
   </section>
 );
 
-export const EditorSettings = ({
+type EditorSettingsProps = {
+  overlay: Overlay;
+  settingsId: string;
+  ratio: Ratio;
+  selectedWidget: Widget | null;
+  size: Size;
+  onUpdateOverlay: (ratio?: Ratio) => void;
+  onUpdateWidget: (id: string, values: Partial<Widget>) => void;
+  onDeleteWidget: (id: string) => void;
+};
+
+const EditorSettings = ({
   settingsId,
-  overlay,
+  ratio,
   selectedWidget,
   size,
   onUpdateOverlay,
@@ -189,7 +182,7 @@ export const EditorSettings = ({
     </h2>
 
     <div className="space-y-fluid-5">
-      <OverlaySettings overlay={overlay} onUpdateOverlay={onUpdateOverlay} />
+      <OverlaySettings ratio={ratio} onUpdateOverlay={onUpdateOverlay} />
 
       {selectedWidget && (
         <WidgetSettings
@@ -202,3 +195,4 @@ export const EditorSettings = ({
     </div>
   </aside>
 );
+export { EditorSettings };
